@@ -81,12 +81,12 @@ CSS = '''<style>
 </style>'''
 
 DOORS = {
- 'free': dict(type='build', who='A cart under our umbrella', title='Free Site', tag='For Tucson businesses that need a storefront online, fast.',
+ 'free': dict(type='build', who='A cart under our umbrella', title='Free Site', tag='For Arizona businesses that need a storefront online, fast.',
    price='<div class="price"><small>Your cost</small><strong>$0</strong> <span>credit on top</span></div>',
    edits='Paid for by a slim AZ Tech credit bar at the top of every page.',
    items=[('One or two meetings; we build it from the conversation',0),('You own your domain; we host it free',0),('Brochure pages and a simple contact form',0),
           ('An invite to <a href="join.html" '+EXT+'>AZ Professional Partners</a>, our Tucson business Slack',0),('No checkout on the site: take payments through Venmo, Cash App or PayPal',1),('Changes after launch are paid',1)],
-   btn='Get started', href=TW, fine='Tucson businesses, plus anyone we invite', ghost=True),
+   btn='Get started', href=TW, fine='Arizona businesses, plus anyone we invite', ghost=True),
  'starter': dict(type='build', who='Your own cart, your name on the umbrella', title='Starter Site', tag='The free site, with our credit moved down to your footer.',
    price='<div class="price"><small>One time</small><strong>$800</strong></div>',
    edits='Same build and hosting as Free. The top of every page is all yours.',
