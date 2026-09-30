@@ -74,7 +74,7 @@ CSS = '''<style>
   .lg{display:block;border-radius:6px}
   .lglab{font:600 12px Inter;color:var(--lsteel)}
   .combo .dtitle{font-size:28px}
-  .combos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:8px}
+  .combos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:8px}
   .combos span{border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:14px;color:var(--body)}
   .combos b{display:block;font:700 15px "Exo 2";color:var(--fog)}
   .combos .ailine{border-color:rgba(254,153,1,.45)}
@@ -255,13 +255,13 @@ def build_combo():
           <span class="who">A cart on the corner</span><span class="dtitle">Free Site or Starter Site</span>
           <span class="tag">We build your storefront from a conversation and host it free. It's free with our name on the umbrella, or $800 with your name on it.</span>
           {fitlist('build')}
-          <span class="combos"><span><b>Free</b> $0 · our credit on top</span><span><b>Starter</b> $800 · credit in the footer</span><span class="ailine"><b>AI Edits</b> changes by email, prices emailed</span></span>
-          <span class="go">See both, and the AI tier <b aria-hidden="true">→</b></span>
+          <span class="combos"><span><b>Free</b> $0 · our credit on top</span><span><b>Starter</b> $800 · credit in the footer</span></span>
+          <span class="go">See both <b aria-hidden="true">→</b></span>
         </a>'''
 
 
-FIT = {'build': ['You need to be found on Google, fast', "You don't want to learn to edit a website", 'A few pages says it all: what you do, your hours, how to reach you'], 'ownit': ['You run the business yourself', "You'd rather make your own changes than call someone", 'You want to pay once, with no monthly bill'], 'team': ['More than one person updates the site', 'It has to stay up, because customers depend on it', 'You want someone watching updates and security'], 'ai-keep': ["You'd rather describe a change than make it", 'You change the site often', "You want a person checking the AI's work"], 'app': ['Customers log in, book or buy', 'You have data to manage, not just pages to show', "Off-the-shelf tools don't fit how you work"], 'ai-software': ['The same job repeats in your business every day', 'Your team answers the same questions over and over', 'You want an AI with a name, and a person supervising it']}  # "Right for you if": three checks per card
-KEYS = {'ownit': 'You edit it on your laptop · no monthly bill', 'team': 'A build plus a monthly · changes are separate', 'ai-keep': 'Retainer · prices emailed · Angel supervises', 'app': 'Built, hosted and engineered by us · priced after a conversation', 'ai-software': 'The Clockwork Desk · for Team sites and custom apps'}  # one line of facts above the link
+FIT = {'ai-build': ["You'd rather email a change than make it", 'You change hours, photos or specials now and then', 'You want it cheaper than a retainer with a person'], 'build': ['You need to be found on Google, fast', "You don't want to learn to edit a website", 'A few pages says it all: what you do, your hours, how to reach you'], 'ownit': ['You run the business yourself', "You'd rather make your own changes than call someone", 'You want to pay once, with no monthly bill'], 'team': ['More than one person updates the site', 'It has to stay up, because customers depend on it', 'You want someone watching updates and security'], 'ai-keep': ["You'd rather describe a change than make it", 'You change the site often', "You want a person checking the AI's work"], 'app': ['Customers log in, book or buy', 'You have data to manage, not just pages to show', "Off-the-shelf tools don't fit how you work"], 'ai-software': ['The same job repeats in your business every day', 'Your team answers the same questions over and over', 'You want an AI with a name, and a person supervising it']}  # "Right for you if": three checks per card
+KEYS = {'ai-build': 'Retainer with our AI · prices emailed · Angel supervises', 'ownit': 'You edit it on your laptop · no monthly bill', 'team': 'A build plus a monthly · changes are separate', 'ai-keep': 'Retainer · prices emailed · Angel supervises', 'app': 'Built, hosted and engineered by us · priced after a conversation', 'ai-software': 'The Clockwork Desk · for Team sites and custom apps'}  # one line of facts above the link
 def fitlist(key):
     return '<span class="fit"><span class="fitlab">Right for you if</span>' + ''.join(f'<span class="fi">{x}</span>' for x in FIT[key]) + '</span>'
 def keyline(key):
@@ -306,11 +306,11 @@ def faq(items):
 # the hub
 bands = ''
 for k, t in TYPES.items():
-    cols = 'c1' if k == 'build' else ('c3' if len(t['doors']) > 1 else 'c2')
+    cols = 'c2' if k == 'build' else ('c3' if len(t['doors']) > 1 else 'c2')
     bands += f'''
     <div class="band">
       <div class="bandhead"><img class="typeart" src="{t['img']}" alt="{t['alt']}" width="1024" height="1024"><div><h3>{t['title']}</h3><p>{t['sub']}</p><a href="{t['file']}">Open this type →</a></div></div>
-      <div class="row {cols}">{build_combo() if k == 'build' else ''.join(summary(s) for s in t['doors']) + ai_card(k)}
+      <div class="row {cols}">{(build_combo() if k == 'build' else ''.join(summary(s) for s in t['doors'])) + ai_card(k)}
       </div>
     </div>'''
 old = (R / 'src' / 'hub_rest.html').read_text().replace('{{STOREFRONTS}}',
