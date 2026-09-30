@@ -186,6 +186,18 @@
   a.pf:hover img,a.pf:focus-visible img{transform:scale(1.03)}
   a.pf:hover .roll,a.pf:focus-visible .roll{opacity:1}
   a.pf:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+  .aicard{background:linear-gradient(160deg,rgba(254,153,1,.10),var(--carbon) 55%);border-color:rgba(254,153,1,.45)}
+  .aicard .who{color:var(--amber)}
+  .aicard:hover{border-color:var(--amber)}
+  .band .c3{grid-template-columns:repeat(3,minmax(0,1fr))}
+  @media (max-width:1000px){.band .c3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media (max-width:640px){.band .c3{grid-template-columns:1fr}}
+  .aisection{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:30px;padding:30px;background:linear-gradient(150deg,rgba(254,153,1,.09),var(--carbon) 50%);border-color:rgba(254,153,1,.4)}
+  @media (max-width:800px){.aisection{grid-template-columns:1fr}}
+  .aiside{display:flex;flex-direction:column;gap:12px;justify-content:center}
+  .aiul{list-style:none;padding:0;margin:0 0 12px}
+  .aiul li{padding:6px 0 6px 24px;position:relative}
+  .aiul li:before{content:"";position:absolute;left:4px;top:14px;width:8px;height:8px;border-radius:50%;background:var(--amber)}
   .btn.amber{display:inline-block;background:#FE9901;color:#1a1200;box-shadow:none;font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:11px 18px}
   .btn.outline{display:inline-block;border:1.5px solid var(--blue);color:var(--blue);font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:10px 18px}
   .pfmore{margin-top:20px;display:flex;gap:12px;flex-wrap:wrap}
@@ -220,7 +232,7 @@
   <div class="wrap"><div class="bands">
     <div class="band">
       <div class="bandhead"><h3>We build it, you run your business</h3><p>A site on the square, built from a conversation. Nobody has to edit it.</p><a href="build.html">Open this type →</a></div>
-      <div class="row c2">
+      <div class="row c3">
         <a class="card door doorlink " href="build.html#free" data-door="free">
           <span class="who">A sign on the square</span><span class="dtitle">Free Site</span><span class="tag">For Tucson businesses that need to be seen on the square, fast.</span>
           <span class="go">See pricing <b aria-hidden="true">→</b></span>
@@ -229,11 +241,15 @@
           <span class="who">Your own sign on the square</span><span class="dtitle">Starter Site</span><span class="tag">The free site, with our credit moved down to your footer.</span>
           <span class="go">See pricing <b aria-hidden="true">→</b></span>
         </a>
+        <a class="card door doorlink aicard" href="build.html#ai" data-door="ai-build">
+          <span class="who">The AI tier</span><span class="dtitle">AI Edits</span><span class="tag">Email our AI with a change and it makes it. Cheaper than a retainer with Angel.</span>
+          <span class="go">See the AI tier <b aria-hidden="true">→</b></span>
+        </a>
       </div>
     </div>
     <div class="band">
       <div class="bandhead"><h3>You keep it up to date</h3><p>For owners and teams who make their own changes.</p><a href="keep.html">Open this type →</a></div>
-      <div class="row c2">
+      <div class="row c3">
         <a class="card door doorlink " href="keep.html#ownit" data-door="ownit">
           <span class="who">A storefront you tend</span><span class="dtitle">Own-It Site</span><span class="tag">For the solo owner who wants to make changes without calling anyone.</span>
           <span class="go">See what it includes <b aria-hidden="true">→</b></span>
@@ -242,14 +258,22 @@
           <span class="who">A shop with a staff</span><span class="dtitle">Team Site</span><span class="tag">For businesses where several people publish, and the site has to stay up.</span>
           <span class="go">See what it includes <b aria-hidden="true">→</b></span>
         </a>
+        <a class="card door doorlink aicard" href="keep.html#ai" data-door="ai-keep">
+          <span class="who">The AI tier</span><span class="dtitle">Supervised AI Care</span><span class="tag">A retainer where our AI makes the changes for you, and Angel supervises.</span>
+          <span class="go">See the AI tier <b aria-hidden="true">→</b></span>
+        </a>
       </div>
     </div>
     <div class="band">
       <div class="bandhead"><h3>People use it</h3><p>Software your customers log into and do things with.</p><a href="software.html">Open this type →</a></div>
-      <div class="row c1">
+      <div class="row c2">
         <a class="card door doorlink app" href="software.html#app" data-door="app">
           <span class="who">A place people gather</span><span class="dtitle">Custom App</span><span class="tag">For when people come to your place to <em>do</em> something together: accounts, data, real software.</span>
           <span class="go">See what it includes <b aria-hidden="true">→</b></span>
+        </a>
+        <a class="card door doorlink aicard" href="software.html#ai" data-door="ai-software">
+          <span class="who">The AI tier</span><span class="dtitle">AI Employees · the Clockwork Desk</span><span class="tag">A custom AI that joins your team, with a name, a job and Angel supervising it.</span>
+          <span class="go">See the AI tier <b aria-hidden="true">→</b></span>
         </a>
       </div>
     </div>
@@ -259,7 +283,7 @@
 <section class="container" style="padding-top:10px">
   <div class="wrap">
     <div class="eyebrow">Partners</div>
-    <h2 style="font-size:28px;margin-bottom:18px">Businesses that build with us</h2>
+    <h2 style="font-size:28px;margin-bottom:18px">Businesses that partner with us</h2>
     <div class="partners"><a class="pf" target="_blank" rel="noopener" href="https://aztechsol.com/portfolio-items/witmark-group/"><img loading="lazy" src="https://aztechsol.com/wp-content/uploads/2019/04/card-witmark-partner-768x512.jpg" alt="WitMark Group" width="768" height="512"><span class="roll">WitMark Group</span></a><a class="pf" target="_blank" rel="noopener" href="https://aztechsol.com/portfolio-items/blockhub-llc/"><img loading="lazy" src="https://aztechsol.com/wp-content/uploads/2025/01/card-blockhub-partner-768x512.jpg" alt="Blockhub LLC" width="768" height="512"><span class="roll">Blockhub LLC</span></a><a class="pf" target="_blank" rel="noopener" href="https://aztechsol.com/portfolio-items/media-spinach/"><img loading="lazy" src="https://aztechsol.com/wp-content/uploads/2020/05/card-mediaspinach-partner-768x512.jpg" alt="Media Spinach" width="768" height="512"><span class="roll">Media Spinach</span></a><a class="pf" target="_blank" rel="noopener" href="https://aztechsol.com/portfolio-items/bacon-bytes-tech/"><img loading="lazy" src="https://aztechsol.com/wp-content/uploads/2026/03/card-baconbytes-partner-768x512.jpg" alt="Bacon Bytes Tech" width="768" height="512"><span class="roll">Bacon Bytes Tech</span></a><a class="pf" target="_blank" rel="noopener" href="https://aztechsol.com/portfolio-items/trippylove9k/"><img loading="lazy" src="https://aztechsol.com/wp-content/uploads/2023/04/card-tripplove9k3final-partner-768x512.jpg" alt="TrippyLove9K" width="768" height="512"><span class="roll">TrippyLove9K</span></a></div>
     <div class="pfmore"><a class="btn outline" target="_blank" rel="noopener" href="https://aztechsol.com/partners/">Meet the partners →</a></div>
   </div>

@@ -47,6 +47,18 @@ CSS = '''<style>
   a.pf:hover img,a.pf:focus-visible img{transform:scale(1.03)}
   a.pf:hover .roll,a.pf:focus-visible .roll{opacity:1}
   a.pf:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+  .aicard{background:linear-gradient(160deg,rgba(254,153,1,.10),var(--carbon) 55%);border-color:rgba(254,153,1,.45)}
+  .aicard .who{color:var(--amber)}
+  .aicard:hover{border-color:var(--amber)}
+  .band .c3{grid-template-columns:repeat(3,minmax(0,1fr))}
+  @media (max-width:1000px){.band .c3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media (max-width:640px){.band .c3{grid-template-columns:1fr}}
+  .aisection{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:30px;padding:30px;background:linear-gradient(150deg,rgba(254,153,1,.09),var(--carbon) 50%);border-color:rgba(254,153,1,.4)}
+  @media (max-width:800px){.aisection{grid-template-columns:1fr}}
+  .aiside{display:flex;flex-direction:column;gap:12px;justify-content:center}
+  .aiul{list-style:none;padding:0;margin:0 0 12px}
+  .aiul li{padding:6px 0 6px 24px;position:relative}
+  .aiul li:before{content:"";position:absolute;left:4px;top:14px;width:8px;height:8px;border-radius:50%;background:var(--amber)}
   .btn.amber{display:inline-block;background:#FE9901;color:#1a1200;box-shadow:none;font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:11px 18px}
   .btn.outline{display:inline-block;border:1.5px solid var(--blue);color:var(--blue);font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:10px 18px}
   .pfmore{margin-top:20px;display:flex;gap:12px;flex-wrap:wrap}
@@ -138,6 +150,57 @@ def proof_section(k):
 </section>
 '''
 
+
+LUPITA = 'https://aztechsol.com/portfolio-items/lupita-cplc-ai-assistant/'
+AI = {  # the AI tier beside each site type; every AI tier works under Angel's supervision, and prices are emailed
+ 'build': dict(who='The AI tier', title='AI Edits', tag='Email our AI with a change and it makes it. Cheaper than a retainer with Angel.',
+   body='For Free and Starter sites. Instead of paying for each change, you get a retainer with our AI: send it an email saying what to change (new hours, a new photo, a new page in your design) and it makes the change, with Angel supervising.',
+   items=['Changes by email, as often as you need them','Cheaper than a retainer with Angel','Angel supervises every change'],
+   note='Prices are emailed, so they can change as the AI gets better.'),
+ 'keep': dict(who='The AI tier', title='Supervised AI Care', tag='A retainer where our AI makes the changes for you, and Angel supervises.',
+   body='For Own-It and Team sites. You tell us what you want, in a meeting or an email, and our AI does the work on your site under Angel\'s supervision. What supervision means will grow as the AI does, but a person always signs off.',
+   items=['Our AI makes the changes; you don\'t have to','Angel supervises every change','Meetings are recorded, and the AI works from them'],
+   note='Team sites can also add an AI employee from the Clockwork Desk.'),
+ 'software': dict(who='The AI tier', title='AI Employees · the Clockwork Desk', tag='A custom AI that joins your team, with a name, a job and Angel supervising it.',
+   body='For Team sites and custom apps. We build an AI employee around one job in your business. Lupita answers CPLC\'s community in English and Spanish. VIKI reviews a convention app\'s catalogue every night and posts what it finds to the team\'s Slack; its review queue has reached zero.',
+   items=['Named, trained on your business, and in your tools','Works alongside your team, not instead of it','Angel supervises it as it learns'],
+   note='', link=('Read the Lupita case study →', LUPITA)),
+}
+
+def ai_card(k):
+    a = AI[k]; tp = TYPES[k]
+    return f'''
+        <a class="card door doorlink aicard" href="{tp['file']}#ai" data-door="ai-{k}">
+          <span class="who">{a['who']}</span><span class="dtitle">{a['title']}</span><span class="tag">{a['tag']}</span>
+          <span class="go">See the AI tier <b aria-hidden="true">→</b></span>
+        </a>'''
+
+def ai_section(k):
+    a = AI[k]
+    lis = ''.join(f'<li>{x}</li>' for x in a['items'])
+    link = f'<a class="btn outline" {EXT} href="{a["link"][1]}">{a["link"][0]}</a>' if a.get('link') else ''
+    note = f'<div class="fine" style="text-align:left">{a["note"]}</div>' if a['note'] else ''
+    return f'''
+<section class="container" id="ai" style="padding-top:10px">
+  <div class="wrap">
+    <div class="card aisection">
+      <div>
+        <div class="eyebrow" style="color:var(--amber)">{a['who']}</div>
+        <h2 style="font-size:30px;margin-bottom:8px">{a['title']}</h2>
+        <p style="margin:0 0 14px;max-width:62ch">{a['body']}</p>
+        <ul class="aiul">{lis}</ul>
+        {note}
+      </div>
+      <div class="aiside">
+        <p class="ask" style="margin-top:0">Prices are emailed.</p>
+        <a class="btn primary" {EXT} href="{TW}" data-door-cta="ai-{k}">Email me the prices</a>
+        {link}
+      </div>
+    </div>
+  </div>
+</section>
+'''
+
 def page(title, body, extra=''):
     h = HEAD.replace(HEAD[HEAD.index('<title>'):HEAD.index('</title>')+8], f'<title>{title}</title>')
     return h + STYLE + CSS + '\n</head>\n<body>\n' + MOCK + '\n' + UTIL + HEADER + body + FOOTER + extra + '\n</body>\n</html>\n'
@@ -177,11 +240,11 @@ def faq(items):
 # the hub
 bands = ''
 for k, t in TYPES.items():
-    cols = 'c2' if len(t['doors']) > 1 else 'c1'
+    cols = 'c3' if len(t['doors']) > 1 else 'c2'
     bands += f'''
     <div class="band">
       <div class="bandhead"><h3>{t['title']}</h3><p>{t['sub']}</p><a href="{t['file']}">Open this type →</a></div>
-      <div class="row {cols}">{''.join(summary(s) for s in t['doors'])}
+      <div class="row {cols}">{''.join(summary(s) for s in t['doors'])}{ai_card(k)}
       </div>
     </div>'''
 old = (R / 'src' / 'hub_rest.html').read_text()
@@ -202,7 +265,7 @@ hub = f'''
 <section class="container" style="padding-top:10px">
   <div class="wrap">
     <div class="eyebrow">Partners</div>
-    <h2 style="font-size:28px;margin-bottom:18px">Businesses that build with us</h2>
+    <h2 style="font-size:28px;margin-bottom:18px">Businesses that partner with us</h2>
     <div class="partners">{tiles(PARTNERS)}</div>
     <div class="pfmore"><a class="btn outline" {EXT} href="https://aztechsol.com/partners/">Meet the partners →</a></div>
   </div>
@@ -227,7 +290,7 @@ for k, t in TYPES.items():
   <div class="wrap"><div class="row {pair}">{''.join(full(s) for s in t['doors'])}
   </div></div>
 </section>
-''' + proof_section(k) + f'''<section class="container alt">
+''' + ai_section(k) + proof_section(k) + f'''<section class="container alt">
   <div class="wrap" style="max-width:900px">
     <div class="eyebrow">Questions</div>
     <h2 style="font-size:30px">Before you pick</h2>
