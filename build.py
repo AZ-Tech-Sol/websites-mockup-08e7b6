@@ -396,7 +396,7 @@ SECURITY = '''
       <h2 style="font-size:34px">Built by someone who came up in cybersecurity</h2>
       <p class="lead">Before AZ Tech, Angel built security automation at Palo Alto Networks, BlackCloak and ThreatConnect. Every site we host is watched with the same habits.</p>
     </div>
-    <div class="pfgrid" style="grid-template-columns:repeat(auto-fill,minmax(300px,1fr))">''' + tiles([3154, 3152, 3298]) + '''</div>
+    <div class="pfgrid" style="grid-template-columns:repeat(auto-fill,minmax(300px,1fr))">''' + tiles([3154, 3152, 99001]) + '''</div>
   </div>
 </section>
 '''
