@@ -4,10 +4,11 @@ UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 14_0) AppleWebKit/537.36 Chrome/126
 BASE = ("flat vector illustration, clean geometric shapes, limited palette of bright blue #009EFF, deep royal blue #0039B8, "
         "warm amber orange #FE9901 and off-white, on a plain very dark navy background #0E121A, subtle glow, modern tech brand style, no text, no letters, no people. ")
 P = {
- 'bot-hector': "A friendly rounded robot receptionist at a front desk sorting a stack of glowing envelopes into three labeled-by-color trays, a small bell on the desk, large and centered, standing on off-white floor tiles.",
- 'bot-lena': "A friendly rounded robot designer holding a paintbrush, repainting the striped awning of a small shop storefront, a color palette in its other hand, large and centered, standing on off-white sidewalk tiles.",
- 'bot-otto': "A friendly rounded robot bookkeeper at a small desk with an open ledger book, a stack of coins and a calculator, a paper invoice with a check mark, large and centered, on off-white floor tiles.",
- 'bot-bjorn': "A friendly rounded robot security guard holding a large glowing shield with a keyhole, standing in front of a small server rack with blinking lights, large and centered, on off-white floor tiles.",
+ 'fr-hector': "a cute friendly cartoon robot mascot with a soft rounded body, big round glowing smiling eyes and a happy smile, warm and approachable,  waving hello from behind a cozy front desk with a little bell and a neat stack of envelopes, large and centered, on off-white floor tiles.",
+ 'fr-lena': "a cute friendly cartoon robot mascot with a soft rounded body, big round glowing smiling eyes and a happy smile, warm and approachable,  wearing a tiny beret, holding a paintbrush and happily painting a flower on a small shop's awning, large and centered, on off-white sidewalk tiles.",
+ 'fr-otto': "a cute friendly cartoon robot mascot with a soft rounded body, big round glowing smiling eyes and a happy smile, warm and approachable,  wearing small round glasses, happily holding up a paper receipt with a check mark next to a little stack of coins, large and centered, on off-white floor tiles.",
+ 'fr-bjorn': "a cute friendly cartoon robot mascot with a soft rounded body, big round glowing smiling eyes and a happy smile, warm and approachable,  wearing a small helmet, giving a thumbs up while holding a friendly rounded shield with a heart-shaped keyhole, large and centered, on off-white floor tiles.",
+ 'fr-desk': "Four cute friendly cartoon robot mascots with soft rounded bodies and big smiling eyes, working happily together around one long desk under a big friendly round wall clock with gears, one waving, one painting, one holding a receipt, one holding a shield, warm and welcoming, large and centered.",
 }
 def gen(item):
     name, p = item

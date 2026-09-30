@@ -459,7 +459,7 @@ hub = f'''
 
 # ── the Clockwork Desk page (mockup; the real page comes later on aztechsol.com)
 BOTS = [
- dict(slug='hector', name='Hector', role='The front desk', mail='hector@aztechsol.com',
+ dict(slug='hector', name='Hector', role='The front desk', mail='Reached through our contact form',
       body="Reads every email a client sends, answers what he can, and hands the rest to the right desk. He drafts every reply; nothing leaves until Angel approves it.",
       does=['Reads and sorts every client email','Routes it: site changes to Lena, invoices to Otto, security to Bjorn','Drafts the reply for Angel to approve']),
  dict(slug='lena', name='Lena', role='Web design and your site', mail='Through Hector',
@@ -495,22 +495,23 @@ def clockwork_page():
     return f"""
 <section class="container hero">
   <div class="wrap herogrid">
-    <img class="heroart" src="assets/ai-software.svg" alt="A robot at a desk under a clockwork wall clock" width="1024" height="1024">
+    <img class="heroart" src="assets/clockwork-desk.svg" alt="Four friendly robots working together at one desk under a big clock" width="1024" height="1024">
     <div>
       <div class="crumbs"><a href="index.html">Websites</a> › The Clockwork Desk</div>
       <div class="eyebrow" style="color:var(--amber)">AI employees, supervised by a person</div>
       <h1 style="margin:0 0 .4em">The Clockwork Desk</h1>
       <p class="lead">Four AI employees run the day-to-day behind every AZ Tech site: one front desk that reads your email, and three specialists it hands work to. Every one of them works from written files you could read, and Angel supervises all of it.</p>
-      <div class="question"><b>✉</b> Email <span style="color:var(--blue);margin:0 4px">hector@aztechsol.com</span> and the desk takes it from there</div>
+      <a class="btn primary" style="display:inline-block;margin-top:22px" {EXT} href="{TW}" data-door-cta="clockwork">Write to Hector →</a>
+      <p class="fine" style="text-align:left;margin-top:8px">One short form reaches the whole desk. Hector reads it and takes it from there.</p>
     </div>
   </div>
 </section>
 
 <section class="container" style="padding-top:10px">
   <div class="wrap">
-    <div class="center" style="margin-bottom:26px"><div class="eyebrow">How a message moves</div><h2 style="font-size:32px">One address, the right desk, a person's approval</h2></div>
+    <div class="center" style="margin-bottom:26px"><div class="eyebrow">How a message moves</div><h2 style="font-size:32px">One message, the right desk, a person's approval</h2></div>
     <div class="flow">
-      <div class="fstep"><b>You</b><span>email a change, a question or a problem</span></div><div class="farrow">→</div>
+      <div class="fstep"><b>You</b><span>send a change, a question or a problem</span></div><div class="farrow">→</div>
       <div class="fstep hl"><b>Hector</b><span>reads it and routes it</span></div><div class="farrow">→</div>
       <div class="fstep split"><b>Lena</b><span>site changes</span><b>Otto</b><span>invoices</span><b>Bjorn</b><span>security</span></div><div class="farrow">→</div>
       <div class="fstep"><b>A draft</b><span>the change, the invoice or the reply</span></div><div class="farrow">→</div>
