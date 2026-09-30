@@ -59,6 +59,10 @@ CSS = '''<style>
   .aiul{list-style:none;padding:0;margin:0 0 12px}
   .aiul li{padding:6px 0 6px 24px;position:relative}
   .aiul li:before{content:"";position:absolute;left:4px;top:14px;width:8px;height:8px;border-radius:50%;background:var(--amber)}
+  .herogrid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:44px;align-items:center}
+  .heroart{width:100%;height:auto;border-radius:14px;display:block}
+  .hero .herogrid h1{margin-left:0;max-width:none;text-align:left}
+  @media (max-width:860px){.herogrid{grid-template-columns:1fr}.heroart{max-width:420px}}
   .btn.amber{display:inline-block;background:#FE9901;color:#1a1200;box-shadow:none;font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:11px 18px}
   .btn.outline{display:inline-block;border:1.5px solid var(--blue);color:var(--blue);font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:10px 18px}
   .pfmore{margin-top:20px;display:flex;gap:12px;flex-wrap:wrap}
@@ -73,13 +77,13 @@ CSS = '''<style>
 </style>'''
 
 DOORS = {
- 'free': dict(type='build', who='A sign on the square', title='Free Site', tag='For Tucson businesses that need to be seen on the square, fast.',
+ 'free': dict(type='build', who='A cart under our umbrella', title='Free Site', tag='For Tucson businesses that need a storefront online, fast.',
    price='<div class="price"><small>Your cost</small><strong>$0</strong> <span>credit on top</span></div>',
    edits='Paid for by a slim AZ Tech credit bar at the top of every page.',
    items=[('One or two meetings; we build it from the conversation',0),('You own your domain; we host it free',0),('Brochure pages and a simple contact form',0),
           ('An invite to <a href="join.html" '+EXT+'>AZ Professional Partners</a>, our Tucson business Slack',0),('No checkout on the site: take payments through Venmo, Cash App or PayPal',1),('Changes after launch are paid',1)],
    btn='Get started', href=TW, fine='Tucson businesses, plus anyone we invite', ghost=True),
- 'starter': dict(type='build', who='Your own sign on the square', title='Starter Site', tag='The free site, with our credit moved down to your footer.',
+ 'starter': dict(type='build', who='Your own cart, your name on the umbrella', title='Starter Site', tag='The free site, with our credit moved down to your footer.',
    price='<div class="price"><small>One time</small><strong>$800</strong></div>',
    edits='Same build and hosting as Free. The top of every page is all yours.',
    items=[('One or two meetings; we build it from the conversation',0),('A small AZ Tech line in the footer, nothing on top',0),('Hosted free, and you own your domain',0),('Changes after launch are paid',1)],
@@ -94,14 +98,14 @@ DOORS = {
    edits='The monthly is monitoring and maintenance: hosting, backups, updates, uptime and security. Content changes are separate.',
    items=[('WordPress, built for your team to edit together',0),('Managed hosting and daily backups',0),('Plugin and core updates handled',0),('Uptime and security watch',0)],
    btn='Email me the prices', href=TW, fine='We email today\'s prices, then book a conversation'),
- 'app': dict(type='software', who='A place people gather', title='Custom App', tag='For when people come to your place to <em>do</em> something together: accounts, data, real software.',
+ 'app': dict(type='software', who='A place people come back to', title='Custom App', tag='For when customers come to your store to <em>do</em> something: accounts, bookings, data, real software.',
    price='<p class="ask">Priced after we understand what it\'s worth to your business.</p>',
    edits='Proof: ConVibe, a convention guest-tracker app, live on the App Store.',
    items=[('Database, users and uptime, engineered for you',0),('Ongoing engineering, not just hosting',0),('Starts with a strategy conversation',0)],
    btn='Book a strategy call', href=SH, fine='Two-day booking window', cls='app'),
 }
 TYPES = {
- 'build': dict(file='build.html', title='We build it, you run your business', sub='A site on the square, built from a conversation. Nobody has to edit it.', doors=['free','starter'],
+ 'build': dict(file='build.html', title='We build it, you run your business', sub='A storefront built from a conversation. Nobody has to edit it.', doors=['free','starter'],
    intro='Two ways to get a site without learning to run one. We meet once or twice, turn the conversation into your site, and host it for free. The only difference is where our credit sits.',
    faq=[('Why is the Free Site free?','You pay for it in advertising: a slim line at the top of every page that says AZ Tech built it. You own your domain and we host it at no cost to you. At the end you get an invoice showing what the site is worth, $800, with the full amount waived.'),
         ("What's the difference between Free and Starter?",'Only where our credit sits. Free has a slim bar across the top of every page; Starter moves it to a small line in your footer, so your header is all yours. Same site, same free hosting.'),
@@ -249,12 +253,15 @@ for k, t in TYPES.items():
     </div>'''
 old = (R / 'src' / 'hub_rest.html').read_text()
 hub = f'''
-<section class="container hero center">
-  <div class="wrap">
-    <div class="eyebrow">Websites, rebuilt as places</div>
-    <h1>Take your place in the digital town square</h1>
-    <p class="lead">A website used to be a brochure. Now it's where your town finds you, talks to you and comes back. Five ways to take your place, in three kinds, from a sign on the square to a building people gather in.</p>
-    <div class="question"><b>?</b> Who will gather at your place, and who keeps it open?</div>
+<section class="container hero">
+  <div class="wrap herogrid">
+    <img class="heroart" src="assets/hero-cart.svg" alt="A street fruit cart under a striped umbrella, on a sidewalk corner" width="1024" height="1024">
+    <div>
+      <div class="eyebrow">Websites</div>
+      <h1 style="margin:0 0 .4em">Your website is your storefront</h1>
+      <p class="lead">It used to be a cart on the corner or a shop on Main Street. Now it's the place people find you, see what you sell and decide to come in. Five ways to open yours, in three kinds, from a cart under our umbrella to a place people come back to.</p>
+      <div class="question"><b>?</b> Who's minding the store?</div>
+    </div>
   </div>
 </section>
 <section class="container" id="doors" style="padding-top:20px">
@@ -264,15 +271,15 @@ hub = f'''
 <!-- PARTNERS · Avada: [fusion_portfolio cat_slug="partners" columns="5"] -->
 <section class="container" style="padding-top:10px">
   <div class="wrap">
-    <div class="eyebrow">Building community with us</div>
+    <div class="eyebrow">Community Builders</div>
     <h2 style="font-size:28px;margin-bottom:18px">Businesses that partner with us</h2>
     <div class="partners">{tiles(PARTNERS)}</div>
     <div class="pfmore"><a class="btn outline" {EXT} href="https://aztechsol.com/partners/">Meet the partners →</a></div>
   </div>
 </section>
 ''' + old
-(R / 'index.html').write_text(page('Your Place Online — AZ Tech Solutions (mockup)', hub, TRACK))
-(R / 'square.html').write_text(page('Your Place Online — AZ Tech Solutions (mockup)', hub, TRACK))
+(R / 'index.html').write_text(page('Your Storefront Online — AZ Tech Solutions (mockup)', hub, TRACK))
+(R / 'square.html').write_text(page('Your Storefront Online — AZ Tech Solutions (mockup)', hub, TRACK))
 
 for k, t in TYPES.items():
     pair = 'pair' if len(t['doors']) > 1 else 'c1'

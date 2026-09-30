@@ -198,6 +198,10 @@
   .aiul{list-style:none;padding:0;margin:0 0 12px}
   .aiul li{padding:6px 0 6px 24px;position:relative}
   .aiul li:before{content:"";position:absolute;left:4px;top:14px;width:8px;height:8px;border-radius:50%;background:var(--amber)}
+  .herogrid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:44px;align-items:center}
+  .heroart{width:100%;height:auto;border-radius:14px;display:block}
+  .hero .herogrid h1{margin-left:0;max-width:none;text-align:left}
+  @media (max-width:860px){.herogrid{grid-template-columns:1fr}.heroart{max-width:420px}}
   .btn.amber{display:inline-block;background:#FE9901;color:#1a1200;box-shadow:none;font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:11px 18px}
   .btn.outline{display:inline-block;border:1.5px solid var(--blue);color:var(--blue);font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:10px 18px}
   .pfmore{margin-top:20px;display:flex;gap:12px;flex-wrap:wrap}
@@ -223,7 +227,7 @@
 <section class="container hero" style="padding-bottom:36px">
   <div class="wrap">
     <div class="crumbs"><a href="index.html">Websites</a> › We build it, you run your business</div>
-    <div class="eyebrow">A site on the square, built from a conversation. Nobody has to edit it.</div>
+    <div class="eyebrow">A storefront built from a conversation. Nobody has to edit it.</div>
     <h1 style="font-size:clamp(32px,4.6vw,50px);max-width:860px;margin:0 0 .4em">We build it, you run your business</h1>
     <p class="lead">Two ways to get a site without learning to run one. We meet once or twice, turn the conversation into your site, and host it for free. The only difference is where our credit sits.</p>
   </div>
@@ -231,9 +235,9 @@
 <section class="container" style="padding-top:0">
   <div class="wrap"><div class="row pair">
       <div class="card door full " id="free">
-        <div class="who">A sign on the square</div>
+        <div class="who">A cart under our umbrella</div>
         <h3 style="font-size:28px;margin:6px 0 4px">Free Site</h3>
-        <p class="tag">For Tucson businesses that need to be seen on the square, fast.</p>
+        <p class="tag">For Tucson businesses that need a storefront online, fast.</p>
         <div class="price"><small>Your cost</small><strong>$0</strong> <span>credit on top</span></div>
         <div class="edits">Paid for by a slim AZ Tech credit bar at the top of every page.</div>
         <ul><li>One or two meetings; we build it from the conversation</li><li>You own your domain; we host it free</li><li>Brochure pages and a simple contact form</li><li>An invite to <a href="join.html" target="_blank" rel="noopener">AZ Professional Partners</a>, our Tucson business Slack</li><li class="no">No checkout on the site: take payments through Venmo, Cash App or PayPal</li><li class="no">Changes after launch are paid</li></ul>
@@ -241,7 +245,7 @@
         <div class="fine">Tucson businesses, plus anyone we invite</div>
       </div>
       <div class="card door full " id="starter">
-        <div class="who">Your own sign on the square</div>
+        <div class="who">Your own cart, your name on the umbrella</div>
         <h3 style="font-size:28px;margin:6px 0 4px">Starter Site</h3>
         <p class="tag">The free site, with our credit moved down to your footer.</p>
         <div class="price"><small>One time</small><strong>$800</strong></div>

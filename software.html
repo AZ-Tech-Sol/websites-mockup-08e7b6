@@ -198,6 +198,10 @@
   .aiul{list-style:none;padding:0;margin:0 0 12px}
   .aiul li{padding:6px 0 6px 24px;position:relative}
   .aiul li:before{content:"";position:absolute;left:4px;top:14px;width:8px;height:8px;border-radius:50%;background:var(--amber)}
+  .herogrid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:44px;align-items:center}
+  .heroart{width:100%;height:auto;border-radius:14px;display:block}
+  .hero .herogrid h1{margin-left:0;max-width:none;text-align:left}
+  @media (max-width:860px){.herogrid{grid-template-columns:1fr}.heroart{max-width:420px}}
   .btn.amber{display:inline-block;background:#FE9901;color:#1a1200;box-shadow:none;font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:11px 18px}
   .btn.outline{display:inline-block;border:1.5px solid var(--blue);color:var(--blue);font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:10px 18px}
   .pfmore{margin-top:20px;display:flex;gap:12px;flex-wrap:wrap}
@@ -231,9 +235,9 @@
 <section class="container" style="padding-top:0">
   <div class="wrap"><div class="row c1">
       <div class="card door full app" id="app">
-        <div class="who">A place people gather</div>
+        <div class="who">A place people come back to</div>
         <h3 style="font-size:28px;margin:6px 0 4px">Custom App</h3>
-        <p class="tag">For when people come to your place to <em>do</em> something together: accounts, data, real software.</p>
+        <p class="tag">For when customers come to your store to <em>do</em> something: accounts, bookings, data, real software.</p>
         <p class="ask">Priced after we understand what it's worth to your business.</p>
         <div class="edits">Proof: ConVibe, a convention guest-tracker app, live on the App Store.</div>
         <ul><li>Database, users and uptime, engineered for you</li><li>Ongoing engineering, not just hosting</li><li>Starts with a strategy conversation</li></ul>
@@ -282,7 +286,7 @@
 <section class="container">
   <div class="wrap">
     <h2 style="font-size:26px;margin-bottom:18px">Not quite right? The other kinds</h2>
-    <div class="others"><a class="card door doorlink" href="build.html"><span class="dtitle" style="font-size:20px">We build it, you run your business</span><span class="tag">A site on the square, built from a conversation. Nobody has to edit it.</span><span class="go">Open <b aria-hidden="true">→</b></span></a><a class="card door doorlink" href="keep.html"><span class="dtitle" style="font-size:20px">You keep it up to date</span><span class="tag">For owners and teams who make their own changes.</span><span class="go">Open <b aria-hidden="true">→</b></span></a></div>
+    <div class="others"><a class="card door doorlink" href="build.html"><span class="dtitle" style="font-size:20px">We build it, you run your business</span><span class="tag">A storefront built from a conversation. Nobody has to edit it.</span><span class="go">Open <b aria-hidden="true">→</b></span></a><a class="card door doorlink" href="keep.html"><span class="dtitle" style="font-size:20px">You keep it up to date</span><span class="tag">For owners and teams who make their own changes.</span><span class="go">Open <b aria-hidden="true">→</b></span></a></div>
   </div>
 </section>
 <footer><div class="wrap"><span>© 2026 AZ Technology Solutions · Tucson, Arizona</span><span>Our Business Powers Your AI.</span></div></footer><script>
