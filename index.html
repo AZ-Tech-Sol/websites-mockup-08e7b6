@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Websites — AZ Tech Solutions (mockup)</title>
+<title>Your Place Online — AZ Tech Solutions (mockup)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -128,14 +128,26 @@
   .cta .btn{min-width:230px}
   footer{border-top:1px solid var(--line);padding:28px 0;font-size:13px;color:var(--lsteel)}
   footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+  .c5{grid-template-columns:repeat(5,1fr)}
+  @media (max-width:1100px){.c5{grid-template-columns:repeat(3,1fr)}}
+  @media (max-width:720px){.c5{grid-template-columns:1fr}}
+  .door{padding:0;align-self:start}
+  .doorhead{all:unset;box-sizing:border-box;display:flex;flex-direction:column;gap:6px;padding:24px 20px 18px;cursor:pointer;width:100%;border-radius:10px}
+  .doorhead:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+  .doorhead .who{font:600 12px "Exo 2";letter-spacing:.14em;text-transform:uppercase;color:var(--lsteel)}
+  .doorhead .dtitle{font:700 24px/1.2 "Exo 2",sans-serif;color:var(--fog)}
+  .doorhead .tag{color:var(--body);font-size:15px;min-height:0}
+  .reveal{margin-top:8px;font:700 13px "Exo 2";letter-spacing:.06em;text-transform:uppercase;color:var(--blue);display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:12px}
+  .door.open .reveal b{transform:rotate(45deg)} .reveal b{transition:transform .2s;font-size:18px;line-height:1}
+  .doorbody{padding:0 20px 22px}
+  .door.open{border-color:var(--blue);box-shadow:0 0 0 1px rgba(0,158,255,.35)}
+  @media (prefers-reduced-motion:reduce){.reveal b{transition:none}}
 </style>
 </head>
 <body>
 
-<div style="background:#1a1200;color:#FE9901;text-align:center;font:600 13px Inter,sans-serif;padding:6px">Compare: <a href="index.html" style="color:#FE9901"><b>A · Website</b></a> &nbsp;|&nbsp; <a href="square.html" style="color:#FE9901">B · Digital town square</a></div>
-<div class="mockbar">MOCKUP · not the live site · prices are proposals from Four Doors v6, not yet ruled
-  <button type="button" onclick="document.body.classList.toggle('notes')">Show open questions</button>
-</div>
+<div class="mockbar">MOCKUP · not the live site · ruled 2026-09-30 in Four Doors v11 · add-on prices are emailed, not posted</div>
 
 <header>
   <div class="wrap hdr">
@@ -147,134 +159,120 @@
 <!-- CONTAINER 1 · hero -->
 <section class="container hero center">
   <div class="wrap">
-    <div class="eyebrow">Websites</div>
-    <h1>A website for every size of business, from free to fully built software</h1>
-    <p class="lead">Four doors, one question. Pick the one that matches who will be editing your site after it launches, and every price starts at a number you can plan around.</p>
-    <div class="question"><b>?</b> How many people will touch your site, and how often?</div>
+    <div class="eyebrow">Websites, rebuilt as places</div>
+    <h1>Take your place in the digital town square</h1>
+    <p class="lead">A website used to be a brochure. Now it's where your town finds you, talks to you and comes back. Five ways to take your place, from a sign on the square to a building people gather in. Tap a door to see what it costs.</p>
+    <div class="question"><b>?</b> Who will gather at your place, and who keeps it open?</div>
   </div>
 </section>
 
-<!-- CONTAINER 2 · the four doors (4 × 1_4 columns) -->
+<!-- CONTAINER 2 · the five doors (click a card to see its price; each open is a tracked event) -->
 <section class="container" id="doors" style="padding-top:20px">
   <div class="wrap">
-    <div class="row c4">
-
-      <!-- DOOR 1 · FREE -->
-      <div class="card door qbox">
-        <div class="who">Nobody edits it</div>
-        <h3>Free Site <span class="q">Q12 · Q16</span></h3>
-        <p class="tag">For Tucson businesses that need to be found online, fast.</p>
-        <div class="price"><small>Your cost</small><strong>$0</strong> <span>credit on top</span></div>
-        <div class="price" style="margin-top:2px"><small>Or keep your header clean</small><strong style="font-size:26px">$800</strong> <span>credit in the footer</span></div>
-        <div class="creditdemo" aria-hidden="true">
-          <div class="bar"><span>Free website by AZ Tech</span><em>get yours →</em></div>
-          <div class="site">Your Business · Home · About · Contact</div>
+    <div class="row c5">
+      <div class="card door " data-door="free">
+        <button type="button" class="doorhead" aria-expanded="false" aria-controls="d-free">
+          <span class="who">A sign on the square</span>
+          <span class="dtitle">Free Site</span>
+          <span class="tag">For Tucson businesses that need to be seen on the square, fast.</span>
+          <span class="reveal">See pricing <b aria-hidden="true">+</b></span>
+        </button>
+        <div class="doorbody" id="d-free" hidden>
+          <div class="price"><small>Your cost</small><strong>$0</strong> <span>credit on top</span></div>
+          <div class="edits">Paid for by a slim AZ Tech credit bar at the top of every page.</div>
+          <ul><li>One or two meetings; we build it from the conversation</li><li>You own your domain; we host it free</li><li>Brochure pages and a simple contact form</li><li>An invite to the Tucson business Slack</li><li class="no">No store or checkout</li><li class="no">Changes after launch are paid</li></ul>
+          <a class="btn ghost" target="_blank" rel="noopener" href="https://n8n.aztechsol.com/form/1ee1be18-95a0-44d8-9da6-bd5c12dc12ef" data-door-cta="free">Get started</a>
+          <div class="fine">Tucson businesses, plus anyone we invite</div>
         </div>
-        <div class="edits">Free is paid for by a slim AZ Tech credit bar at the top of every page. $800 moves it to a small line in the footer. Same site, same hosting.</div>
-        <ul>
-          <li>One or two meetings; we build it from the conversation</li>
-          <li>You own your domain; we host it free</li>
-          <li>Brochure pages and a simple contact form</li>
-          <li class="no">No store or checkout</li>
-          <li class="no">Changes after launch are paid</li>
-        </ul>
-        <a class="btn ghost" href="https://calendly.com/aztechsol/office-hours">Book Office Hours</a>
-        <div class="fine">Free for Tucson businesses, plus anyone we invite <span class="q">Q19</span></div>
       </div>
-
-      <!-- DOOR 2 · PUBLII -->
-      <div class="card door">
-        <div class="who">You edit it yourself</div>
-        <h3>Own-It Site</h3>
-        <p class="tag">For the solo owner who wants to make changes without calling anyone.</p>
-        <div class="price"><small>Starting at</small><strong>$1,500</strong> <span>one time</span></div>
-        <div class="edits">You pay once, and then it's yours.</div>
-        <ul>
-          <li>Your brand, set up in a site you edit on your own laptop</li>
-          <li>A teaching session so you're independent from day one</li>
-          <li>Hosting that costs next to nothing</li>
-          <li>Built on Publii: fast, simple and nothing to hack</li>
-        </ul>
-        <a class="btn primary" href="https://n8n.aztechsol.com/form/1ee1be18-95a0-44d8-9da6-bd5c12dc12ef">Start with a call</a>
-        <div class="fine">Optional retainer after launch</div>
+      <div class="card door " data-door="starter">
+        <button type="button" class="doorhead" aria-expanded="false" aria-controls="d-starter">
+          <span class="who">Your own sign on the square</span>
+          <span class="dtitle">Starter Site</span>
+          <span class="tag">The free site, with our credit moved down to your footer.</span>
+          <span class="reveal">See pricing <b aria-hidden="true">+</b></span>
+        </button>
+        <div class="doorbody" id="d-starter" hidden>
+          <div class="price"><small>One time</small><strong>$800</strong> <span></span></div>
+          <div class="edits">Same build and hosting as Free. The top of every page is all yours.</div>
+          <ul><li>One or two meetings; we build it from the conversation</li><li>A small AZ Tech line in the footer, nothing on top</li><li>Hosted free, and you own your domain</li><li class="no">Changes after launch are paid</li></ul>
+          <a class="btn primary" target="_blank" rel="noopener" href="https://n8n.aztechsol.com/form/1ee1be18-95a0-44d8-9da6-bd5c12dc12ef" data-door-cta="starter">Get started</a>
+          <div class="fine">Books a conversation at Office Hours</div>
+        </div>
       </div>
-
-      <!-- DOOR 3 · WORDPRESS -->
-      <div class="card door">
-        <div class="who">Your team edits it</div>
-        <h3>Team Site</h3>
-        <p class="tag">For businesses where several people publish, and the site has to stay up.</p>
-        <div class="price"><small>Starting at</small><strong>$3,500</strong> <span>+ $75/mo</span></div>
-        <div class="edits">The monthly is monitoring and maintenance: hosting, backups, updates, uptime and security.</div>
-        <ul>
-          <li>WordPress, built for your team to edit together</li>
-          <li>Managed hosting and daily backups</li>
-          <li>Plugin and core updates handled</li>
-          <li>Uptime and security watch</li>
-          <li class="no">Content changes are separate</li>
-        </ul>
-        <a class="btn primary" href="https://n8n.aztechsol.com/form/1ee1be18-95a0-44d8-9da6-bd5c12dc12ef">Start with a call</a>
-        <div class="fine">Monthly billed on its own line</div>
+      <div class="card door " data-door="ownit">
+        <button type="button" class="doorhead" aria-expanded="false" aria-controls="d-ownit">
+          <span class="who">A storefront you tend</span>
+          <span class="dtitle">Own-It Site</span>
+          <span class="tag">For the solo owner who wants to make changes without calling anyone.</span>
+          <span class="reveal">See pricing <b aria-hidden="true">+</b></span>
+        </button>
+        <div class="doorbody" id="d-ownit" hidden>
+          <div class="price"><small>Starting at</small><strong>$1,500</strong> <span>one time</span></div>
+          <div class="edits">You pay once, and then it's yours.</div>
+          <ul><li>Your brand, set up in a site you edit on your own laptop</li><li>A teaching session so you're independent from day one</li><li>Hosting that costs next to nothing</li><li>Built on Publii: fast, simple and nothing to hack</li></ul>
+          <a class="btn primary" target="_blank" rel="noopener" href="https://n8n.aztechsol.com/form/1ee1be18-95a0-44d8-9da6-bd5c12dc12ef" data-door-cta="ownit">Start with a call</a>
+          <div class="fine">Optional retainer after launch</div>
+        </div>
       </div>
-
-      <!-- DOOR 4 · APP -->
-      <div class="card door app">
-        <div class="who">Your customers use it</div>
-        <h3>Custom App</h3>
-        <p class="tag">For when your website needs to <em>do</em> something: accounts, data, real software.</p>
-        <div class="price"><small>Investment</small><strong style="font-size:26px">Let's talk</strong></div>
-        <div class="edits">Priced after we understand what it's worth to your business.</div>
-        <ul>
-          <li>Proof: ConVibe, live on the App Store</li>
-          <li>Database, users and uptime, engineered for you</li>
-          <li>Ongoing engineering, not just hosting</li>
-        </ul>
-        <a class="btn primary" href="https://calendly.com/aztechsol/strategy-hour">Book a strategy call</a>
-        <div class="fine">Two-day booking window</div>
+      <div class="card door " data-door="team">
+        <button type="button" class="doorhead" aria-expanded="false" aria-controls="d-team">
+          <span class="who">A shop with a staff</span>
+          <span class="dtitle">Team Site</span>
+          <span class="tag">For businesses where several people publish, and the site has to stay up.</span>
+          <span class="reveal">See pricing <b aria-hidden="true">+</b></span>
+        </button>
+        <div class="doorbody" id="d-team" hidden>
+          <div class="price"><small>Starting at</small><strong>$3,500</strong> <span>+ $75/mo</span></div>
+          <div class="edits">The monthly is monitoring and maintenance: hosting, backups, updates, uptime and security.</div>
+          <ul><li>WordPress, built for your team to edit together</li><li>Managed hosting and daily backups</li><li>Plugin and core updates handled</li><li>Uptime and security watch</li><li class="no">Content changes are separate</li></ul>
+          <a class="btn primary" target="_blank" rel="noopener" href="https://n8n.aztechsol.com/form/1ee1be18-95a0-44d8-9da6-bd5c12dc12ef" data-door-cta="team">Start with a call</a>
+          <div class="fine">Monthly billed on its own line</div>
+        </div>
       </div>
-
+      <div class="card door app" data-door="app">
+        <button type="button" class="doorhead" aria-expanded="false" aria-controls="d-app">
+          <span class="who">A place people gather</span>
+          <span class="dtitle">Custom App</span>
+          <span class="tag">For when people come to your place to <em>do</em> something together: accounts, data, real software.</span>
+          <span class="reveal">See pricing <b aria-hidden="true">+</b></span>
+        </button>
+        <div class="doorbody" id="d-app" hidden>
+          <div class="price"><small>Investment</small><strong style="font-size:26px">Let's talk</strong></div>
+          <div class="edits">Priced after we understand what it's worth to your business.</div>
+          <ul><li>Proof: ConVibe, live on the App Store</li><li>Database, users and uptime, engineered for you</li><li>Ongoing engineering, not just hosting</li></ul>
+          <a class="btn primary" target="_blank" rel="noopener" href="https://calendly.com/aztechsol/strategy-hour" data-door-cta="app">Book a strategy call</a>
+          <div class="fine">Two-day booking window</div>
+        </div>
+      </div>
     </div>
-    <p class="fine" style="margin-top:22px">
-      Buttons on the Own-It and Team cards book through the same window as the Free Site.<span class="q">Q14</span>
-      Every button opens our Web &amp; Hosting form with your door already chosen.<span class="q">Q15</span>
-    </p>
+    <p class="fine" style="margin-top:22px">Tap a card to see what it costs. Every button opens a short form with your door already chosen, then books a conversation.</p>
   </div>
 </section>
 
-<!-- CONTAINER 3 · after launch (add-ons) -->
+<!-- CONTAINER 3 · after launch (add-ons; prices are emailed, not posted) -->
 <section class="container alt">
   <div class="wrap">
     <div class="center" style="margin-bottom:40px">
       <div class="eyebrow">After launch</div>
-      <h2 style="font-size:36px">Every change has a price you know up front</h2>
-      <p class="lead">The same add-ons work on every door. Take what you need, when you need it.</p>
+      <h2 style="font-size:36px">Keeping the lights on, your way</h2>
+      <p class="lead">The same add-ons work on every door. We email you the current prices, so you always get today's numbers for your business.</p>
     </div>
-    <div class="row c4">
-      <div class="addon qbox">
-        <h4>One change <span class="q">Q10</span></h4>
-        <div class="amt">$200 <span>per change</span></div>
-        <p>Ask, it's done, you pay. No plan needed.</p>
+    <div class="row c3">
+      <div class="addon">
+        <h4>One change at a time</h4>
+        <p>Ask, it's done, you pay for that change. No plan needed.</p>
       </div>
-      <div class="addon qbox" style="border-color:#2b4b72">
-        <h4>AI Edits <span class="q">Q10</span></h4>
-        <div class="amt">$99 <span>/ month</span></div>
-        <p>Unlimited content changes. Email what you want changed and our AI makes it: words, photos, hours, new pages.</p>
+      <div class="addon" style="border-color:#2b4b72">
+        <h4>AI Edits</h4>
+        <p>Unlimited content changes by email. Tell our AI what to change (words, photos, hours, new pages) and it's done. Cheaper than two changes a month.</p>
       </div>
-      <div class="addon qbox">
-        <h4>Access to Angel <span class="q">Q11</span></h4>
-        <p style="margin-top:0">Remote help whenever you need it, sold by how fast you get an answer.</p>
-        <div class="speed">
-          <div><b>$150</b><i>/mo · within 48 hours</i></div>
-          <div><b>$300</b><i>/mo · within 12 hours</i></div>
-        </div>
-        <p style="font-size:12.5px;color:var(--lsteel)">Paid in advance · a quarter saves 10%</p>
-      </div>
-      <div class="addon qbox">
-        <h4>Own-It retainer <span class="q">Q13</span></h4>
-        <div class="amt">$49 <span>/ month</span></div>
-        <p>For Own-It sites: stay on our books, with theme and design changes at $100 instead of $200.</p>
+      <div class="addon">
+        <h4>Retainer meetings</h4>
+        <p>Recorded meetings with Angel, booked within a set window. Bring the ideas; the AI makes the changes afterwards. One retainer for each door, from a meeting a month up to unlimited.</p>
       </div>
     </div>
+    <div class="center" style="margin-top:30px"><a class="btn primary" style="display:inline-block;min-width:260px" target="_blank" rel="noopener" href="https://n8n.aztechsol.com/form/1ee1be18-95a0-44d8-9da6-bd5c12dc12ef" data-door-cta="addons">Email me the prices</a></div>
   </div>
 </section>
 
@@ -287,8 +285,8 @@
     </div>
     <div class="row c3">
       <div class="step"><div class="n">1</div><h3>Pick your door</h3><p>Choose by who will edit the site. Not sure? Pick the closest one; we'll tell you honestly if another fits better.</p></div>
-      <div class="step"><div class="n">2</div><h3>Book a conversation</h3><p>A short form, then a time on the calendar. We talk about what the site needs to do for your business.</p></div>
-      <div class="step qbox"><div class="n">3</div><h3>Choose from three options <span class="q">Q7</span></h3><p>Your proposal gives you three ways to go, from simplest to fully looked-after.</p>
+      <div class="step"><div class="n">2</div><h3>Book a conversation</h3><p>A short form with your door already chosen, then a time on the calendar. We email you the prices and talk about what the site needs to do for your business.</p></div>
+      <div class="step"><div class="n">3</div><h3>Choose from three options</h3><p>Your proposal gives you three ways to go, from simplest to fully looked-after.</p>
         <div class="opts"><span>Essential</span><span class="mid">Managed</span><span>Managed + Priority</span></div>
       </div>
     </div>
@@ -300,7 +298,7 @@
   <div class="wrap">
     <div class="center" style="margin-bottom:40px">
       <div class="eyebrow">Already running</div>
-      <h2 style="font-size:36px">Every door has a client behind it</h2>
+      <h2 style="font-size:36px">Places already open on the square</h2>
     </div>
     <div class="row c2">
       <div class="card proof"><div class="badge">B</div><div><h4>Berty Sound &amp; Video</h4><p style="margin:0">An Own-It site on its own domain: fast, static and edited by the owner. <a target="_blank" rel="noopener" href="https://bertysoundandvideo.com/">bertysoundandvideo.com</a></p></div></div>
@@ -314,19 +312,21 @@
   <div class="wrap" style="max-width:900px">
     <div class="eyebrow">Questions</div>
     <h2 style="font-size:32px">Good things to ask before you pick</h2>
-    <details><summary>Why is the Free Site free?</summary><p>You pay for it in advertising: a slim line at the top of every page that says AZ Tech built it. We build it from one or two conversations, you own your domain, and we host it at no cost to you. At the end you get an invoice showing what the site is worth, with the full amount waived.</p></details>
-    <details><summary>What does the $800 option change?</summary><p>Only where our credit sits. For $800 it moves from a bar across the top of every page to a small line in your footer, so your header is all yours. It's the same site, still hosted free, and changes are still $200 each or unlimited with AI Edits.</p></details>
+    <details><summary>Is this just a website?</summary><p>Yes, in the way a town square is just pavement. It's a website underneath, found on Google like any other. What changes is what it's for: a place people come back to, not a flyer they read once.</p></details>
+    <details><summary>Why is the Free Site free?</summary><p>You pay for it in advertising: a slim line at the top of every page that says AZ Tech built it. We build it from one or two conversations, you own your domain, and we host it at no cost to you. At the end you get an invoice showing what the site is worth, $800, with the full amount waived.</p></details>
+    <details><summary>What's the difference between Free and Starter?</summary><p>Only where our credit sits. Free has a slim bar across the top of every page; Starter moves it to a small line in your footer, so your header is all yours. Same site, same free hosting, and changes are paid the same way.</p></details>
     <details><summary>Can I sell things on my site?</summary><p>Not on the Free Site. Free hosting isn't allowed to run a store. If you need a shop or a database, we build it on the right platform for it, like Shopify, or on our own servers.</p></details>
+    <details><summary>What's in the Tucson business Slack?</summary><p>A place for Tucson owners to talk to each other: questions, referrals, what's working. Every Free Site comes with an invite.</p></details>
     <details><summary>What's the difference between Own-It and Team?</summary><p>Own-It is for one person who wants to make their own changes, and there's no monthly bill. Team is for several people editing a live site that has to be watched, so it comes with monthly monitoring and maintenance.</p></details>
     <details><summary>Who owns my domain and my content?</summary><p>You do, on every door. If you ever leave, your name and your words go with you.</p></details>
-    <details><summary>Does the $75 a month include changes?</summary><p>No. It keeps the site safe, updated and running. Changes are $200 each, or unlimited with AI Edits.</p></details>
+    <details><summary>Does the $75 a month include changes?</summary><p>No. It keeps the site safe, updated and running. Changes are separate: pay for each one, or add AI Edits for unlimited changes. We email you the current prices.</p></details>
   </div>
 </section>
 
 <!-- CONTAINER 7 · closing CTA -->
 <section class="container cta center">
   <div class="wrap">
-    <h2 style="font-size:38px">Not sure which door is yours?</h2>
+    <h2 style="font-size:38px">Not sure which place is yours?</h2>
     <p class="lead">Bring your business to Office Hours. We'll tell you which one fits, even if it's the free one.</p>
     <div class="btns"><a class="btn primary" href="https://calendly.com/aztechsol/office-hours">Book Office Hours</a><a class="btn ghost" href="#doors">Compare the doors again</a></div>
   </div>
@@ -334,5 +334,20 @@
 
 <footer><div class="wrap"><span>© 2026 AZ Technology Solutions · Tucson, Arizona</span><span>Our Business Powers Your AI.</span></div></footer>
 
+
+<script>
+/* Each card opens in place; every open is one tracked event (Umami on the live site). */
+document.querySelectorAll('.doorhead').forEach(function(h){
+  h.addEventListener('click',function(){
+    var card=h.closest('.door'), body=document.getElementById(h.getAttribute('aria-controls'));
+    var open=h.getAttribute('aria-expanded')!=='true';
+    h.setAttribute('aria-expanded',String(open)); body.hidden=!open; card.classList.toggle('open',open);
+    if(open){ try{ window.umami && umami.track('door_open',{door:card.dataset.door}); }catch(e){} }
+  });
+});
+document.querySelectorAll('[data-door-cta]').forEach(function(a){
+  a.addEventListener('click',function(){ try{ window.umami && umami.track('door_cta',{door:a.dataset.doorCta}); }catch(e){} });
+});
+</script>
 </body>
 </html>
