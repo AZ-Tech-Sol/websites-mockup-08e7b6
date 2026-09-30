@@ -538,6 +538,20 @@ def clockwork_page():
   </div>
 </section>
 
+
+<section class="container alt">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:28px"><div class="eyebrow" style="color:var(--amber)">Why a clockwork desk</div><h2 style="font-size:32px">The jewel and the mechanism</h2>
+    <p class="lead">AI sold as a product is expensive, and it's built for everyone, which means it isn't built for you. Most of what a business needs from it is routine: the same kinds of emails, the same kinds of changes, the same checks. So the Clockwork Desk keeps two things apart: the <b>mechanism</b>, which is your business written down, and the <b>jewel</b>, the AI model we set into it.</p></div>
+    <div class="files jw">
+      <div class="fcard"><b>The mechanism is yours</b><p>Your rules, your files and your history live in documents you own. Leave, and they go with you.</p></div>
+      <div class="fcard"><b>The jewel is swappable</b><p>A small model for the routine, a powerful one when it matters, and a better one the day it arrives. No lock-in to anyone's AI.</p></div>
+      <div class="fcard"><b>Cheaper by design</b><p>The clockwork does the repeatable work for almost nothing. The jewel is only called when real thinking is needed.</p></div>
+      <div class="fcard"><b>Less reliance on remote models</b><p>Your knowledge never lives inside someone else's AI, and the desk keeps its memory in your files, not theirs.</p></div>
+    </div>
+    <p class="center" style="margin:28px auto 0;max-width:60ch;font:600 18px 'Exo 2',sans-serif;color:var(--fog)">Neither half is the treasure on its own. The joining is.</p>
+  </div>
+</section>
 <section class="container alt">
   <div class="wrap">
     <div class="center" style="margin-bottom:24px"><div class="eyebrow">For your business</div><h2 style="font-size:30px">We build desks like this for clients</h2><p class="lead">Lupita answers CPLC's community in English and Spanish. VIKI reviews a convention app's catalogue every night and posts what it finds to the team's Slack. Yours would be named, trained on your business, and supervised the same way.</p></div>
@@ -574,6 +588,9 @@ CWCSS = """<link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400
   .files{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
   @media (max-width:1100px){.files{grid-template-columns:repeat(2,minmax(0,1fr))}}
   @media (max-width:600px){.files{grid-template-columns:1fr}}
+  .files.jw{grid-template-columns:repeat(4,minmax(0,1fr))}
+  @media (max-width:1000px){.files.jw{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media (max-width:600px){.files.jw{grid-template-columns:1fr}}
   .fcard{background:var(--carbon);border:1px solid var(--line);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:16px 18px}
   .fcard b{font:700 17px "Exo 2";color:var(--fog)} .fcard p{margin:6px 0 0;font-size:14.5px}
 </style>"""
