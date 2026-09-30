@@ -178,6 +178,15 @@
   .crumbs a{color:var(--blue);text-decoration:none}
   .others{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
   @media (max-width:640px){.others{grid-template-columns:1fr}}
+  .pfgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+  a.pf{display:grid;gap:8px;text-decoration:none;color:var(--fog);font:600 14.5px "Exo 2",sans-serif}
+  a.pf img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:10px;border:1px solid var(--line);display:block;background:var(--carbon);transition:transform .2s,border-color .2s}
+  a.pf:hover img{transform:translateY(-2px);border-color:var(--blue)}
+  .partners{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+  @media (max-width:900px){.partners{grid-template-columns:repeat(3,minmax(0,1fr))}}
+  @media (max-width:560px){.partners{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  .partners a.pf{font-size:13px}
+  @media (prefers-reduced-motion:reduce){a.pf img{transition:none}}
 </style>
 </head>
 <body>
@@ -234,6 +243,14 @@
       </div>
     </div>
   </div></div>
+</section>
+<!-- PARTNERS · Avada: [fusion_portfolio cat_slug="partners" columns="5"] -->
+<section class="container" style="padding-top:10px">
+  <div class="wrap">
+    <div class="eyebrow">Partners</div>
+    <h2 style="font-size:28px;margin-bottom:18px">Businesses that build with us</h2>
+    <div class="partners"><a class="pf" target="_blank" rel="noopener" href="https://aztechsol.com/portfolio-items/witmark-group/"><img loading="lazy" src="https://aztechsol.com/wp-content/uploads/2019/04/card-witmark-partner-768x512.jpg" alt="WitMark Group" width="768" height="512"><span>WitMark Group</span></a><a class="pf" target="_blank" rel="noopener" href="https://aztechsol.com/portfolio-items/blockhub-llc/"><img loading="lazy" src="https://aztechsol.com/wp-content/uploads/2025/01/card-blockhub-partner-768x512.jpg" alt="Blockhub LLC" width="768" height="512"><span>Blockhub LLC</span></a><a class="pf" target="_blank" rel="noopener" href="https://aztechsol.com/portfolio-items/media-spinach/"><img loading="lazy" src="https://aztechsol.com/wp-content/uploads/2020/05/card-mediaspinach-partner-768x512.jpg" alt="Media Spinach" width="768" height="512"><span>Media Spinach</span></a><a class="pf" target="_blank" rel="noopener" href="https://aztechsol.com/portfolio-items/bacon-bytes-tech/"><img loading="lazy" src="https://aztechsol.com/wp-content/uploads/2026/03/card-baconbytes-partner-768x512.jpg" alt="Bacon Bytes Tech" width="768" height="512"><span>Bacon Bytes Tech</span></a><a class="pf" target="_blank" rel="noopener" href="https://aztechsol.com/portfolio-items/trippylove9k/"><img loading="lazy" src="https://aztechsol.com/wp-content/uploads/2023/04/card-tripplove9k3final-partner-768x512.jpg" alt="TrippyLove9K" width="768" height="512"><span>TrippyLove9K</span></a></div>
+  </div>
 </section>
 <!-- CONTAINER 3 · after launch (add-ons; prices are emailed, not posted) -->
 <section class="container alt">

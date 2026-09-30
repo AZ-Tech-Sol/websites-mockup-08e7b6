@@ -38,6 +38,15 @@ CSS = '''<style>
   .crumbs a{color:var(--blue);text-decoration:none}
   .others{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
   @media (max-width:640px){.others{grid-template-columns:1fr}}
+  .pfgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+  a.pf{display:grid;gap:8px;text-decoration:none;color:var(--fog);font:600 14.5px "Exo 2",sans-serif}
+  a.pf img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:10px;border:1px solid var(--line);display:block;background:var(--carbon);transition:transform .2s,border-color .2s}
+  a.pf:hover img{transform:translateY(-2px);border-color:var(--blue)}
+  .partners{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+  @media (max-width:900px){.partners{grid-template-columns:repeat(3,minmax(0,1fr))}}
+  @media (max-width:560px){.partners{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  .partners a.pf{font-size:13px}
+  @media (prefers-reduced-motion:reduce){a.pf img{transition:none}}
 </style>'''
 
 DOORS = {
@@ -86,6 +95,36 @@ TYPES = {
    faq=[('How much does an app cost?',"It depends on what it's worth to your business, so we start with a strategy conversation, not a price list."),
         ('Can you show me one?','ConVibe, a convention guest-tracker app, is live on the App Store. We built it from database to daily users.')]),
 }
+
+import json
+PF = {x['id']: x for x in json.loads((R / 'src' / 'portfolio.json').read_text())}
+PROOF = {  # portfolio items from aztechsol.com (Avada portfolio), chosen per type
+ 'build': dict(title='Local owners we\'ve built for', sub="Small businesses we've built sites and brands for, from the AZ Tech portfolio.", ids=[3301,1694,1692,1681,1698,1679,1677], cat='door-build'),
+ 'keep': dict(title='Teams and organisations that trust us', sub='Sites that several people publish on, and that have to stay up.', ids=[1696,1683,2964,1471,2963,2973,2972,2959], cat='door-keep'),
+ 'software': dict(title='Software we\'ve shipped', sub='Apps, AI assistants and automation, as case studies.', ids=[3234,2798,2390,2849,3118], cat='door-software'),
+}
+PARTNERS = [2927,2928,2939,3090,3144]
+
+def tiles(ids, cls='pf'):
+    out=''
+    for i in ids:
+        x = PF[i]
+        out += f'<a class="{cls}" {EXT} href="{x['link']}"><img loading="lazy" src="{x['img']}" alt="{x['title']}" width="768" height="512"><span>{x['title']}</span></a>'
+    return out
+
+def proof_section(k):
+    p = PROOF[k]
+    return f'''
+<!-- PORTFOLIO · Avada: [fusion_portfolio cat_slug="{p['cat']}" layout="grid" columns="3"] once the items carry that category -->
+<section class="container">
+  <div class="wrap">
+    <div class="eyebrow">Reputation</div>
+    <h2 style="font-size:30px;margin-bottom:6px">{p['title']}</h2>
+    <p style="margin:0 0 22px;color:var(--lsteel)">{p['sub']}</p>
+    <div class="pfgrid">{tiles(p['ids'])}</div>
+  </div>
+</section>
+'''
 
 def page(title, body, extra=''):
     h = HEAD.replace(HEAD[HEAD.index('<title>'):HEAD.index('</title>')+8], f'<title>{title}</title>')
@@ -147,6 +186,14 @@ hub = f'''
   <div class="wrap"><div class="bands">{bands}
   </div></div>
 </section>
+<!-- PARTNERS · Avada: [fusion_portfolio cat_slug="partners" columns="5"] -->
+<section class="container" style="padding-top:10px">
+  <div class="wrap">
+    <div class="eyebrow">Partners</div>
+    <h2 style="font-size:28px;margin-bottom:18px">Businesses that build with us</h2>
+    <div class="partners">{tiles(PARTNERS)}</div>
+  </div>
+</section>
 ''' + old
 (R / 'index.html').write_text(page('Your Place Online — AZ Tech Solutions (mockup)', hub, TRACK))
 (R / 'square.html').write_text(page('Your Place Online — AZ Tech Solutions (mockup)', hub, TRACK))
@@ -167,7 +214,7 @@ for k, t in TYPES.items():
   <div class="wrap"><div class="row {pair}">{''.join(full(s) for s in t['doors'])}
   </div></div>
 </section>
-<section class="container alt">
+''' + proof_section(k) + f'''<section class="container alt">
   <div class="wrap" style="max-width:900px">
     <div class="eyebrow">Questions</div>
     <h2 style="font-size:30px">Before you pick</h2>

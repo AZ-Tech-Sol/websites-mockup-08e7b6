@@ -178,6 +178,15 @@
   .crumbs a{color:var(--blue);text-decoration:none}
   .others{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
   @media (max-width:640px){.others{grid-template-columns:1fr}}
+  .pfgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+  a.pf{display:grid;gap:8px;text-decoration:none;color:var(--fog);font:600 14.5px "Exo 2",sans-serif}
+  a.pf img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:10px;border:1px solid var(--line);display:block;background:var(--carbon);transition:transform .2s,border-color .2s}
+  a.pf:hover img{transform:translateY(-2px);border-color:var(--blue)}
+  .partners{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+  @media (max-width:900px){.partners{grid-template-columns:repeat(3,minmax(0,1fr))}}
+  @media (max-width:560px){.partners{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  .partners a.pf{font-size:13px}
+  @media (prefers-reduced-motion:reduce){a.pf img{transition:none}}
 </style>
 </head>
 <body>
@@ -219,6 +228,16 @@
         <div class="fine">We email today's prices, then book a conversation</div>
       </div>
   </div></div>
+</section>
+
+<!-- PORTFOLIO · Avada: [fusion_portfolio cat_slug="door-keep" layout="grid" columns="3"] once the items carry that category -->
+<section class="container">
+  <div class="wrap">
+    <div class="eyebrow">Reputation</div>
+    <h2 style="font-size:30px;margin-bottom:6px">Teams and organisations that trust us</h2>
+    <p style="margin:0 0 22px;color:var(--lsteel)">Sites that several people publish on, and that have to stay up.</p>
+    <div class="pfgrid"><a class="pf" target="_blank" rel="noopener" href="https://aztechsol.com/portfolio-items/mosaic-family-services/"><img loading="lazy" src="https://aztechsol.com/wp-content/uploads/2019/04/card-mosaic3final-768x512.jpg" alt="Mosaic Family Services" width="768" height="512"><span>Mosaic Family Services</span></a><a class="pf" target="_blank" rel="noopener" href="https://aztechsol.com/portfolio-items/buynak-fauver-archbald-spray-llp/"><img loading="lazy" src="https://aztechsol.com/wp-content/uploads/2019/04/card-buynak-fauver-archbald-spray-llp-768x512.jpg" alt="Buynak Fauver Archbald Spray LLP" width="768" height="512"><span>Buynak Fauver Archbald Spray LLP</span></a><a class="pf" target="_blank" rel="noopener" href="https://aztechsol.com/portfolio-items/mcasb/"><img loading="lazy" src="https://aztechsol.com/wp-content/uploads/2016/06/card-mcasb3final-768x512.jpg" alt="Museum of Contemporary Art Santa Barbara" width="768" height="512"><span>Museum of Contemporary Art Santa Barbara</span></a><a class="pf" target="_blank" rel="noopener" href="https://aztechsol.com/portfolio-items/mayan-azul-resort/"><img loading="lazy" src="https://aztechsol.com/wp-content/uploads/2016/02/card-mayan-azul-resort-768x512.jpg" alt="Mayan Azul Resort" width="768" height="512"><span>Mayan Azul Resort</span></a><a class="pf" target="_blank" rel="noopener" href="https://aztechsol.com/portfolio-items/northview-extractions/"><img loading="lazy" src="https://aztechsol.com/wp-content/uploads/2019/08/card-northviewextractions3final-768x512.jpg" alt="Northview Extractions" width="768" height="512"><span>Northview Extractions</span></a><a class="pf" target="_blank" rel="noopener" href="https://aztechsol.com/portfolio-items/alterna-sweet/"><img loading="lazy" src="https://aztechsol.com/wp-content/uploads/2019/04/card-alternasweet3final-768x512.jpg" alt="Alterna Sweet" width="768" height="512"><span>Alterna Sweet</span></a><a class="pf" target="_blank" rel="noopener" href="https://aztechsol.com/portfolio-items/merso-labs/"><img loading="lazy" src="https://aztechsol.com/wp-content/uploads/2021/07/card-merso-labs-768x512.jpg" alt="Merso Labs" width="768" height="512"><span>Merso Labs</span></a><a class="pf" target="_blank" rel="noopener" href="https://aztechsol.com/portfolio-items/nine-line-tactical/"><img loading="lazy" src="https://aztechsol.com/wp-content/uploads/2016/07/card-nine-line-tactical-768x512.jpg" alt="Nine Line Tactical" width="768" height="512"><span>Nine Line Tactical</span></a></div>
+  </div>
 </section>
 <section class="container alt">
   <div class="wrap" style="max-width:900px">

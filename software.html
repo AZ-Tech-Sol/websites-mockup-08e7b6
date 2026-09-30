@@ -178,6 +178,15 @@
   .crumbs a{color:var(--blue);text-decoration:none}
   .others{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
   @media (max-width:640px){.others{grid-template-columns:1fr}}
+  .pfgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+  a.pf{display:grid;gap:8px;text-decoration:none;color:var(--fog);font:600 14.5px "Exo 2",sans-serif}
+  a.pf img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:10px;border:1px solid var(--line);display:block;background:var(--carbon);transition:transform .2s,border-color .2s}
+  a.pf:hover img{transform:translateY(-2px);border-color:var(--blue)}
+  .partners{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+  @media (max-width:900px){.partners{grid-template-columns:repeat(3,minmax(0,1fr))}}
+  @media (max-width:560px){.partners{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  .partners a.pf{font-size:13px}
+  @media (prefers-reduced-motion:reduce){a.pf img{transition:none}}
 </style>
 </head>
 <body>
@@ -209,6 +218,16 @@
         <div class="fine">Two-day booking window</div>
       </div>
   </div></div>
+</section>
+
+<!-- PORTFOLIO · Avada: [fusion_portfolio cat_slug="door-software" layout="grid" columns="3"] once the items carry that category -->
+<section class="container">
+  <div class="wrap">
+    <div class="eyebrow">Reputation</div>
+    <h2 style="font-size:30px;margin-bottom:6px">Software we've shipped</h2>
+    <p style="margin:0 0 22px;color:var(--lsteel)">Apps, AI assistants and automation, as case studies.</p>
+    <div class="pfgrid"><a class="pf" target="_blank" rel="noopener" href="https://aztechsol.com/portfolio-items/convibe-case-study/"><img loading="lazy" src="https://aztechsol.com/wp-content/uploads/2026/07/card-convibe-case-study-768x512.jpg" alt="Convibe — the method, shipped" width="768" height="512"><span>Convibe — the method, shipped</span></a><a class="pf" target="_blank" rel="noopener" href="https://aztechsol.com/portfolio-items/lupita-cplc-ai-assistant/"><img loading="lazy" src="https://aztechsol.com/wp-content/uploads/2026/07/card-lupita-avatar-768x512.jpg" alt="Lupita — Bilingual AI Assistant for CPLC" width="768" height="512"><span>Lupita — Bilingual AI Assistant for CPLC</span></a><a class="pf" target="_blank" rel="noopener" href="https://aztechsol.com/portfolio-items/callforge-ai-sales-analysis/"><img loading="lazy" src="https://aztechsol.com/wp-content/uploads/2026/07/card-callforge-ai-sales-analysis-768x512.jpg" alt="CallForge — AI Sales Call Analysis" width="768" height="512"><span>CallForge — AI Sales Call Analysis</span></a><a class="pf" target="_blank" rel="noopener" href="https://aztechsol.com/portfolio-items/fullscript-n8n-ai/"><img loading="lazy" src="https://aztechsol.com/wp-content/uploads/2025/11/maxresdefault-768x432.jpg" alt="Fullscript — Saving Hundreds of Hours a Month with n8n + AI" width="768" height="512"><span>Fullscript — Saving Hundreds of Hours a Month with n8n + AI</span></a><a class="pf" target="_blank" rel="noopener" href="https://aztechsol.com/portfolio-items/chicanos-por-la-causa/"><img loading="lazy" src="https://aztechsol.com/wp-content/uploads/2026/07/card-cplc3final-768x512.jpg" alt="Chicanos Por La Causa" width="768" height="512"><span>Chicanos Por La Causa</span></a></div>
+  </div>
 </section>
 <section class="container alt">
   <div class="wrap" style="max-width:900px">
