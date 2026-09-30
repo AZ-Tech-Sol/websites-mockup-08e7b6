@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>We build it, you run your business — AZ Tech Solutions (mockup)</title>
+<title>The Clockwork Desk — AZ Tech Solutions (mockup)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -272,7 +272,29 @@
   .partners a.pf{font-size:13px}
   @media (prefers-reduced-motion:reduce){a.pf img,a.pf .roll{transition:none}}
 </style>
-</head>
+<style>
+  .flow{display:flex;align-items:stretch;gap:8px;flex-wrap:wrap;justify-content:center}
+  .flow{flex-wrap:nowrap}
+  .fstep{background:var(--carbon);border:1px solid var(--line);border-radius:10px;padding:14px 12px;flex:1 1 0;min-width:0;display:grid;gap:2px;align-content:center;text-align:center}
+  .fstep b{font:700 16px "Exo 2";color:var(--fog)} .fstep span{font-size:13px;color:var(--body)}
+  .fstep.hl{border-color:var(--blue)} .fstep.amberb{border-color:rgba(254,153,1,.6)} .fstep.amberb b{color:var(--amber)}
+  .fstep.split{grid-template-columns:auto auto;column-gap:10px;text-align:left}
+  .farrow{align-self:center;color:var(--blue);font:700 22px "Exo 2"}
+  @media (max-width:900px){.farrow{transform:rotate(90deg)}.flow{flex-direction:column;align-items:stretch}}
+  .bots{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+  @media (max-width:1100px){.bots{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media (max-width:600px){.bots{grid-template-columns:1fr}}
+  .bot{background:#131d2a;border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+  .bot img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;display:block}
+  .botbody{padding:18px 18px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .botbody h3{font-size:26px;margin:0} .botbody p{margin:0;font-size:14.5px}
+  .botmail{margin-top:auto;font:600 13px Inter;color:var(--blue)}
+  .files{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+  @media (max-width:1100px){.files{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media (max-width:600px){.files{grid-template-columns:1fr}}
+  .fcard{background:var(--carbon);border:1px solid var(--line);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:16px 18px}
+  .fcard b{font:700 17px "Exo 2";color:var(--fog)} .fcard p{margin:6px 0 0;font-size:14.5px}
+</style></head>
 <body>
 <div class="mockbar">MOCKUP · not the live site · ruled 2026-09-30 in Four Doors v11 · only Free and Starter show prices; the rest are emailed</div>
 <div class="utility"><div class="wrap"><a target="_blank" rel="noopener" href="https://aztechsol.com/office-hours/">Office Hours</a><span></span></div></div>
@@ -282,91 +304,91 @@
     <nav><a target="_blank" rel="noopener" href="https://aztechsol.com/">HOME</a><a target="_blank" rel="noopener" href="https://aztechsol.com/the-method/">OUR METHOD</a><a target="_blank" rel="noopener" href="https://aztechsol.com/our-work/">OUR WORK</a><a target="_blank" rel="noopener" href="https://aztechsol.com/articles/">OUR BLOG</a><a target="_blank" rel="noopener" href="https://aztechsol.com/team/">OUR TEAM</a></nav>
   </div>
 </header>
-<section class="container hero" style="padding-bottom:36px">
-  <div class="wrap typehero">
+<section class="container hero">
+  <div class="wrap herogrid">
+    <img class="heroart" src="assets/ai-software.svg" alt="A robot at a desk under a clockwork wall clock" width="1024" height="1024">
     <div>
-      <div class="crumbs"><a href="index.html">Websites</a> › We build it, you run your business</div>
-      <div class="eyebrow">A storefront built from a conversation. Nobody has to edit it.</div>
-      <h1 style="font-size:clamp(32px,4.6vw,50px);max-width:860px;margin:0 0 .4em">We build it, you run your business</h1>
-      <p class="lead">Two ways to get a site without learning to run one. We meet once or twice, turn the conversation into your site, and host it for free. The only difference is where our credit sits.</p>
-    </div>
-    <img class="typeart big" src="assets/type-build.svg" alt="A fruit cart under a striped umbrella" width="1024" height="1024">
-  </div>
-</section>
-<section class="container" style="padding-top:0">
-  <div class="wrap"><div class="row pair">
-      <div class="card door full " id="free">
-        <img class="doorimg" src="assets/door-free.svg" alt="" width="1024" height="1024">
-        <div class="techhost"><svg class="lg" width="30" height="30" fill="#E34F26" aria-label="HTML5" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>HTML5</title><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/></svg><span class="sep"></span><span class="lgrow"><svg class="lg" width="34" height="34" fill="#EEF3F7" aria-label="GitHub" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span class="lglab">Hosted free on GitHub</span></span></div>
-        <div class="who">A cart under our umbrella</div>
-        <h3 style="font-size:28px;margin:6px 0 4px">Free Site</h3>
-        <p class="tag">For Arizona businesses that need a storefront online, fast.</p>
-        <div class="price"><small>Your cost</small><strong>$0</strong> <span>credit on top</span></div>
-        <div class="edits">Paid for by a slim AZ Tech credit bar at the top of every page.</div>
-        <span class="fit"><span class="fitlab">Right for you if</span><span class="fi">You need to be found on Google, fast</span><span class="fi">You don't want to learn to edit a website</span><span class="fi">A few pages says it all: what you do, your hours, how to reach you</span></span>
-        <ul><li>One or two meetings; we build it from the conversation</li><li>You own your domain; we host it free</li><li>Brochure pages and a simple contact form</li><li>An invite to <a href="join.html" target="_blank" rel="noopener">AZ Professional Partners</a>, our Tucson business Slack</li><li class="no">No checkout on the site: take payments through Venmo, Cash App or PayPal</li><li class="no">Changes after launch are paid</li></ul>
-        <div class="own"><span class="ownlab">You own it</span>The site lives in a GitHub repo you can clone any time. It's yours.</div>
-        <a class="btn ghost" target="_blank" rel="noopener" href="https://n8n.aztechsol.com/form/1ee1be18-95a0-44d8-9da6-bd5c12dc12ef" data-door-cta="free">Get started</a>
-        <div class="fine">Arizona businesses, plus anyone we invite</div>
-      </div>
-      <div class="card door full " id="starter">
-        <img class="doorimg" src="assets/door-starter.svg" alt="" width="1024" height="1024">
-        <div class="techhost"><svg class="lg" width="30" height="30" fill="#E34F26" aria-label="HTML5" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>HTML5</title><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/></svg><span class="sep"></span><span class="lgrow"><svg class="lg" width="34" height="34" fill="#EEF3F7" aria-label="GitHub" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span class="lglab">Hosted free on GitHub</span></span></div>
-        <div class="who">Your own cart, your name on the umbrella</div>
-        <h3 style="font-size:28px;margin:6px 0 4px">Starter Site</h3>
-        <p class="tag">The free site, with our credit moved down to your footer.</p>
-        <div class="price"><small>One time</small><strong>$800</strong></div>
-        <div class="edits">Same build and hosting as Free. The top of every page is all yours.</div>
-        <span class="fit"><span class="fitlab">Right for you if</span><span class="fi">You want your own name on top, not ours</span><span class="fi">You want it built once and done</span><span class="fi">You need the same simple site as Free, without our banner</span></span>
-        <ul><li>One or two meetings; we build it from the conversation</li><li>A small AZ Tech line in the footer, nothing on top</li><li>Hosted free, and you own your domain</li><li class="no">Changes after launch are paid</li></ul>
-        <div class="own"><span class="ownlab">You own it</span>Same as Free: clone the repo any time, and the site goes with you.</div>
-        <a class="btn primary" target="_blank" rel="noopener" href="https://n8n.aztechsol.com/form/1ee1be18-95a0-44d8-9da6-bd5c12dc12ef" data-door-cta="starter">Get started</a>
-        <div class="fine">Books a conversation at Office Hours</div>
-      </div>
-  </div></div>
-</section>
-
-<section class="container" id="ai" style="padding-top:10px">
-  <div class="wrap">
-    <div class="card aisection">
-      <div>
-        <div class="eyebrow" style="color:var(--amber)">The AI tier</div>
-        <h2 style="font-size:30px;margin-bottom:8px">AI Edits</h2>
-        <p style="margin:0 0 14px;max-width:62ch">For Free and Starter sites. Instead of paying for each change, you get a retainer with our AI: send it an email saying what to change (new hours, a new photo, a new page in your design) and it makes the change, with Angel supervising.</p>
-        <ul class="aiul"><li>Changes by email, as often as you need them</li><li>Cheaper than a retainer with Angel</li><li>Angel supervises every change</li></ul>
-        <div class="fine" style="text-align:left">Prices are emailed, so they can change as the AI gets better.</div>
-      </div>
-      <div class="aiside">
-        <img class="aiimg" src="assets/ai-build.svg" alt="" width="1024" height="1024">
-        <p class="ask" style="margin-top:0">Prices are emailed.</p>
-        <a class="btn primary" target="_blank" rel="noopener" href="https://n8n.aztechsol.com/form/1ee1be18-95a0-44d8-9da6-bd5c12dc12ef" data-door-cta="ai-build">Email me the prices</a>
-        <a class="btn outline" href="clockwork.html">Meet the Clockwork Desk →</a>
-      </div>
+      <div class="crumbs"><a href="index.html">Websites</a> › The Clockwork Desk</div>
+      <div class="eyebrow" style="color:var(--amber)">AI employees, supervised by a person</div>
+      <h1 style="margin:0 0 .4em">The Clockwork Desk</h1>
+      <p class="lead">Four AI employees run the day-to-day behind every AZ Tech site: one front desk that reads your email, and three specialists it hands work to. Every one of them works from written files you could read, and Angel supervises all of it.</p>
+      <div class="question"><b>✉</b> Email <span style="color:var(--blue);margin:0 4px">hector@aztechsol.com</span> and the desk takes it from there</div>
     </div>
   </div>
 </section>
 
-<!-- PORTFOLIO · Avada: [fusion_portfolio cat_slug="door-build" layout="grid" columns="3"] once the items carry that category -->
-<section class="container">
+<section class="container" style="padding-top:10px">
   <div class="wrap">
-    <div class="eyebrow">Reputation</div>
-    <h2 style="font-size:30px;margin-bottom:6px">Owners who trust us with their storefront</h2>
-    <p style="margin:0 0 22px;color:var(--lsteel)">Free and Starter sites we built and host on GitHub.</p>
-    <div class="pfgrid"><a class="pf" target="_blank" rel="noopener" href="https://az-tech-sol.github.io/nessa-tags-mockup/"><img loading="lazy" src="assets/card-nessa.jpg" alt="Nessa" width="768" height="512"><span class="roll">Nessa</span></a><a class="pf" target="_blank" rel="noopener" href="https://djangelic.github.io/roadwrenches/"><img loading="lazy" src="assets/card-roadwrenches.jpg" alt="Road Wrenches" width="768" height="512"><span class="roll">Road Wrenches</span></a><a class="pf" target="_blank" rel="noopener" href="https://bertysoundandvideo.com/"><img loading="lazy" src="assets/card-berty.jpg" alt="Berty Sound & Video" width="768" height="512"><span class="roll">Berty Sound & Video</span></a><a class="pf" target="_blank" rel="noopener" href="https://aztechsol.com/portfolio-items/the-smoking-lion/"><img loading="lazy" src="https://aztechsol.com/wp-content/uploads/2019/04/card-the-smoking-lion-768x512.jpg" alt="The Smoking Lion" width="768" height="512"><span class="roll">The Smoking Lion</span></a><a class="pf" target="_blank" rel="noopener" href="https://bewellequine.com/"><img loading="lazy" src="assets/card-helvey.jpg" alt="Be Well Equine" width="768" height="512"><span class="roll">Be Well Equine</span></a></div>
-    <div class="pfmore"><a class="btn amber" target="_blank" rel="noopener" href="https://aztechsol.com/our-work/">Browse the full portfolio →</a><a class="btn outline" target="_blank" rel="noopener" href="https://aztechsol.com/partners/">Meet the partners →</a></div>
+    <div class="center" style="margin-bottom:26px"><div class="eyebrow">How a message moves</div><h2 style="font-size:32px">One address, the right desk, a person's approval</h2></div>
+    <div class="flow">
+      <div class="fstep"><b>You</b><span>email a change, a question or a problem</span></div><div class="farrow">→</div>
+      <div class="fstep hl"><b>Hector</b><span>reads it and routes it</span></div><div class="farrow">→</div>
+      <div class="fstep split"><b>Lena</b><span>site changes</span><b>Otto</b><span>invoices</span><b>Bjorn</b><span>security</span></div><div class="farrow">→</div>
+      <div class="fstep"><b>A draft</b><span>the change, the invoice or the reply</span></div><div class="farrow">→</div>
+      <div class="fstep amberb"><b>Angel approves</b><span>then it goes out, or goes live</span></div>
+    </div>
   </div>
 </section>
+
 <section class="container alt">
-  <div class="wrap" style="max-width:900px">
-    <div class="eyebrow">Questions</div>
-    <h2 style="font-size:30px">Before you pick</h2>
-    <details><summary>Why is the Free Site free?</summary><p>You pay for it in advertising: a slim line at the top of every page that says AZ Tech built it. You own your domain and we host it at no cost to you. At the end you get an invoice showing what the site is worth, $800, with the full amount waived.</p></details><details><summary>What's the difference between Free and Starter?</summary><p>Only where our credit sits. Free has a slim bar across the top of every page; Starter moves it to a small line in your footer, so your header is all yours. Same site, same free hosting.</p></details><details><summary>Can I sell things on my site?</summary><p>Yes, but you can't take payments on these sites. List what you sell and link out to a payment platform like Venmo, Cash App or PayPal, and your customers pay there. If you need a full store with a checkout, we build it on the right platform for it.</p></details><details><summary>What if I want changes later?</summary><p>Every change has a price we tell you up front, or you can add AI Edits for unlimited content changes. We email you the current prices.</p></details>
+  <div class="wrap">
+    <div class="center" style="margin-bottom:30px"><div class="eyebrow">Meet the desk</div><h2 style="font-size:32px">Four employees, one job each</h2></div>
+    <div class="bots">
+      <div class="bot">
+        <img src="assets/bot-hector.svg" alt="Hector, The front desk" width="1024" height="1024">
+        <div class="botbody">
+          <div class="who">The front desk</div>
+          <h3>Hector</h3>
+          <p>Reads every email a client sends, answers what he can, and hands the rest to the right desk. He drafts every reply; nothing leaves until Angel approves it.</p>
+          <ul class="tfit"><li>Reads and sorts every client email</li><li>Routes it: site changes to Lena, invoices to Otto, security to Bjorn</li><li>Drafts the reply for Angel to approve</li></ul>
+          <div class="botmail">hector@aztechsol.com</div>
+        </div>
+      </div>
+      <div class="bot">
+        <img src="assets/bot-lena.svg" alt="Lena, Web design and your site" width="1024" height="1024">
+        <div class="botbody">
+          <div class="who">Web design and your site</div>
+          <h3>Lena</h3>
+          <p>Makes the website change you asked for, builds mockups, and keeps your brand consistent. Changes are staged first, and Angel approves them before they go live.</p>
+          <ul class="tfit"><li>Edits pages, photos, hours and listings</li><li>Designs mockups before anything is built</li><li>Keeps your site on-brand and current</li></ul>
+          <div class="botmail">Through Hector</div>
+        </div>
+      </div>
+      <div class="bot">
+        <img src="assets/bot-otto.svg" alt="Otto, Invoices and billing" width="1024" height="1024">
+        <div class="botbody">
+          <div class="who">Invoices and billing</div>
+          <h3>Otto</h3>
+          <p>Keeps every dollar visible: drafts invoices and estimates, tracks what's paid and what isn't, and flags anything owed. Sending an invoice is always Angel's call.</p>
+          <ul class="tfit"><li>Drafts invoices and estimates</li><li>Tracks what's paid and what's owed</li><li>Answers billing questions through Hector</li></ul>
+          <div class="botmail">Through Hector</div>
+        </div>
+      </div>
+      <div class="bot">
+        <img src="assets/bot-bjorn.svg" alt="Bjorn, Security and uptime" width="1024" height="1024">
+        <div class="botbody">
+          <div class="who">Security and uptime</div>
+          <h3>Bjorn</h3>
+          <p>Watches your site the way our founder watched enterprise networks: updates, backups, uptime and anything that looks wrong, reported before you have to ask.</p>
+          <ul class="tfit"><li>Watches uptime, backups and updates</li><li>Looks into anything that seems wrong</li><li>Reports clearly, and early</li></ul>
+          <div class="botmail">Through Hector</div>
+        </div>
+      </div></div>
   </div>
 </section>
+
 <section class="container">
   <div class="wrap">
-    <h2 style="font-size:26px;margin-bottom:18px">Not quite right? The other kinds</h2>
-    <div class="others"><a class="card door doorlink" href="keep.html"><span class="dtitle" style="font-size:20px">You keep it up to date</span><span class="tag">For owners and teams who make their own changes.</span><span class="go">Open <b aria-hidden="true">→</b></span></a><a class="card door doorlink" href="software.html"><span class="dtitle" style="font-size:20px">People use it</span><span class="tag">Software your customers log into and do things with.</span><span class="go">Open <b aria-hidden="true">→</b></span></a></div>
+    <div class="center" style="margin-bottom:30px"><div class="eyebrow">Everything is a file</div><h2 style="font-size:32px">Nothing hidden in a black box</h2><p class="lead">The desk doesn't run on a mystery. It runs on files: plain documents a person can open, read and change.</p></div>
+    <div class="files"><div class="fcard"><b>Every employee has a written job</b><p>Each one runs from a prompt file: its job, its rules and the tools it may use, written down and readable by a person. Change the file and you change the employee.</p></div><div class="fcard"><b>Every request becomes a paper</b><p>Your email becomes a file in the right employee's inbox. It moves from desk to desk as a file, so where it is and who has it is never a mystery.</p></div><div class="fcard"><b>Memory you can read</b><p>Each desk keeps its memory in a docket file: what it did, what was decided, what it owes. Nothing lives only in a model's head.</p></div><div class="fcard"><b>A receipt for everything</b><p>Every action leaves a line on the paper that asked for it, with the time. Supervision means Angel can check any of it, any time.</p></div><div class="fcard"><b>Only a person presses send</b><p>The AI drafts; a person sends. Emails, invoices and changes to a live site wait for Angel's approval. That rule is written into every employee's file.</p></div></div>
+  </div>
+</section>
+
+<section class="container alt">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:24px"><div class="eyebrow">For your business</div><h2 style="font-size:30px">We build desks like this for clients</h2><p class="lead">Lupita answers CPLC's community in English and Spanish. VIKI reviews a convention app's catalogue every night and posts what it finds to the team's Slack. Yours would be named, trained on your business, and supervised the same way.</p></div>
+    <div class="pfgrid" style="grid-template-columns:repeat(auto-fill,minmax(300px,1fr));max-width:680px;margin:0 auto"><a class="pf" target="_blank" rel="noopener" href="https://aztechsol.com/portfolio-items/lupita-cplc-ai-assistant/"><img loading="lazy" src="https://aztechsol.com/wp-content/uploads/2026/07/card-lupita-avatar-768x512.jpg" alt="Lupita — Bilingual AI Assistant for CPLC" width="768" height="512"><span class="roll">Lupita — Bilingual AI Assistant for CPLC</span></a><a class="pf" target="_blank" rel="noopener" href="https://aztechsol.com/portfolio-items/convibe-case-study/"><img loading="lazy" src="https://aztechsol.com/wp-content/uploads/2026/07/card-convibe-case-study-768x512.jpg" alt="Convibe — the method, shipped" width="768" height="512"><span class="roll">Convibe — the method, shipped</span></a></div>
+    <div class="pfmore" style="justify-content:center"><a class="btn primary" target="_blank" rel="noopener" href="https://calendly.com/aztechsol/strategy-hour">Book a strategy call</a></div>
   </div>
 </section>
 <footer><div class="wrap"><span>© 2026 AZ Technology Solutions · Tucson, Arizona</span><span>Our Business Powers Your AI.</span></div></footer><script>

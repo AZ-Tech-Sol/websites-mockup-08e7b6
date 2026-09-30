@@ -146,7 +146,7 @@ DOORS = {
    edits='Same build and hosting as Free. The top of every page is all yours.',
    items=[('One or two meetings; we build it from the conversation',0),('A small AZ Tech line in the footer, nothing on top',0),('Hosted free, and you own your domain',0),('Changes after launch are paid',1)],
    btn='Get started', href=TW, fine='Books a conversation at Office Hours', logos=(['github'],'Hosted on GitHub')),
- 'ownit': dict(type='keep', who='A storefront you tend', title='Own-It Site', tag='For the solo owner who wants to make changes without calling anyone.',
+ 'ownit': dict(type='keep', who='A storefront you tend', title='Solo Site', tag='For the solo owner who wants to make changes without calling anyone.',
    price='<p class="ask">Pay once, and then it\'s yours.</p>',
    edits='Built on Publii: a site you edit on your own laptop, with hosting that costs next to nothing.',
    items=[('Your brand, set up in a site you edit yourself',0),("A teaching session so you're independent from day one",0),('Fast, simple and nothing to hack',0),('Optional retainer meetings after launch',0)],
@@ -170,8 +170,8 @@ TYPES = {
         ('Can I sell things on my site?',"Yes, but you can't take payments on these sites. List what you sell and link out to a payment platform like Venmo, Cash App or PayPal, and your customers pay there. If you need a full store with a checkout, we build it on the right platform for it."),
         ('What if I want changes later?','Every change has a price we tell you up front, or you can add AI Edits for unlimited content changes. We email you the current prices.')]),
  'keep': dict(img='assets/type-keep.svg', alt='A small shop storefront with a striped awning', file='keep.html', title='You keep it up to date', sub='For owners and teams who make their own changes.', doors=['ownit','team'],
-   intro='Sites you run yourself. Own-It is for one person who wants to make their own changes with no monthly bill. Team is for several people publishing on a site that has to be watched. We email you today\'s prices, so you always get current numbers for your business.',
-   faq=[("What's the difference between Own-It and Team?","Own-It is for one person making their own changes, and there's no monthly bill. Team is for several people editing a live site that has to be watched, so it comes with monthly monitoring and maintenance."),
+   intro='Sites you run yourself. Solo is for one person who wants to make their own changes with no monthly bill. Team is for several people publishing on a site that has to be watched. We email you today\'s prices, so you always get current numbers for your business.',
+   faq=[("What's the difference between Solo and Team?","Solo is for one person making their own changes, and there's no monthly bill. Team is for several people editing a live site that has to be watched, so it comes with monthly monitoring and maintenance."),
         ('Does the Team monthly include changes?','No. It keeps the site safe, updated and running. Changes are separate: pay for each one, or add AI Edits for unlimited changes.'),
         ('Why do you email the prices?',"So you get today's numbers for your business, not a table that went stale. Fill in the short form and they arrive by email, with a time to talk."),
         ('Who owns my domain and my content?','You do. If you ever leave, your name and your words go with you.')]),
@@ -220,7 +220,7 @@ AI = {  # the AI tier beside each site type; every AI tier works under Angel's s
    items=['Changes by email, as often as you need them','Cheaper than a retainer with Angel','Angel supervises every change'],
    note='Prices are emailed, so they can change as the AI gets better.'),
  'keep': dict(who='The AI tier', title='Supervised AI Care', tag='A retainer where our AI makes the changes for you, and Angel supervises.',
-   body='For Own-It and Team sites. You tell us what you want, in a meeting or an email, and our AI does the work on your site under Angel\'s supervision. What supervision means will grow as the AI does, but a person always signs off.',
+   body='For Solo and Team sites. You tell us what you want, in a meeting or an email, and our AI does the work on your site under Angel\'s supervision. What supervision means will grow as the AI does, but a person always signs off.',
    items=['Our AI makes the changes; you don\'t have to','Angel supervises every change','Meetings are recorded, and the AI works from them'],
    note='Team sites can also add an AI employee from the Clockwork Desk.'),
  'software': dict(who='The AI tier', title='AI Employees · the Clockwork Desk', tag='A custom AI that joins your team, with a name, a job and Angel supervising it.',
@@ -242,6 +242,7 @@ def ai_section(k):
     a = AI[k]
     lis = ''.join(f'<li>{x}</li>' for x in a['items'])
     link = f'<a class="btn outline" {EXT} href="{a["link"][1]}">{a["link"][0]}</a>' if a.get('link') else ''
+    link += '<a class="btn outline" href="clockwork.html">Meet the Clockwork Desk →</a>'
     note = f'<div class="fine" style="text-align:left">{a["note"]}</div>' if a['note'] else ''
     return f'''
 <section class="container" id="ai" style="padding-top:10px">
@@ -310,7 +311,7 @@ TYPELOGOS = {'build': (['github'], 'Hosted free on GitHub'), 'keep': (['github',
 TYPEWHO = {'build': 'A cart on the corner', 'keep': 'A storefront on the street', 'software': 'A building where the work gets done'}
 INSIDE = {
  'build': [('Free Site', '$0 · our credit on top', ['html5'], None), ('Starter Site', '$800 · credit in the footer', ['html5'], None), ('AI Edits', 'changes by email · prices emailed', ['aztech'], None)],
- 'keep': [('Own-It Site', 'you edit it · no monthly bill', ['publii'], None), ('Team Site', 'a build plus a monthly', ['wordpress'], None), ('Supervised AI Care', 'our AI makes the changes · Angel supervises', ['aztech'], None)],
+ 'keep': [('Solo Site', 'you edit it · no monthly bill', ['publii'], None), ('Team Site', 'a build plus a monthly', ['wordpress'], None), ('Supervised AI Care', 'our AI makes the changes · Angel supervises', ['aztech'], None)],
  'software': [('Custom App', 'on the App Store and Google Play · priced after a conversation', ['apple','android'], ['react','javascript','python','graphql','n8n']), ('AI Employees', 'the Clockwork Desk · Angel supervises', ['aztech'], None)],
 }
 
@@ -455,6 +456,116 @@ hub = f'''
 (R / 'index.html').write_text(page('Your Storefront Online — AZ Tech Solutions (mockup)', hub, TRACK))
 (R / 'square.html').write_text(page('Your Storefront Online — AZ Tech Solutions (mockup)', hub, TRACK))
 
+
+# ── the Clockwork Desk page (mockup; the real page comes later on aztechsol.com)
+BOTS = [
+ dict(slug='hector', name='Hector', role='The front desk', mail='hector@aztechsol.com',
+      body="Reads every email a client sends, answers what he can, and hands the rest to the right desk. He drafts every reply; nothing leaves until Angel approves it.",
+      does=['Reads and sorts every client email','Routes it: site changes to Lena, invoices to Otto, security to Bjorn','Drafts the reply for Angel to approve']),
+ dict(slug='lena', name='Lena', role='Web design and your site', mail='Through Hector',
+      body="Makes the website change you asked for, builds mockups, and keeps your brand consistent. Changes are staged first, and Angel approves them before they go live.",
+      does=['Edits pages, photos, hours and listings','Designs mockups before anything is built','Keeps your site on-brand and current']),
+ dict(slug='otto', name='Otto', role='Invoices and billing', mail='Through Hector',
+      body="Keeps every dollar visible: drafts invoices and estimates, tracks what's paid and what isn't, and flags anything owed. Sending an invoice is always Angel's call.",
+      does=['Drafts invoices and estimates','Tracks what\'s paid and what\'s owed','Answers billing questions through Hector']),
+ dict(slug='bjorn', name='Bjorn', role='Security and uptime', mail='Through Hector',
+      body="Watches your site the way our founder watched enterprise networks: updates, backups, uptime and anything that looks wrong, reported before you have to ask.",
+      does=['Watches uptime, backups and updates','Looks into anything that seems wrong','Reports clearly, and early']),
+]
+FILES = [
+ ('Every employee has a written job', "Each one runs from a prompt file: its job, its rules and the tools it may use, written down and readable by a person. Change the file and you change the employee."),
+ ('Every request becomes a paper', "Your email becomes a file in the right employee's inbox. It moves from desk to desk as a file, so where it is and who has it is never a mystery."),
+ ('Memory you can read', "Each desk keeps its memory in a docket file: what it did, what was decided, what it owes. Nothing lives only in a model's head."),
+ ('A receipt for everything', "Every action leaves a line on the paper that asked for it, with the time. Supervision means Angel can check any of it, any time."),
+ ('Only a person presses send', "The AI drafts; a person sends. Emails, invoices and changes to a live site wait for Angel's approval. That rule is written into every employee's file."),
+]
+def clockwork_page():
+    cards = ''.join(f"""
+      <div class="bot">
+        <img src="assets/bot-{b['slug']}.svg" alt="{b['name']}, {b['role']}" width="1024" height="1024">
+        <div class="botbody">
+          <div class="who">{b['role']}</div>
+          <h3>{b['name']}</h3>
+          <p>{b['body']}</p>
+          <ul class="tfit">{''.join(f'<li>{x}</li>' for x in b['does'])}</ul>
+          <div class="botmail">{b['mail']}</div>
+        </div>
+      </div>""" for b in BOTS)
+    files = ''.join(f'<div class="fcard"><b>{h}</b><p>{p}</p></div>' for h, p in FILES)
+    return f"""
+<section class="container hero">
+  <div class="wrap herogrid">
+    <img class="heroart" src="assets/ai-software.svg" alt="A robot at a desk under a clockwork wall clock" width="1024" height="1024">
+    <div>
+      <div class="crumbs"><a href="index.html">Websites</a> › The Clockwork Desk</div>
+      <div class="eyebrow" style="color:var(--amber)">AI employees, supervised by a person</div>
+      <h1 style="margin:0 0 .4em">The Clockwork Desk</h1>
+      <p class="lead">Four AI employees run the day-to-day behind every AZ Tech site: one front desk that reads your email, and three specialists it hands work to. Every one of them works from written files you could read, and Angel supervises all of it.</p>
+      <div class="question"><b>✉</b> Email <span style="color:var(--blue);margin:0 4px">hector@aztechsol.com</span> and the desk takes it from there</div>
+    </div>
+  </div>
+</section>
+
+<section class="container" style="padding-top:10px">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:26px"><div class="eyebrow">How a message moves</div><h2 style="font-size:32px">One address, the right desk, a person's approval</h2></div>
+    <div class="flow">
+      <div class="fstep"><b>You</b><span>email a change, a question or a problem</span></div><div class="farrow">→</div>
+      <div class="fstep hl"><b>Hector</b><span>reads it and routes it</span></div><div class="farrow">→</div>
+      <div class="fstep split"><b>Lena</b><span>site changes</span><b>Otto</b><span>invoices</span><b>Bjorn</b><span>security</span></div><div class="farrow">→</div>
+      <div class="fstep"><b>A draft</b><span>the change, the invoice or the reply</span></div><div class="farrow">→</div>
+      <div class="fstep amberb"><b>Angel approves</b><span>then it goes out, or goes live</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="container alt">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:30px"><div class="eyebrow">Meet the desk</div><h2 style="font-size:32px">Four employees, one job each</h2></div>
+    <div class="bots">{cards}</div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:30px"><div class="eyebrow">Everything is a file</div><h2 style="font-size:32px">Nothing hidden in a black box</h2><p class="lead">The desk doesn't run on a mystery. It runs on files: plain documents a person can open, read and change.</p></div>
+    <div class="files">{files}</div>
+  </div>
+</section>
+
+<section class="container alt">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:24px"><div class="eyebrow">For your business</div><h2 style="font-size:30px">We build desks like this for clients</h2><p class="lead">Lupita answers CPLC's community in English and Spanish. VIKI reviews a convention app's catalogue every night and posts what it finds to the team's Slack. Yours would be named, trained on your business, and supervised the same way.</p></div>
+    <div class="pfgrid" style="grid-template-columns:repeat(auto-fill,minmax(300px,1fr));max-width:680px;margin:0 auto">{tiles([2798, 3234])}</div>
+    <div class="pfmore" style="justify-content:center"><a class="btn primary" {EXT} href="{SH}">Book a strategy call</a></div>
+  </div>
+</section>
+"""
+CWCSS = """<style>
+  .flow{display:flex;align-items:stretch;gap:8px;flex-wrap:wrap;justify-content:center}
+  .flow{flex-wrap:nowrap}
+  .fstep{background:var(--carbon);border:1px solid var(--line);border-radius:10px;padding:14px 12px;flex:1 1 0;min-width:0;display:grid;gap:2px;align-content:center;text-align:center}
+  .fstep b{font:700 16px "Exo 2";color:var(--fog)} .fstep span{font-size:13px;color:var(--body)}
+  .fstep.hl{border-color:var(--blue)} .fstep.amberb{border-color:rgba(254,153,1,.6)} .fstep.amberb b{color:var(--amber)}
+  .fstep.split{grid-template-columns:auto auto;column-gap:10px;text-align:left}
+  .farrow{align-self:center;color:var(--blue);font:700 22px "Exo 2"}
+  @media (max-width:900px){.farrow{transform:rotate(90deg)}.flow{flex-direction:column;align-items:stretch}}
+  .bots{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+  @media (max-width:1100px){.bots{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media (max-width:600px){.bots{grid-template-columns:1fr}}
+  .bot{background:#131d2a;border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+  .bot img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;display:block}
+  .botbody{padding:18px 18px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .botbody h3{font-size:26px;margin:0} .botbody p{margin:0;font-size:14.5px}
+  .botmail{margin-top:auto;font:600 13px Inter;color:var(--blue)}
+  .files{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+  @media (max-width:1100px){.files{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media (max-width:600px){.files{grid-template-columns:1fr}}
+  .fcard{background:var(--carbon);border:1px solid var(--line);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:16px 18px}
+  .fcard b{font:700 17px "Exo 2";color:var(--fog)} .fcard p{margin:6px 0 0;font-size:14.5px}
+</style>"""
+(R / 'clockwork.html').write_text(page('The Clockwork Desk — AZ Tech Solutions (mockup)', clockwork_page(), TRACK).replace('</head>', CWCSS + '</head>', 1))
+
 for k, t in TYPES.items():
     pair = 'pair' if len(t['doors']) > 1 else 'c1'
     others = ''.join(f'<a class="card door doorlink" href="{o["file"]}"><span class="dtitle" style="font-size:20px">{o["title"]}</span><span class="tag">{o["sub"]}</span><span class="go">Open <b aria-hidden="true">→</b></span></a>' for kk, o in TYPES.items() if kk != k)
@@ -489,4 +600,4 @@ for k, t in TYPES.items():
 </section>
 '''
     (R / t['file']).write_text(page(f"{t['title']} — AZ Tech Solutions (mockup)", body, TRACK))
-print('built:', ', '.join(['index.html', 'square.html'] + [t['file'] for t in TYPES.values()]))
+print('built:', ', '.join(['index.html', 'square.html', 'clockwork.html'] + [t['file'] for t in TYPES.values()]))

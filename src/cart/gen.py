@@ -4,11 +4,10 @@ UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 14_0) AppleWebKit/537.36 Chrome/126
 BASE = ("flat vector illustration, clean geometric shapes, limited palette of bright blue #009EFF, deep royal blue #0039B8, "
         "warm amber orange #FE9901 and off-white, on a plain very dark navy background #0E121A, subtle glow, modern tech brand style, no text, no letters, no people. ")
 P = {
- 'starter-cart': "A single street fruit cart filling most of the frame, a large umbrella in amber orange and royal blue, crates of oranges and apples, and a blank wooden sign board hanging proudly on the front of the cart, standing on a corner of off-white sidewalk tiles with a blue curb, large and centered.",
- 'team-shop': "A single two-storey shop building filling most of the frame, a wide striped awning in blue and off-white, two big display windows with goods, an open double door, a second floor with lit windows, standing on a corner of off-white sidewalk tiles with a blue curb, large and centered.",
- 'ai-edits': "A glowing paper envelope with small motion lines flying toward a small street fruit cart with a striped umbrella, tiny sparkles where it arrives, standing on off-white sidewalk tiles, playful metaphor for emailing a change that gets made automatically, large and centered.",
- 'ai-care': "A small friendly rounded robot on a short ladder repainting the sign board above a small shop storefront with a striped awning, a clipboard with a check mark resting at the foot of the ladder, standing on off-white sidewalk tiles, large and centered.",
- 'ai-employee': "A small friendly rounded robot sitting at a tidy desk with a laptop, a large round wall clock with visible gears behind it, inside a modern industrial building interior with big windows glowing amber, large and centered.",
+ 'bot-hector': "A friendly rounded robot receptionist at a front desk sorting a stack of glowing envelopes into three labeled-by-color trays, a small bell on the desk, large and centered, standing on off-white floor tiles.",
+ 'bot-lena': "A friendly rounded robot designer holding a paintbrush, repainting the striped awning of a small shop storefront, a color palette in its other hand, large and centered, standing on off-white sidewalk tiles.",
+ 'bot-otto': "A friendly rounded robot bookkeeper at a small desk with an open ledger book, a stack of coins and a calculator, a paper invoice with a check mark, large and centered, on off-white floor tiles.",
+ 'bot-bjorn': "A friendly rounded robot security guard holding a large glowing shield with a keyhole, standing in front of a small server rack with blinking lights, large and centered, on off-white floor tiles.",
 }
 def gen(item):
     name, p = item
