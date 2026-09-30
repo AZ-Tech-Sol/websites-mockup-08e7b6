@@ -264,7 +264,7 @@ hub = f'''
 <!-- PARTNERS · Avada: [fusion_portfolio cat_slug="partners" columns="5"] -->
 <section class="container" style="padding-top:10px">
   <div class="wrap">
-    <div class="eyebrow">Partners</div>
+    <div class="eyebrow">Building community with us</div>
     <h2 style="font-size:28px;margin-bottom:18px">Businesses that partner with us</h2>
     <div class="partners">{tiles(PARTNERS)}</div>
     <div class="pfmore"><a class="btn outline" {EXT} href="https://aztechsol.com/partners/">Meet the partners →</a></div>
