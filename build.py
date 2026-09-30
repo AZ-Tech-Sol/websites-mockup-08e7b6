@@ -115,6 +115,12 @@ CSS = '''<style>
   .steps1{text-align:center;margin:28px 0 0;color:var(--lsteel);font:600 15px "Exo 2";letter-spacing:.02em}
   .steps1 b{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--royal);color:#fff;font-size:13px;margin-right:4px}
   .steps1 span{margin:0 10px;color:var(--steel)}
+  .doorimg{width:calc(100% + 48px);margin:-26px -24px 16px;height:260px;object-fit:contain;padding:10px 0;box-sizing:border-box;border-radius:10px 10px 0 0;display:block;background:#0b0f16}
+  .techhost{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:4px}
+  .techhost .lgrow{margin:0}
+  .techhost .sep{width:1px;height:26px;background:var(--line)}
+  .door.full .own{margin:10px 0 14px}
+  .aiimg{width:100%;max-width:280px;height:auto;border-radius:12px;display:block;margin-bottom:6px}
   .btn.amber{display:inline-block;background:#FE9901;color:#1a1200;box-shadow:none;font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:11px 18px}
   .btn.outline{display:inline-block;border:1.5px solid var(--blue);color:var(--blue);font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:10px 18px}
   .pfmore{margin-top:20px;display:flex;gap:12px;flex-wrap:wrap}
@@ -249,6 +255,7 @@ def ai_section(k):
         {note}
       </div>
       <div class="aiside">
+        <img class="aiimg" src="{AIIMG[k]}" alt="" width="1024" height="1024">
         <p class="ask" style="margin-top:0">Prices are emailed.</p>
         <a class="btn primary" {EXT} href="{TW}" data-door-cta="ai-{k}">Email me the prices</a>
         {link}
@@ -359,17 +366,31 @@ def summary(slug):
           <span class="go">{'See pricing' if slug in ('free','starter') else 'See what it includes'} <b aria-hidden="true">→</b></span>
         </a>'''
 
+
+DOORX = {  # sub-page extras per door: image, what it's built on, who hosts it, who it's for, what you keep
+ 'free': dict(img='assets/door-free.svg', tech=['html5'], host=(['github'],'Hosted free on GitHub'), fit='build', own='The site lives in a GitHub repo you can clone any time. It\'s yours.'),
+ 'starter': dict(img='assets/door-starter.svg', tech=['html5'], host=(['github'],'Hosted free on GitHub'), fit='starter', own='Same as Free: clone the repo any time, and the site goes with you.'),
+ 'ownit': dict(img='assets/door-ownit.svg', tech=['publii'], host=(['github'],'Hosted on GitHub'), fit='ownit', own='The Publii site files are yours, on your laptop and in your repo.'),
+ 'team': dict(img='assets/door-team.svg', tech=['wordpress'], host=(['wpengine'],'Hosted by AZ Tech on WP Engine'), fit='team', own='Export the whole WordPress site and its content whenever you want.'),
+ 'app': dict(img='assets/door-app.svg', tech=['apple','android'], host=(['aztech'],'Hosted and run by AZ Tech'), fit='app', own='The code and the data live in your accounts, not ours.'),
+}
+FIT['starter'] = ["You want your own name on top, not ours", "You want it built once and done", "You need the same simple site as Free, without our banner"]
+AIIMG = {'build': 'assets/ai-build.svg', 'keep': 'assets/ai-keep.svg', 'software': 'assets/ai-software.svg'}
 def full(slug):
     d = DOORS[slug]
     lis = ''.join(f'<li{" class=\"no\"" if n else ""}>{x}</li>' for x, n in d['items'])
     return f'''
       <div class="card door full {d.get('cls','')}" id="{slug}">
-        {logorow(*d['logos']) if d.get('logos') else ''}<div class="who">{d['who']}</div>
+        <img class="doorimg" src="{DOORX[slug]['img']}" alt="" width="1024" height="1024">
+        <div class="techhost">{''.join(logo(x, 30) for x in DOORX[slug]['tech'])}<span class="sep"></span>{logorow(*DOORX[slug]['host'])}</div>
+        <div class="who">{d['who']}</div>
         <h3 style="font-size:28px;margin:6px 0 4px">{d['title']}</h3>
         <p class="tag">{d['tag']}</p>
         {d['price']}
         <div class="edits">{d['edits']}</div>
+        {fitlist(DOORX[slug]['fit'])}
         <ul>{lis}</ul>
+        <div class="own"><span class="ownlab">You own it</span>{DOORX[slug]['own']}</div>
         <a class="btn {'ghost' if d.get('ghost') else 'primary'}" {EXT} href="{d['href']}" data-door-cta="{slug}">{d['btn']}</a>
         <div class="fine">{d['fine']}</div>
       </div>'''

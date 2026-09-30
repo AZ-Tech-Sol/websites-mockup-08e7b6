@@ -4,8 +4,11 @@ UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 14_0) AppleWebKit/537.36 Chrome/126
 BASE = ("flat vector illustration, clean geometric shapes, limited palette of bright blue #009EFF, deep royal blue #0039B8, "
         "warm amber orange #FE9901 and off-white, on a plain very dark navy background #0E121A, subtle glow, modern tech brand style, no text, no letters, no people. ")
 P = {
- 'hero-browser': "A large laptop or browser window frame standing like a doorway on off-white sidewalk tiles, and stepping out of the screen onto the street are a small fruit cart with a striped umbrella, a small shop storefront with an awning, and a small factory building with a sawtooth roof, glowing light spilling from the screen, the street becoming pixels at the screen's edge.",
- 'hero-pixels': "A small shop storefront with a striped awning on off-white sidewalk tiles, where the right half of the building dissolves into floating square pixels and glowing digital lines that rise up into a browser window outline, metaphor for a business going online.",
+ 'starter-cart': "A single street fruit cart filling most of the frame, a large umbrella in amber orange and royal blue, crates of oranges and apples, and a blank wooden sign board hanging proudly on the front of the cart, standing on a corner of off-white sidewalk tiles with a blue curb, large and centered.",
+ 'team-shop': "A single two-storey shop building filling most of the frame, a wide striped awning in blue and off-white, two big display windows with goods, an open double door, a second floor with lit windows, standing on a corner of off-white sidewalk tiles with a blue curb, large and centered.",
+ 'ai-edits': "A glowing paper envelope with small motion lines flying toward a small street fruit cart with a striped umbrella, tiny sparkles where it arrives, standing on off-white sidewalk tiles, playful metaphor for emailing a change that gets made automatically, large and centered.",
+ 'ai-care': "A small friendly rounded robot on a short ladder repainting the sign board above a small shop storefront with a striped awning, a clipboard with a check mark resting at the foot of the ladder, standing on off-white sidewalk tiles, large and centered.",
+ 'ai-employee': "A small friendly rounded robot sitting at a tidy desk with a laptop, a large round wall clock with visible gears behind it, inside a modern industrial building interior with big windows glowing amber, large and centered.",
 }
 def gen(item):
     name, p = item

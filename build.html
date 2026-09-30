@@ -254,6 +254,12 @@
   .steps1{text-align:center;margin:28px 0 0;color:var(--lsteel);font:600 15px "Exo 2";letter-spacing:.02em}
   .steps1 b{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--royal);color:#fff;font-size:13px;margin-right:4px}
   .steps1 span{margin:0 10px;color:var(--steel)}
+  .doorimg{width:calc(100% + 48px);margin:-26px -24px 16px;height:260px;object-fit:contain;padding:10px 0;box-sizing:border-box;border-radius:10px 10px 0 0;display:block;background:#0b0f16}
+  .techhost{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:4px}
+  .techhost .lgrow{margin:0}
+  .techhost .sep{width:1px;height:26px;background:var(--line)}
+  .door.full .own{margin:10px 0 14px}
+  .aiimg{width:100%;max-width:280px;height:auto;border-radius:12px;display:block;margin-bottom:6px}
   .btn.amber{display:inline-block;background:#FE9901;color:#1a1200;box-shadow:none;font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:11px 18px}
   .btn.outline{display:inline-block;border:1.5px solid var(--blue);color:var(--blue);font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:10px 18px}
   .pfmore{margin-top:20px;display:flex;gap:12px;flex-wrap:wrap}
@@ -290,22 +296,30 @@
 <section class="container" style="padding-top:0">
   <div class="wrap"><div class="row pair">
       <div class="card door full " id="free">
-        <span class="lgrow"><svg class="lg" width="34" height="34" fill="#EEF3F7" aria-label="GitHub" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span class="lglab">Hosted on GitHub</span></span><div class="who">A cart under our umbrella</div>
+        <img class="doorimg" src="assets/door-free.svg" alt="" width="1024" height="1024">
+        <div class="techhost"><svg class="lg" width="30" height="30" fill="#E34F26" aria-label="HTML5" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>HTML5</title><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/></svg><span class="sep"></span><span class="lgrow"><svg class="lg" width="34" height="34" fill="#EEF3F7" aria-label="GitHub" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span class="lglab">Hosted free on GitHub</span></span></div>
+        <div class="who">A cart under our umbrella</div>
         <h3 style="font-size:28px;margin:6px 0 4px">Free Site</h3>
         <p class="tag">For Arizona businesses that need a storefront online, fast.</p>
         <div class="price"><small>Your cost</small><strong>$0</strong> <span>credit on top</span></div>
         <div class="edits">Paid for by a slim AZ Tech credit bar at the top of every page.</div>
+        <span class="fit"><span class="fitlab">Right for you if</span><span class="fi">You need to be found on Google, fast</span><span class="fi">You don't want to learn to edit a website</span><span class="fi">A few pages says it all: what you do, your hours, how to reach you</span></span>
         <ul><li>One or two meetings; we build it from the conversation</li><li>You own your domain; we host it free</li><li>Brochure pages and a simple contact form</li><li>An invite to <a href="join.html" target="_blank" rel="noopener">AZ Professional Partners</a>, our Tucson business Slack</li><li class="no">No checkout on the site: take payments through Venmo, Cash App or PayPal</li><li class="no">Changes after launch are paid</li></ul>
+        <div class="own"><span class="ownlab">You own it</span>The site lives in a GitHub repo you can clone any time. It's yours.</div>
         <a class="btn ghost" target="_blank" rel="noopener" href="https://n8n.aztechsol.com/form/1ee1be18-95a0-44d8-9da6-bd5c12dc12ef" data-door-cta="free">Get started</a>
         <div class="fine">Arizona businesses, plus anyone we invite</div>
       </div>
       <div class="card door full " id="starter">
-        <span class="lgrow"><svg class="lg" width="34" height="34" fill="#EEF3F7" aria-label="GitHub" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span class="lglab">Hosted on GitHub</span></span><div class="who">Your own cart, your name on the umbrella</div>
+        <img class="doorimg" src="assets/door-starter.svg" alt="" width="1024" height="1024">
+        <div class="techhost"><svg class="lg" width="30" height="30" fill="#E34F26" aria-label="HTML5" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>HTML5</title><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/></svg><span class="sep"></span><span class="lgrow"><svg class="lg" width="34" height="34" fill="#EEF3F7" aria-label="GitHub" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span class="lglab">Hosted free on GitHub</span></span></div>
+        <div class="who">Your own cart, your name on the umbrella</div>
         <h3 style="font-size:28px;margin:6px 0 4px">Starter Site</h3>
         <p class="tag">The free site, with our credit moved down to your footer.</p>
         <div class="price"><small>One time</small><strong>$800</strong></div>
         <div class="edits">Same build and hosting as Free. The top of every page is all yours.</div>
+        <span class="fit"><span class="fitlab">Right for you if</span><span class="fi">You want your own name on top, not ours</span><span class="fi">You want it built once and done</span><span class="fi">You need the same simple site as Free, without our banner</span></span>
         <ul><li>One or two meetings; we build it from the conversation</li><li>A small AZ Tech line in the footer, nothing on top</li><li>Hosted free, and you own your domain</li><li class="no">Changes after launch are paid</li></ul>
+        <div class="own"><span class="ownlab">You own it</span>Same as Free: clone the repo any time, and the site goes with you.</div>
         <a class="btn primary" target="_blank" rel="noopener" href="https://n8n.aztechsol.com/form/1ee1be18-95a0-44d8-9da6-bd5c12dc12ef" data-door-cta="starter">Get started</a>
         <div class="fine">Books a conversation at Office Hours</div>
       </div>
@@ -323,6 +337,7 @@
         <div class="fine" style="text-align:left">Prices are emailed, so they can change as the AI gets better.</div>
       </div>
       <div class="aiside">
+        <img class="aiimg" src="assets/ai-build.svg" alt="" width="1024" height="1024">
         <p class="ask" style="margin-top:0">Prices are emailed.</p>
         <a class="btn primary" target="_blank" rel="noopener" href="https://n8n.aztechsol.com/form/1ee1be18-95a0-44d8-9da6-bd5c12dc12ef" data-door-cta="ai-build">Email me the prices</a>
         
