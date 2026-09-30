@@ -7,6 +7,7 @@ import pathlib
 R = pathlib.Path(__file__).parent
 part = lambda n: (R / 'src' / f'{n}.html').read_text()
 HEAD, STYLE, HEADER, FOOTER = part('head'), part('style'), part('header'), part('footer')
+CW_MARK = 'assets/rlc/mark.svg'  # the Clockwork Desk brandmark: the AZ Tech badge, gear glyph. Swap here.
 TW = 'https://n8n.aztechsol.com/form/1ee1be18-95a0-44d8-9da6-bd5c12dc12ef'
 SH = 'https://calendly.com/aztechsol/strategy-hour'
 OH = 'https://calendly.com/aztechsol/office-hours'
@@ -121,6 +122,7 @@ CSS = '''<style>
   .techhost .sep{width:1px;height:26px;background:var(--line)}
   .door.full .own{margin:10px 0 14px}
   .aiimg{width:100%;max-width:280px;height:auto;border-radius:12px;display:block;margin-bottom:6px}
+  .cwbtn{display:inline-flex !important;align-items:center;gap:8px;justify-content:center}
   .btn.amber{display:inline-block;background:#FE9901;color:#1a1200;box-shadow:none;font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:11px 18px}
   .btn.outline{display:inline-block;border:1.5px solid var(--blue);color:var(--blue);font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:10px 18px}
   .pfmore{margin-top:20px;display:flex;gap:12px;flex-wrap:wrap}
@@ -242,7 +244,7 @@ def ai_section(k):
     a = AI[k]
     lis = ''.join(f'<li>{x}</li>' for x in a['items'])
     link = f'<a class="btn outline" {EXT} href="{a["link"][1]}">{a["link"][0]}</a>' if a.get('link') else ''
-    link += '<a class="btn outline" href="clockwork.html">Meet the Clockwork Desk →</a>'
+    link += f'<a class="btn outline cwbtn" href="clockwork.html"><img src="{CW_MARK}" alt="" width="20" height="20">Meet the Clockwork Desk →</a>'
     note = f'<div class="fine" style="text-align:left">{a["note"]}</div>' if a['note'] else ''
     return f'''
 <section class="container" id="ai" style="padding-top:10px">
@@ -270,12 +272,13 @@ def ai_section(k):
 LOGOS = {  # Simple Icons marks (brand colours; JSON and GitHub lightened for the dark page); Publii's own mark from getpublii.com
  'github': ('GitHub', '#EEF3F7'), 'publii': ('Publii', None), 'wordpress': ('WordPress', '#3C9FD6'),
  'react': ('React Native', '#61DAFB'), 'javascript': ('JavaScript', '#F7DF1E'), 'python': ('Python', '#4B8BBE'),
- 'html5': ('HTML5', '#E34F26'), 'apple': ('iOS', '#EEF3F7'), 'android': ('Android', '#34A853'), 'wpengine': ('WP Engine', '#0ECAD4'), 'aztech': ('AZ Tech', None), 'json': ('JSON', '#C7CED9'), 'graphql': ('GraphQL', '#E10098'), 'n8n': ('n8n', '#EA4B71'),
+ 'html5': ('HTML5', '#E34F26'), 'apple': ('iOS', '#EEF3F7'), 'android': ('Android', '#34A853'), 'wpengine': ('WP Engine', '#0ECAD4'), 'aztech': ('AZ Tech', None), 'clockwork': ('The Clockwork Desk', None), 'json': ('JSON', '#C7CED9'), 'graphql': ('GraphQL', '#E10098'), 'n8n': ('n8n', '#EA4B71'),
 }
 def logo(slug, size=34):
     name, col = LOGOS[slug]
     if col is None:
-        return f'<img class="lg" src="assets/logos/{slug}.svg" alt="{name}" title="{name}" width="{size}" height="{size}">'
+        src = CW_MARK if slug == 'clockwork' else f'assets/logos/{slug}.svg'
+        return f'<img class="lg" src="{src}" alt="{name}" title="{name}" width="{size}" height="{size}">'
     svg = (R / 'assets' / 'logos' / f'{slug}.svg').read_text()
     svg = svg.replace('<svg ', f'<svg class="lg" width="{size}" height="{size}" fill="{col}" aria-label="{name}" ', 1)
     return svg
@@ -312,7 +315,7 @@ TYPEWHO = {'build': 'A cart on the corner', 'keep': 'A storefront on the street'
 INSIDE = {
  'build': [('Free Site', '$0 · our credit on top', ['html5'], None), ('Starter Site', '$800 · credit in the footer', ['html5'], None), ('AI Edits', 'changes by email · prices emailed', ['aztech'], None)],
  'keep': [('Solo Site', 'you edit it · no monthly bill', ['publii'], None), ('Team Site', 'a build plus a monthly', ['wordpress'], None), ('Supervised AI Care', 'our AI makes the changes · Angel supervises', ['aztech'], None)],
- 'software': [('Custom App', 'on the App Store and Google Play · priced after a conversation', ['apple','android'], ['react','javascript','python','graphql','n8n']), ('AI Employees', 'the Clockwork Desk · Angel supervises', ['aztech'], None)],
+ 'software': [('Custom App', 'on the App Store and Google Play · priced after a conversation', ['apple','android'], ['react','javascript','python','graphql','n8n']), ('AI Employees', 'the Clockwork Desk · Angel supervises', ['clockwork'], None)],
 }
 
 
@@ -498,8 +501,9 @@ def clockwork_page():
     <img class="heroart" src="assets/clockwork-desk.svg" alt="Four friendly robots working together at one desk under a big clock" width="1024" height="1024">
     <div>
       <div class="crumbs"><a href="index.html">Websites</a> › The Clockwork Desk</div>
-      <div class="eyebrow" style="color:var(--amber)">AI employees, supervised by a person</div>
-      <h1 style="margin:0 0 .4em">The Clockwork Desk</h1>
+      <div class="cwlock"><img src="{CW_MARK}" alt="" width="120" height="120"><div class="cwword"><span class="cq">The</span><span class="cs">Clockwork</span><span class="cq">Desk</span></div></div>
+      <h1 class="sr">The Clockwork Desk</h1>
+      <div class="eyebrow" style="color:var(--amber);margin-top:14px">AI employees, supervised by a person</div>
       <p class="lead">Four AI employees run the day-to-day behind every AZ Tech site: one front desk that reads your email, and three specialists it hands work to. Every one of them works from written files you could read, and Angel supervises all of it.</p>
       <a class="btn primary" style="display:inline-block;margin-top:22px" {EXT} href="{TW}" data-door-cta="clockwork">Write to Hector →</a>
       <p class="fine" style="text-align:left;margin-top:8px">One short form reaches the whole desk. Hector reads it and takes it from there.</p>
@@ -542,7 +546,15 @@ def clockwork_page():
   </div>
 </section>
 """
-CWCSS = """<style>
+CWCSS = """<link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400&family=Rajdhani:wght@700&display=swap" rel="stylesheet">
+<style>
+  .cwlock{display:flex;align-items:center;gap:18px}
+  .cwlock img{width:112px;height:112px}
+  .cwword{display:grid;line-height:.95}
+  .cwword .cq{font:400 26px Oxanium,"Exo 2",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#009EFF}
+  .cwword .cs{font:700 64px Rajdhani,"Exo 2",sans-serif;letter-spacing:.03em;text-transform:uppercase;color:#FE9901}
+  @media (max-width:560px){.cwword .cs{font-size:46px}.cwlock img{width:80px;height:80px}}
+  .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
   .flow{display:flex;align-items:stretch;gap:8px;flex-wrap:wrap;justify-content:center}
   .flow{flex-wrap:nowrap}
   .fstep{background:var(--carbon);border:1px solid var(--line);border-radius:10px;padding:14px 12px;flex:1 1 0;min-width:0;display:grid;gap:2px;align-content:center;text-align:center}
