@@ -313,7 +313,10 @@ for k, t in TYPES.items():
       <div class="row {cols}">{build_combo() if k == 'build' else ''.join(summary(s) for s in t['doors']) + ai_card(k)}
       </div>
     </div>'''
-old = (R / 'src' / 'hub_rest.html').read_text()
+old = (R / 'src' / 'hub_rest.html').read_text().replace('{{STOREFRONTS}}',
+    '<!-- Avada: [fusion_portfolio cat_slug="case-studies,prior-client" columns="3"] or a hand-picked set -->'
+    f'<div class="pfgrid" style="grid-template-columns:repeat(auto-fill,minmax(300px,1fr))">{tiles([1694,1692,1696,2964,2775,3118])}</div>'
+    f'<div class="pfmore" style="justify-content:center"><a class="btn amber" {EXT} href="https://aztechsol.com/our-work/">Browse the full portfolio →</a></div>')
 hub = f'''
 <section class="container hero">
   <div class="wrap herogrid">
