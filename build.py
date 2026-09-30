@@ -16,7 +16,10 @@ MOCK = '<div class="mockbar">MOCKUP · not the live site · ruled 2026-09-30 in 
 
 CSS = '''<style>
   .bands{display:grid;gap:34px}
-  .band{display:grid;grid-template-columns:260px minmax(0,1fr);gap:28px;align-items:start;padding-top:26px;border-top:1px solid var(--line)}
+  .band{display:grid;grid-template-columns:1fr;gap:22px;align-items:start;padding-top:30px;border-top:1px solid var(--line)}
+  .bandhead{display:grid;grid-template-columns:150px minmax(0,1fr);gap:24px;align-items:center}
+  .bandhead .typeart{max-width:150px;margin:0}
+  .bandhead h3{font-size:26px}
   .band:first-child{border-top:0;padding-top:0}
   .bandhead h3{font-size:22px;margin:0 0 6px}
   .bandhead p{margin:0 0 12px;color:var(--lsteel);font-size:14.5px}
@@ -67,7 +70,7 @@ CSS = '''<style>
   .typehero{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:40px;align-items:center}
   .typeart.big{max-width:360px;justify-self:end;margin:0}
   @media (max-width:860px){.typehero{grid-template-columns:1fr}.typeart.big{justify-self:start;max-width:280px}}
-  .lgrow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+  .lgrow{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
   .lg{display:block;border-radius:6px}
   .lglab{font:600 12px Inter;color:var(--lsteel)}
   .combo .dtitle{font-size:28px}
@@ -77,6 +80,14 @@ CSS = '''<style>
   .combos .ailine{border-color:rgba(254,153,1,.45)}
   .combos .ailine b{color:var(--amber)}
   @media (max-width:640px){.combos{grid-template-columns:1fr}}
+  .fit{display:grid;gap:6px;margin:10px 0 4px;padding:12px 14px;background:rgba(0,158,255,.06);border-radius:8px}
+  .fitlab{font:700 11px "Exo 2";letter-spacing:.12em;text-transform:uppercase;color:var(--blue)}
+  .fi{position:relative;padding-left:22px;font-size:14.5px;color:var(--fog)}
+  .fi:before{content:"✓";position:absolute;left:2px;top:0;color:var(--blue);font-weight:700}
+  .aicard .fit{background:rgba(254,153,1,.07)} .aicard .fitlab,.aicard .fi:before{color:var(--amber)}
+  .keys{font:600 13px Inter;color:var(--lsteel);margin-top:4px}
+  a.doorlink{padding:26px 24px 20px}
+  @media (max-width:560px){.bandhead{grid-template-columns:90px minmax(0,1fr)}.bandhead .typeart{max-width:90px}}
   .btn.amber{display:inline-block;background:#FE9901;color:#1a1200;box-shadow:none;font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:11px 18px}
   .btn.outline{display:inline-block;border:1.5px solid var(--blue);color:var(--blue);font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:10px 18px}
   .pfmore{margin-top:20px;display:flex;gap:12px;flex-wrap:wrap}
@@ -190,6 +201,7 @@ def ai_card(k):
     return f'''
         <a class="card door doorlink aicard" href="{tp['file']}#ai" data-door="ai-{k}">
           <span class="who">{a['who']}</span><span class="dtitle">{a['title']}</span><span class="tag">{a['tag']}</span>
+          {keyline('ai-'+k)}{fitlist('ai-'+k) if ('ai-'+k) in FIT else ''}
           <span class="go">See the AI tier <b aria-hidden="true">→</b></span>
         </a>'''
 
@@ -225,7 +237,7 @@ LOGOS = {  # Simple Icons marks (brand colours; JSON and GitHub lightened for th
  'react': ('React Native', '#61DAFB'), 'javascript': ('JavaScript', '#F7DF1E'), 'python': ('Python', '#4B8BBE'),
  'html5': ('HTML5', '#E34F26'), 'json': ('JSON', '#C7CED9'), 'graphql': ('GraphQL', '#E10098'), 'n8n': ('n8n', '#EA4B71'),
 }
-def logo(slug, size=26):
+def logo(slug, size=34):
     name, col = LOGOS[slug]
     if col is None:
         return f'<img class="lg" src="assets/logos/{slug}.svg" alt="{name}" title="{name}" width="{size}" height="{size}">'
@@ -242,10 +254,18 @@ def build_combo():
           {logorow(['github'],'Hosted on GitHub')}
           <span class="who">A cart on the corner</span><span class="dtitle">Free Site or Starter Site</span>
           <span class="tag">We build your storefront from a conversation and host it free. It's free with our name on the umbrella, or $800 with your name on it.</span>
+          {fitlist('build')}
           <span class="combos"><span><b>Free</b> $0 · our credit on top</span><span><b>Starter</b> $800 · credit in the footer</span><span class="ailine"><b>AI Edits</b> changes by email, prices emailed</span></span>
           <span class="go">See both, and the AI tier <b aria-hidden="true">→</b></span>
         </a>'''
 
+
+FIT = {'build': ['You need to be found on Google, fast', "You don't want to learn to edit a website", 'A few pages says it all: what you do, your hours, how to reach you'], 'ownit': ['You run the business yourself', "You'd rather make your own changes than call someone", 'You want to pay once, with no monthly bill'], 'team': ['More than one person updates the site', 'It has to stay up, because customers depend on it', 'You want someone watching updates and security'], 'ai-keep': ["You'd rather describe a change than make it", 'You change the site often', "You want a person checking the AI's work"], 'app': ['Customers log in, book or buy', 'You have data to manage, not just pages to show', "Off-the-shelf tools don't fit how you work"], 'ai-software': ['The same job repeats in your business every day', 'Your team answers the same questions over and over', 'You want an AI with a name, and a person supervising it']}  # "Right for you if": three checks per card
+KEYS = {'ownit': 'You edit it on your laptop · no monthly bill', 'team': 'A build plus a monthly · changes are separate', 'ai-keep': 'Retainer · prices emailed · Angel supervises', 'app': 'Built, hosted and engineered by us · priced after a conversation', 'ai-software': 'The Clockwork Desk · for Team sites and custom apps'}  # one line of facts above the link
+def fitlist(key):
+    return '<span class="fit"><span class="fitlab">Right for you if</span>' + ''.join(f'<span class="fi">{x}</span>' for x in FIT[key]) + '</span>'
+def keyline(key):
+    return f'<span class="keys">{KEYS[key]}</span>' if key in KEYS else ''
 def page(title, body, extra=''):
     h = HEAD.replace(HEAD[HEAD.index('<title>'):HEAD.index('</title>')+8], f'<title>{title}</title>')
     return h + STYLE + CSS + '\n</head>\n<body>\n' + MOCK + '\n' + UTIL + HEADER + body + FOOTER + extra + '\n</body>\n</html>\n'
@@ -261,6 +281,7 @@ def summary(slug):
     return f'''
         <a class="card door doorlink {d.get('cls','')}" href="{t['file']}#{slug}" data-door="{slug}">
           {logorow(*d['logos']) if d.get('logos') else ''}<span class="who">{d['who']}</span><span class="dtitle">{d['title']}</span><span class="tag">{d['tag']}</span>
+          {keyline(slug)}{fitlist(slug)}
           <span class="go">{'See pricing' if slug in ('free','starter') else 'See what it includes'} <b aria-hidden="true">→</b></span>
         </a>'''
 
@@ -288,7 +309,7 @@ for k, t in TYPES.items():
     cols = 'c1' if k == 'build' else ('c3' if len(t['doors']) > 1 else 'c2')
     bands += f'''
     <div class="band">
-      <div class="bandhead"><img class="typeart" src="{t['img']}" alt="{t['alt']}" width="1024" height="1024"><h3>{t['title']}</h3><p>{t['sub']}</p><a href="{t['file']}">Open this type →</a></div>
+      <div class="bandhead"><img class="typeart" src="{t['img']}" alt="{t['alt']}" width="1024" height="1024"><div><h3>{t['title']}</h3><p>{t['sub']}</p><a href="{t['file']}">Open this type →</a></div></div>
       <div class="row {cols}">{build_combo() if k == 'build' else ''.join(summary(s) for s in t['doors']) + ai_card(k)}
       </div>
     </div>'''

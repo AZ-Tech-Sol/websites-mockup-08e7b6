@@ -155,7 +155,10 @@
   @media (max-width:640px){.band .c2{grid-template-columns:1fr}}
 </style><style>
   .bands{display:grid;gap:34px}
-  .band{display:grid;grid-template-columns:260px minmax(0,1fr);gap:28px;align-items:start;padding-top:26px;border-top:1px solid var(--line)}
+  .band{display:grid;grid-template-columns:1fr;gap:22px;align-items:start;padding-top:30px;border-top:1px solid var(--line)}
+  .bandhead{display:grid;grid-template-columns:150px minmax(0,1fr);gap:24px;align-items:center}
+  .bandhead .typeart{max-width:150px;margin:0}
+  .bandhead h3{font-size:26px}
   .band:first-child{border-top:0;padding-top:0}
   .bandhead h3{font-size:22px;margin:0 0 6px}
   .bandhead p{margin:0 0 12px;color:var(--lsteel);font-size:14.5px}
@@ -206,7 +209,7 @@
   .typehero{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:40px;align-items:center}
   .typeart.big{max-width:360px;justify-self:end;margin:0}
   @media (max-width:860px){.typehero{grid-template-columns:1fr}.typeart.big{justify-self:start;max-width:280px}}
-  .lgrow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+  .lgrow{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
   .lg{display:block;border-radius:6px}
   .lglab{font:600 12px Inter;color:var(--lsteel)}
   .combo .dtitle{font-size:28px}
@@ -216,6 +219,14 @@
   .combos .ailine{border-color:rgba(254,153,1,.45)}
   .combos .ailine b{color:var(--amber)}
   @media (max-width:640px){.combos{grid-template-columns:1fr}}
+  .fit{display:grid;gap:6px;margin:10px 0 4px;padding:12px 14px;background:rgba(0,158,255,.06);border-radius:8px}
+  .fitlab{font:700 11px "Exo 2";letter-spacing:.12em;text-transform:uppercase;color:var(--blue)}
+  .fi{position:relative;padding-left:22px;font-size:14.5px;color:var(--fog)}
+  .fi:before{content:"✓";position:absolute;left:2px;top:0;color:var(--blue);font-weight:700}
+  .aicard .fit{background:rgba(254,153,1,.07)} .aicard .fitlab,.aicard .fi:before{color:var(--amber)}
+  .keys{font:600 13px Inter;color:var(--lsteel);margin-top:4px}
+  a.doorlink{padding:26px 24px 20px}
+  @media (max-width:560px){.bandhead{grid-template-columns:90px minmax(0,1fr)}.bandhead .typeart{max-width:90px}}
   .btn.amber{display:inline-block;background:#FE9901;color:#1a1200;box-shadow:none;font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:11px 18px}
   .btn.outline{display:inline-block;border:1.5px solid var(--blue);color:var(--blue);font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:10px 18px}
   .pfmore{margin-top:20px;display:flex;gap:12px;flex-wrap:wrap}
@@ -252,7 +263,7 @@
 <section class="container" style="padding-top:0">
   <div class="wrap"><div class="row pair">
       <div class="card door full " id="free">
-        <span class="lgrow"><svg class="lg" width="26" height="26" fill="#EEF3F7" aria-label="GitHub" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span class="lglab">Hosted on GitHub</span></span><div class="who">A cart under our umbrella</div>
+        <span class="lgrow"><svg class="lg" width="34" height="34" fill="#EEF3F7" aria-label="GitHub" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span class="lglab">Hosted on GitHub</span></span><div class="who">A cart under our umbrella</div>
         <h3 style="font-size:28px;margin:6px 0 4px">Free Site</h3>
         <p class="tag">For Arizona businesses that need a storefront online, fast.</p>
         <div class="price"><small>Your cost</small><strong>$0</strong> <span>credit on top</span></div>
@@ -262,7 +273,7 @@
         <div class="fine">Arizona businesses, plus anyone we invite</div>
       </div>
       <div class="card door full " id="starter">
-        <span class="lgrow"><svg class="lg" width="26" height="26" fill="#EEF3F7" aria-label="GitHub" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span class="lglab">Hosted on GitHub</span></span><div class="who">Your own cart, your name on the umbrella</div>
+        <span class="lgrow"><svg class="lg" width="34" height="34" fill="#EEF3F7" aria-label="GitHub" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span class="lglab">Hosted on GitHub</span></span><div class="who">Your own cart, your name on the umbrella</div>
         <h3 style="font-size:28px;margin:6px 0 4px">Starter Site</h3>
         <p class="tag">The free site, with our credit moved down to your footer.</p>
         <div class="price"><small>One time</small><strong>$800</strong></div>
