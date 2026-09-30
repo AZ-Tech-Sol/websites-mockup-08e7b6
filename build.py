@@ -106,6 +106,8 @@ CSS = '''<style>
   .tins li span{font-size:13px;color:var(--body)}
   .tins li.ai{border-color:rgba(254,153,1,.45)} .tins li.ai b{color:var(--amber)}
   .tbody .btn{margin-top:auto}
+  .own{border-left:3px solid var(--amber);background:rgba(254,153,1,.07);border-radius:0 8px 8px 0;padding:9px 12px;font-size:14px;color:var(--fog)}
+  .ownlab{display:block;font:700 11px "Exo 2";letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:2px}
   .btn.amber{display:inline-block;background:#FE9901;color:#1a1200;box-shadow:none;font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:11px 18px}
   .btn.outline{display:inline-block;border:1.5px solid var(--blue);color:var(--blue);font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:10px 18px}
   .pfmore{margin-top:20px;display:flex;gap:12px;flex-wrap:wrap}
@@ -298,6 +300,12 @@ INSIDE = {
  'software': [('Custom App', 'priced after a conversation'), ('AI Employees', 'the Clockwork Desk · Angel supervises')],
 }
 
+
+OWN = {  # ownership at every level: what the customer keeps if they ever leave
+ 'build': 'Your site lives in a GitHub repo you can clone any time. Leave, and the site leaves with you.',
+ 'keep': 'The Publii site files, or the whole WordPress site and its content, are yours to export and move.',
+ 'software': 'The code and the data are yours. We build it in your accounts, not ours.',
+}
 def type_table():
     cols = ''
     for k, tp in TYPES.items():
@@ -313,6 +321,7 @@ def type_table():
           {logorow(*TYPELOGOS[k])}
           <div class="fitlab">Right for you if</div>
           <ul class="tfit">{fit}</ul>
+          <div class="own"><span class="ownlab">You own it</span>{OWN[k]}</div>
           <div class="fitlab" style="color:var(--lsteel)">What's inside</div>
           <ul class="tins">{ins}</ul>
           <a class="btn primary" href="{tp['file']}">{ {'build':'See the cart options','keep':'See the storefront options','software':'See the building options'}[k] } →</a>
