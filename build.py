@@ -571,14 +571,13 @@ for k, t in TYPES.items():
     others = ''.join(f'<a class="card door doorlink" href="{o["file"]}"><span class="dtitle" style="font-size:20px">{o["title"]}</span><span class="tag">{o["sub"]}</span><span class="go">Open <b aria-hidden="true">→</b></span></a>' for kk, o in TYPES.items() if kk != k)
     body = f'''
 <section class="container hero" style="padding-bottom:36px">
-  <div class="wrap typehero">
+  <div class="wrap">
     <div>
       <div class="crumbs"><a href="index.html">Websites</a> › {t['title']}</div>
       <div class="eyebrow">{t['sub']}</div>
       <h1 style="font-size:clamp(32px,4.6vw,50px);max-width:860px;margin:0 0 .4em">{t['title']}</h1>
       <p class="lead">{t['intro']}</p>
     </div>
-    <img class="typeart big" src="{t['img']}" alt="{t['alt']}" width="1024" height="1024">
   </div>
 </section>
 <section class="container" style="padding-top:0">
