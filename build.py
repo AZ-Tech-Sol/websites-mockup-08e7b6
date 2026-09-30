@@ -91,6 +91,21 @@ CSS = '''<style>
   .keys{font:600 13px Inter;color:var(--lsteel);margin-top:4px}
   a.doorlink{padding:26px 24px 20px}
   @media (max-width:560px){.bandhead{grid-template-columns:90px minmax(0,1fr)}.bandhead .typeart{max-width:90px}}
+  .ttable{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:stretch}
+  @media (max-width:980px){.ttable{grid-template-columns:1fr}}
+  .tcol{background:#131d2a;border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+  .timg{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;display:block;max-height:300px}
+  .tbody{padding:22px 22px 24px;display:flex;flex-direction:column;gap:10px;flex:1}
+  .tbody h3{font-size:24px;margin:0}
+  .tsub{margin:0;color:var(--lsteel);font-size:14.5px}
+  .tfit,.tins{list-style:none;padding:0;margin:0 0 6px;display:grid;gap:6px}
+  .tfit li{position:relative;padding-left:22px;font-size:14.5px;color:var(--fog)}
+  .tfit li:before{content:"✓";position:absolute;left:2px;color:var(--blue);font-weight:700}
+  .tins li{border:1px solid var(--line);border-radius:8px;padding:9px 12px;background:#1a2a3b}
+  .tins li b{display:block;font:700 15px "Exo 2";color:var(--fog)}
+  .tins li span{font-size:13px;color:var(--body)}
+  .tins li.ai{border-color:rgba(254,153,1,.45)} .tins li.ai b{color:var(--amber)}
+  .tbody .btn{margin-top:auto}
   .btn.amber{display:inline-block;background:#FE9901;color:#1a1200;box-shadow:none;font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:11px 18px}
   .btn.outline{display:inline-block;border:1.5px solid var(--blue);color:var(--blue);font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:10px 18px}
   .pfmore{margin-top:20px;display:flex;gap:12px;flex-wrap:wrap}
@@ -269,6 +284,42 @@ def fitlist(key):
     return '<span class="fit"><span class="fitlab">Right for you if</span>' + ''.join(f'<span class="fi">{x}</span>' for x in FIT[key]) + '</span>'
 def keyline(key):
     return f'<span class="keys">{KEYS[key]}</span>' if key in KEYS else ''
+
+TYPEFIT = {
+ 'build': ["You need to be found on Google, fast", "You don't want to learn to edit a website", "A few pages says it all: what you do, your hours, how to reach you"],
+ 'keep': ["You'd rather make your own changes, or have our AI make them", "More than one person may update it", "It has to stay up, with updates and security watched"],
+ 'software': ["Customers log in, book or buy", "You have data to manage, not just pages to show", "Off-the-shelf tools don't fit how you work"],
+}
+TYPELOGOS = {'build': (['github'], 'Hosted on GitHub'), 'keep': (['publii','wordpress'], ''), 'software': (['react','javascript','python','html5','json','graphql','n8n'], '')}
+TYPEWHO = {'build': 'A cart on the corner', 'keep': 'A storefront on the street', 'software': 'A building where the work gets done'}
+INSIDE = {
+ 'build': [('Free Site', '$0 · our credit on top'), ('Starter Site', '$800 · credit in the footer'), ('AI Edits', 'changes by email · prices emailed')],
+ 'keep': [('Own-It Site', 'you edit it · no monthly bill'), ('Team Site', 'a build plus a monthly'), ('Supervised AI Care', 'our AI makes the changes · Angel supervises')],
+ 'software': [('Custom App', 'priced after a conversation'), ('AI Employees', 'the Clockwork Desk · Angel supervises')],
+}
+
+def type_table():
+    cols = ''
+    for k, tp in TYPES.items():
+        fit = ''.join(f'<li>{x}</li>' for x in TYPEFIT[k])
+        ins = ''.join(f'<li class="{"ai" if n.startswith("AI") or "AI" in n.split()[0:2] else ""}"><b>{n}</b><span>{d}</span></li>' for n, d in INSIDE[k])
+        cols += f'''
+      <div class="tcol">
+        <img class="timg" src="{tp['img']}" alt="{tp['alt']}" width="1024" height="1024">
+        <div class="tbody">
+          <div class="who">{TYPEWHO[k]}</div>
+          <h3>{tp['title']}</h3>
+          <p class="tsub">{tp['sub']}</p>
+          {logorow(*TYPELOGOS[k])}
+          <div class="fitlab">Right for you if</div>
+          <ul class="tfit">{fit}</ul>
+          <div class="fitlab" style="color:var(--lsteel)">What's inside</div>
+          <ul class="tins">{ins}</ul>
+          <a class="btn primary" href="{tp['file']}">{ {'build':'See the cart options','keep':'See the storefront options','software':'See the building options'}[k] } →</a>
+        </div>
+      </div>'''
+    return f'<div class="ttable">{cols}\n    </div>'
+
 def page(title, body, extra=''):
     h = HEAD.replace(HEAD[HEAD.index('<title>'):HEAD.index('</title>')+8], f'<title>{title}</title>')
     return h + STYLE + CSS + '\n</head>\n<body>\n' + MOCK + '\n' + UTIL + HEADER + body + FOOTER + extra + '\n</body>\n</html>\n'
@@ -333,8 +384,7 @@ hub = f'''
   </div>
 </section>
 <section class="container" id="doors" style="padding-top:20px">
-  <div class="wrap"><div class="bands">{bands}
-  </div></div>
+  <div class="wrap">{type_table()}</div>
 </section>
 <!-- PARTNERS · Avada: [fusion_portfolio cat_slug="partners" columns="5"] -->
 <section class="container" style="padding-top:10px">
