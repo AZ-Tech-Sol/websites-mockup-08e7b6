@@ -183,10 +183,10 @@ TYPES = {
 
 import json
 PF = {x['id']: x for x in json.loads((R / 'src' / 'portfolio.json').read_text())}
-PROOF = {  # portfolio items from aztechsol.com (Avada portfolio), chosen per type
- 'build': dict(title='Local owners we\'ve built for', sub="Small businesses we've built sites and brands for, from the AZ Tech portfolio.", ids=[3301,1694,1692,1681,1698,1679,1677], cat='door-build'),
- 'keep': dict(title='Teams and organisations that trust us', sub='Sites that several people publish on, and that have to stay up.', ids=[1696,1683,2964,1471,2963,2973,2972,2959], cat='door-keep'),
- 'software': dict(title='Software we\'ve shipped', sub='Apps, AI assistants and automation, as case studies.', ids=[3234,2798,2390,2849,3118], cat='door-software'),
+PROOF = {  # current clients, by what they run on (checked live 2026-09-30)
+ 'build': dict(title="Owners who trust us with their storefront", sub="Free and Starter sites we built and host on GitHub.", ids=[99011,99014,99012,1700,99013], cat='door-build'),
+ 'keep': dict(title="Teams and organisations that trust us", sub="WordPress sites we build, host on WP Engine and watch, and our work with CPLC.", ids=[2955,2024,1687,2954,1702,1685,2874,1696,2927,99015,3118], cat='door-keep'),
+ 'software': dict(title="Software we've shipped", sub="ConVibe, from database to daily users, and Lupita, CPLC's bilingual AI assistant.", ids=[3234,2775,2798], cat='door-software'),
 }
 PARTNERS = [2927,2928,2939,3090,3144]
 
@@ -423,7 +423,7 @@ SECURITY = '''
 '''
 old = (R / 'src' / 'hub_rest.html').read_text().replace('<!-- CONTAINER 7', SECURITY + '<!-- CONTAINER 7').replace('{{STOREFRONTS}}',
     '<!-- Avada: [fusion_portfolio cat_slug="case-studies,prior-client" columns="3"] or a hand-picked set -->'
-    f'<div class="pfgrid" style="grid-template-columns:repeat(auto-fill,minmax(300px,1fr))">{tiles([1694,1692,1696,2964,2775,3118])}</div>'
+    f'<div class="pfgrid" style="grid-template-columns:repeat(auto-fill,minmax(300px,1fr))">{tiles([99012,1700,2955,1696,3118,2775])}</div>'
     f'<div class="pfmore" style="justify-content:center"><a class="btn amber" {EXT} href="https://aztechsol.com/our-work/">Browse the full portfolio →</a></div>')
 hub = f'''
 <section class="container hero">
