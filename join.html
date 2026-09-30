@@ -173,9 +173,10 @@
 </header>
 <section class="container hero" style="padding-bottom:40px">
   <div class="wrap">
-    <div class="eyebrow">AZ Professional Partners</div>
+    <div class="eyebrow">AZ Professional Partners · since 2011</div>
     <h1 style="font-size:clamp(32px,4.6vw,50px);max-width:820px;margin:0 0 .4em">The Tucson business square, on Slack</h1>
     <p class="lead">A place for Tucson owners to talk to each other: questions, referrals and what's working. It's free, and it's for real local businesses, so we check each one before we send an invite.</p>
+    <p style="margin-top:18px;font:600 15px 'Exo 2';letter-spacing:.14em;text-transform:uppercase;color:var(--amber)">Strength Through Integrity</p>
   </div>
 </section>
 
@@ -188,6 +189,8 @@
         <li>People who'd rather ask a neighbour than a search engine</li>
         <li>Anyone with an AZ Tech free site, who's in automatically</li>
       </ul>
+      <h2 style="font-size:26px;margin-top:30px">Where it comes from</h2>
+      <p style="margin:6px 0 0">AZ Professional Partners started in January 2011 as a Tucson referral group built on one idea: reputation is one of the most precious assets a business has, so every member had to be someone another member could vouch for. The goal was, and is, to help local professionals grow through business relationships.</p>
       <h2 style="font-size:26px;margin-top:30px">How joining works</h2>
       <div class="steps3">
         <div><b>1</b><span>Tell us about your business, with the link to its Google listing.</span></div>
@@ -213,8 +216,11 @@
         <div class="f"><label for="site">Website <span style="color:var(--lsteel);font-weight:500">(optional)</span></label><input id="site" name="website" type="url" inputmode="url" placeholder="https://"></div>
       </div>
       <div class="f"><label for="what">What does your business do?</label><textarea id="what" name="about" rows="3" required></textarea></div>
-      <div class="f"><label for="how">How did you hear about us? <span style="color:var(--lsteel);font-weight:500">(optional)</span></label><input id="how" name="heard_from"></div>
-      <label class="check"><input type="checkbox" id="rules" required> I'll keep it friendly and local: no spam, and no selling in other people's threads.</label>
+      <div class="two">
+        <div class="f"><label for="vouch">A member who can vouch for you <span style="color:var(--lsteel);font-weight:500">(optional)</span></label><input id="vouch" name="vouched_by"></div>
+        <div class="f"><label for="how">How did you hear about us? <span style="color:var(--lsteel);font-weight:500">(optional)</span></label><input id="how" name="heard_from"></div>
+      </div>
+      <label class="check"><input type="checkbox" id="rules" required> I'll keep it friendly, local and honest: no spam, and no selling in other people's threads.</label>
       <p class="err" id="err" role="alert" hidden></p>
       <button class="btn primary" type="submit" style="border:0;cursor:pointer">Request my invite</button>
     </form>
