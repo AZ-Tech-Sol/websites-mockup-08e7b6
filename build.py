@@ -498,7 +498,7 @@ def clockwork_page():
     return f"""
 <section class="container hero">
   <div class="wrap herogrid">
-    <img class="heroart" src="assets/clockwork-desk.svg" alt="Four friendly robots working together at one desk under a big clock" width="1024" height="1024">
+    <img class="heroart" src="assets/clockwork-desk.svg" alt="Four friendly robots, each at its own station in a small ship, with a clock in the middle" width="1024" height="1024">
     <div>
       <div class="crumbs"><a href="index.html">Websites</a> › The Clockwork Desk</div>
       <div class="cwlock"><img src="{CW_MARK}" alt="" width="120" height="120"><div class="cwword"><span class="cq">The</span><span class="cs">Clockwork</span><span class="cq">Desk</span></div></div>
@@ -526,7 +526,7 @@ def clockwork_page():
 
 <section class="container alt">
   <div class="wrap">
-    <div class="center" style="margin-bottom:30px"><div class="eyebrow">Meet the desk</div><h2 style="font-size:32px">Four employees, one job each</h2></div>
+    <div class="center" style="margin-bottom:30px"><div class="eyebrow">Meet the desk</div><h2 style="font-size:32px">Four employees, one job each</h2><p class="fine" style="margin-top:4px">Every ship needs a crew.</p></div>
     <div class="bots">{cards}</div>
   </div>
 </section>
