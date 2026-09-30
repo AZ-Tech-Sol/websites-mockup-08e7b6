@@ -63,6 +63,10 @@ CSS = '''<style>
   .heroart{width:100%;height:auto;border-radius:14px;display:block}
   .hero .herogrid h1{margin-left:0;max-width:none;text-align:left}
   @media (max-width:860px){.herogrid{grid-template-columns:1fr}.heroart{max-width:420px}}
+  .typeart{width:100%;max-width:220px;height:auto;border-radius:12px;display:block;margin-bottom:14px}
+  .typehero{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:40px;align-items:center}
+  .typeart.big{max-width:360px;justify-self:end;margin:0}
+  @media (max-width:860px){.typehero{grid-template-columns:1fr}.typeart.big{justify-self:start;max-width:280px}}
   .btn.amber{display:inline-block;background:#FE9901;color:#1a1200;box-shadow:none;font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:11px 18px}
   .btn.outline{display:inline-block;border:1.5px solid var(--blue);color:var(--blue);font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:10px 18px}
   .pfmore{margin-top:20px;display:flex;gap:12px;flex-wrap:wrap}
@@ -98,26 +102,26 @@ DOORS = {
    edits='The monthly is monitoring and maintenance: hosting, backups, updates, uptime and security. Content changes are separate.',
    items=[('WordPress, built for your team to edit together',0),('Managed hosting and daily backups',0),('Plugin and core updates handled',0),('Uptime and security watch',0)],
    btn='Email me the prices', href=TW, fine='We email today\'s prices, then book a conversation'),
- 'app': dict(type='software', who='A place people come back to', title='Custom App', tag='For when customers come to your store to <em>do</em> something: accounts, bookings, data, real software.',
+ 'app': dict(type='software', who='A building where the work gets done', title='Custom App', tag='For when customers come to your store to <em>do</em> something: accounts, bookings, data, real software.',
    price='<p class="ask">Priced after we understand what it\'s worth to your business.</p>',
    edits='Proof: ConVibe, a convention guest-tracker app, live on the App Store.',
    items=[('Database, users and uptime, engineered for you',0),('Ongoing engineering, not just hosting',0),('Starts with a strategy conversation',0)],
    btn='Book a strategy call', href=SH, fine='Two-day booking window', cls='app'),
 }
 TYPES = {
- 'build': dict(file='build.html', title='We build it, you run your business', sub='A storefront built from a conversation. Nobody has to edit it.', doors=['free','starter'],
+ 'build': dict(img='assets/type-build.svg', alt='A fruit cart under a striped umbrella', file='build.html', title='We build it, you run your business', sub='A storefront built from a conversation. Nobody has to edit it.', doors=['free','starter'],
    intro='Two ways to get a site without learning to run one. We meet once or twice, turn the conversation into your site, and host it for free. The only difference is where our credit sits.',
    faq=[('Why is the Free Site free?','You pay for it in advertising: a slim line at the top of every page that says AZ Tech built it. You own your domain and we host it at no cost to you. At the end you get an invoice showing what the site is worth, $800, with the full amount waived.'),
         ("What's the difference between Free and Starter?",'Only where our credit sits. Free has a slim bar across the top of every page; Starter moves it to a small line in your footer, so your header is all yours. Same site, same free hosting.'),
         ('Can I sell things on my site?',"Yes, but you can't take payments on these sites. List what you sell and link out to a payment platform like Venmo, Cash App or PayPal, and your customers pay there. If you need a full store with a checkout, we build it on the right platform for it."),
         ('What if I want changes later?','Every change has a price we tell you up front, or you can add AI Edits for unlimited content changes. We email you the current prices.')]),
- 'keep': dict(file='keep.html', title='You keep it up to date', sub='For owners and teams who make their own changes.', doors=['ownit','team'],
+ 'keep': dict(img='assets/type-keep.svg', alt='A small shop storefront with a striped awning', file='keep.html', title='You keep it up to date', sub='For owners and teams who make their own changes.', doors=['ownit','team'],
    intro='Sites you run yourself. Own-It is for one person who wants to make their own changes with no monthly bill. Team is for several people publishing on a site that has to be watched. We email you today\'s prices, so you always get current numbers for your business.',
    faq=[("What's the difference between Own-It and Team?","Own-It is for one person making their own changes, and there's no monthly bill. Team is for several people editing a live site that has to be watched, so it comes with monthly monitoring and maintenance."),
         ('Does the Team monthly include changes?','No. It keeps the site safe, updated and running. Changes are separate: pay for each one, or add AI Edits for unlimited changes.'),
         ('Why do you email the prices?',"So you get today's numbers for your business, not a table that went stale. Fill in the short form and they arrive by email, with a time to talk."),
         ('Who owns my domain and my content?','You do. If you ever leave, your name and your words go with you.')]),
- 'software': dict(file='software.html', title='People use it', sub='Software your customers log into and do things with.', doors=['app'],
+ 'software': dict(img='assets/type-software.svg', alt='An industrial building with a loading dock and a truck', file='software.html', title='People use it', sub='Software your customers log into and do things with.', doors=['app'],
    intro='When a website needs to do more than be read: accounts, bookings, data, a community that logs in. We build it, host it and keep engineering it.',
    faq=[('How much does an app cost?',"It depends on what it's worth to your business, so we start with a strategy conversation, not a price list."),
         ('Can you show me one?','ConVibe, a convention guest-tracker app, is live on the App Store. We built it from database to daily users.')]),
@@ -247,7 +251,7 @@ for k, t in TYPES.items():
     cols = 'c3' if len(t['doors']) > 1 else 'c2'
     bands += f'''
     <div class="band">
-      <div class="bandhead"><h3>{t['title']}</h3><p>{t['sub']}</p><a href="{t['file']}">Open this type →</a></div>
+      <div class="bandhead"><img class="typeart" src="{t['img']}" alt="{t['alt']}" width="1024" height="1024"><h3>{t['title']}</h3><p>{t['sub']}</p><a href="{t['file']}">Open this type →</a></div>
       <div class="row {cols}">{''.join(summary(s) for s in t['doors'])}{ai_card(k)}
       </div>
     </div>'''
@@ -255,11 +259,11 @@ old = (R / 'src' / 'hub_rest.html').read_text()
 hub = f'''
 <section class="container hero">
   <div class="wrap herogrid">
-    <img class="heroart" src="assets/hero-cart.svg" alt="A street fruit cart under a striped umbrella, on a sidewalk corner" width="1024" height="1024">
+    <img class="heroart" src="assets/hero-digital.svg" alt="A small shop turning into pixels that flow up into a browser window" width="1024" height="1024">
     <div>
       <div class="eyebrow">Websites</div>
       <h1 style="margin:0 0 .4em">Your website is your storefront</h1>
-      <p class="lead">It used to be a cart on the corner or a shop on Main Street. Now it's the place people find you, see what you sell and decide to come in. Five ways to open yours, in three kinds, from a cart under our umbrella to a place people come back to.</p>
+      <p class="lead">It used to be a cart on the corner or a shop on Main Street. Now it's the place people find you, see what you sell and decide to come in. Five ways to open yours, in three kinds: a cart on the corner, a storefront on the street, or a building where the work gets done.</p>
       <div class="question"><b>?</b> Who's minding the store?</div>
     </div>
   </div>
@@ -286,11 +290,14 @@ for k, t in TYPES.items():
     others = ''.join(f'<a class="card door doorlink" href="{o["file"]}"><span class="dtitle" style="font-size:20px">{o["title"]}</span><span class="tag">{o["sub"]}</span><span class="go">Open <b aria-hidden="true">→</b></span></a>' for kk, o in TYPES.items() if kk != k)
     body = f'''
 <section class="container hero" style="padding-bottom:36px">
-  <div class="wrap">
-    <div class="crumbs"><a href="index.html">Websites</a> › {t['title']}</div>
-    <div class="eyebrow">{t['sub']}</div>
-    <h1 style="font-size:clamp(32px,4.6vw,50px);max-width:860px;margin:0 0 .4em">{t['title']}</h1>
-    <p class="lead">{t['intro']}</p>
+  <div class="wrap typehero">
+    <div>
+      <div class="crumbs"><a href="index.html">Websites</a> › {t['title']}</div>
+      <div class="eyebrow">{t['sub']}</div>
+      <h1 style="font-size:clamp(32px,4.6vw,50px);max-width:860px;margin:0 0 .4em">{t['title']}</h1>
+      <p class="lead">{t['intro']}</p>
+    </div>
+    <img class="typeart big" src="{t['img']}" alt="{t['alt']}" width="1024" height="1024">
   </div>
 </section>
 <section class="container" style="padding-top:0">

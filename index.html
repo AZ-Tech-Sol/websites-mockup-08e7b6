@@ -202,6 +202,10 @@
   .heroart{width:100%;height:auto;border-radius:14px;display:block}
   .hero .herogrid h1{margin-left:0;max-width:none;text-align:left}
   @media (max-width:860px){.herogrid{grid-template-columns:1fr}.heroart{max-width:420px}}
+  .typeart{width:100%;max-width:220px;height:auto;border-radius:12px;display:block;margin-bottom:14px}
+  .typehero{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:40px;align-items:center}
+  .typeart.big{max-width:360px;justify-self:end;margin:0}
+  @media (max-width:860px){.typehero{grid-template-columns:1fr}.typeart.big{justify-self:start;max-width:280px}}
   .btn.amber{display:inline-block;background:#FE9901;color:#1a1200;box-shadow:none;font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:11px 18px}
   .btn.outline{display:inline-block;border:1.5px solid var(--blue);color:var(--blue);font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:10px 18px}
   .pfmore{margin-top:20px;display:flex;gap:12px;flex-wrap:wrap}
@@ -226,11 +230,11 @@
 </header>
 <section class="container hero">
   <div class="wrap herogrid">
-    <img class="heroart" src="assets/hero-cart.svg" alt="A street fruit cart under a striped umbrella, on a sidewalk corner" width="1024" height="1024">
+    <img class="heroart" src="assets/hero-digital.svg" alt="A small shop turning into pixels that flow up into a browser window" width="1024" height="1024">
     <div>
       <div class="eyebrow">Websites</div>
       <h1 style="margin:0 0 .4em">Your website is your storefront</h1>
-      <p class="lead">It used to be a cart on the corner or a shop on Main Street. Now it's the place people find you, see what you sell and decide to come in. Five ways to open yours, in three kinds, from a cart under our umbrella to a place people come back to.</p>
+      <p class="lead">It used to be a cart on the corner or a shop on Main Street. Now it's the place people find you, see what you sell and decide to come in. Five ways to open yours, in three kinds: a cart on the corner, a storefront on the street, or a building where the work gets done.</p>
       <div class="question"><b>?</b> Who's minding the store?</div>
     </div>
   </div>
@@ -238,7 +242,7 @@
 <section class="container" id="doors" style="padding-top:20px">
   <div class="wrap"><div class="bands">
     <div class="band">
-      <div class="bandhead"><h3>We build it, you run your business</h3><p>A storefront built from a conversation. Nobody has to edit it.</p><a href="build.html">Open this type →</a></div>
+      <div class="bandhead"><img class="typeart" src="assets/type-build.svg" alt="A fruit cart under a striped umbrella" width="1024" height="1024"><h3>We build it, you run your business</h3><p>A storefront built from a conversation. Nobody has to edit it.</p><a href="build.html">Open this type →</a></div>
       <div class="row c3">
         <a class="card door doorlink " href="build.html#free" data-door="free">
           <span class="who">A cart under our umbrella</span><span class="dtitle">Free Site</span><span class="tag">For Tucson businesses that need a storefront online, fast.</span>
@@ -255,7 +259,7 @@
       </div>
     </div>
     <div class="band">
-      <div class="bandhead"><h3>You keep it up to date</h3><p>For owners and teams who make their own changes.</p><a href="keep.html">Open this type →</a></div>
+      <div class="bandhead"><img class="typeart" src="assets/type-keep.svg" alt="A small shop storefront with a striped awning" width="1024" height="1024"><h3>You keep it up to date</h3><p>For owners and teams who make their own changes.</p><a href="keep.html">Open this type →</a></div>
       <div class="row c3">
         <a class="card door doorlink " href="keep.html#ownit" data-door="ownit">
           <span class="who">A storefront you tend</span><span class="dtitle">Own-It Site</span><span class="tag">For the solo owner who wants to make changes without calling anyone.</span>
@@ -272,10 +276,10 @@
       </div>
     </div>
     <div class="band">
-      <div class="bandhead"><h3>People use it</h3><p>Software your customers log into and do things with.</p><a href="software.html">Open this type →</a></div>
+      <div class="bandhead"><img class="typeart" src="assets/type-software.svg" alt="An industrial building with a loading dock and a truck" width="1024" height="1024"><h3>People use it</h3><p>Software your customers log into and do things with.</p><a href="software.html">Open this type →</a></div>
       <div class="row c2">
         <a class="card door doorlink app" href="software.html#app" data-door="app">
-          <span class="who">A place people come back to</span><span class="dtitle">Custom App</span><span class="tag">For when customers come to your store to <em>do</em> something: accounts, bookings, data, real software.</span>
+          <span class="who">A building where the work gets done</span><span class="dtitle">Custom App</span><span class="tag">For when customers come to your store to <em>do</em> something: accounts, bookings, data, real software.</span>
           <span class="go">See what it includes <b aria-hidden="true">→</b></span>
         </a>
         <a class="card door doorlink aicard" href="software.html#ai" data-door="ai-software">

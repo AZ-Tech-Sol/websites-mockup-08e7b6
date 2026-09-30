@@ -4,9 +4,8 @@ UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 14_0) AppleWebKit/537.36 Chrome/126
 BASE = ("flat vector illustration, clean geometric shapes, limited palette of bright blue #009EFF, deep royal blue #0039B8, "
         "warm amber orange #FE9901 and off-white, on a plain very dark navy background #0E121A, subtle glow, modern tech brand style, no text, no letters, no people. ")
 P = {
- 'cart-umbrella': "A small street fruit cart with a big striped market umbrella, crates of oranges and apples, two wheels, parked on a city sidewalk corner at dusk, a warm light under the umbrella.",
- 'cart-to-shop': "A street fruit cart in the foreground and, behind it, a row of small shop storefronts with lit windows and awnings, suggesting growth from a cart to a storefront.",
- 'cart-screen': "A street fruit cart whose striped umbrella top is shaped like a laptop screen frame, crates of fruit below, a small wooden sign hanging from the cart, playful metaphor for a website as a storefront.",
+ 'hero-browser': "A large laptop or browser window frame standing like a doorway on off-white sidewalk tiles, and stepping out of the screen onto the street are a small fruit cart with a striped umbrella, a small shop storefront with an awning, and a small factory building with a sawtooth roof, glowing light spilling from the screen, the street becoming pixels at the screen's edge.",
+ 'hero-pixels': "A small shop storefront with a striped awning on off-white sidewalk tiles, where the right half of the building dissolves into floating square pixels and glowing digital lines that rise up into a browser window outline, metaphor for a business going online.",
 }
 def gen(item):
     name, p = item
