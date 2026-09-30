@@ -153,130 +153,88 @@
   .band .c2{grid-template-columns:repeat(2,minmax(0,1fr))}
   @media (max-width:900px){.band{grid-template-columns:1fr;gap:14px}}
   @media (max-width:640px){.band .c2{grid-template-columns:1fr}}
+</style><style>
+  .bands{display:grid;gap:34px}
+  .band{display:grid;grid-template-columns:260px minmax(0,1fr);gap:28px;align-items:start;padding-top:26px;border-top:1px solid var(--line)}
+  .band:first-child{border-top:0;padding-top:0}
+  .bandhead h3{font-size:22px;margin:0 0 6px}
+  .bandhead p{margin:0 0 12px;color:var(--lsteel);font-size:14.5px}
+  .bandhead a{font:700 13px "Exo 2";letter-spacing:.06em;text-transform:uppercase;color:var(--blue);text-decoration:none}
+  .c1{grid-template-columns:1fr}
+  .band .c2,.pair{grid-template-columns:repeat(2,minmax(0,1fr))}
+  @media (max-width:900px){.band{grid-template-columns:1fr;gap:14px}}
+  @media (max-width:640px){.band .c2,.pair{grid-template-columns:1fr}}
+  a.doorlink{display:flex;flex-direction:column;gap:6px;padding:24px 20px 18px;text-decoration:none;border-radius:10px}
+  a.doorlink:hover{border-color:var(--blue)}
+  a.doorlink:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+  .who{font:600 12px "Exo 2";letter-spacing:.14em;text-transform:uppercase;color:var(--lsteel)}
+  .dtitle{font:700 24px/1.2 "Exo 2",sans-serif;color:var(--fog)}
+  .tag{color:var(--body);font-size:15px}
+  .go{margin-top:8px;font:700 13px "Exo 2";letter-spacing:.06em;text-transform:uppercase;color:var(--blue);display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:12px}
+  .door.full{padding:26px 24px}
+  .door.full ul{flex:1}
+  .ask{font:600 15px Inter;color:var(--fog);margin:14px 0 4px}
+  .crumbs{font-size:13px;color:var(--lsteel);margin-bottom:14px}
+  .crumbs a{color:var(--blue);text-decoration:none}
+  .others{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  @media (max-width:640px){.others{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-
-<div class="mockbar">MOCKUP · not the live site · ruled 2026-09-30 in Four Doors v11 · add-on prices are emailed, not posted</div>
-
+<div class="mockbar">MOCKUP · not the live site · ruled 2026-09-30 in Four Doors v11 · only Free and Starter show prices; the rest are emailed</div>
 <header>
   <div class="wrap hdr">
     <a target="_blank" rel="noopener" href="https://aztechsol.com/"><img src="assets/aztechsol-signature.svg" alt="AZ Tech Solutions home"></a>
     <nav><a target="_blank" rel="noopener" href="https://aztechsol.com/">HOME</a><a target="_blank" rel="noopener" href="https://aztechsol.com/the-method/">OUR METHOD</a><a target="_blank" rel="noopener" href="https://aztechsol.com/our-work/">OUR WORK</a><a target="_blank" rel="noopener" href="https://aztechsol.com/articles/">OUR BLOG</a><a target="_blank" rel="noopener" href="https://aztechsol.com/team/">OUR TEAM</a></nav>
   </div>
 </header>
-
-<!-- CONTAINER 1 · hero -->
 <section class="container hero center">
   <div class="wrap">
     <div class="eyebrow">Websites, rebuilt as places</div>
     <h1>Take your place in the digital town square</h1>
-    <p class="lead">A website used to be a brochure. Now it's where your town finds you, talks to you and comes back. Five ways to take your place, from a sign on the square to a building people gather in. Tap a door to see what it costs.</p>
+    <p class="lead">A website used to be a brochure. Now it's where your town finds you, talks to you and comes back. Five ways to take your place, in three kinds, from a sign on the square to a building people gather in.</p>
     <div class="question"><b>?</b> Who will gather at your place, and who keeps it open?</div>
   </div>
 </section>
-
-<!-- CONTAINER 2 · the five doors (click a card to see its price; each open is a tracked event) -->
 <section class="container" id="doors" style="padding-top:20px">
-  <div class="wrap">
-    <div class="bands">
+  <div class="wrap"><div class="bands">
     <div class="band">
-      <div class="bandhead"><h3>We build it, you run your business</h3><p>A site on the square, built from a conversation. Nobody has to edit it.</p></div>
+      <div class="bandhead"><h3>We build it, you run your business</h3><p>A site on the square, built from a conversation. Nobody has to edit it.</p><a href="build.html">Open this type →</a></div>
       <div class="row c2">
-      <div class="card door " data-door="free">
-        <button type="button" class="doorhead" aria-expanded="false" aria-controls="d-free">
-          <span class="who">A sign on the square</span>
-          <span class="dtitle">Free Site</span>
-          <span class="tag">For Tucson businesses that need to be seen on the square, fast.</span>
-          <span class="reveal">See pricing <b aria-hidden="true">+</b></span>
-        </button>
-        <div class="doorbody" id="d-free" hidden>
-          <div class="price"><small>Your cost</small><strong>$0</strong> <span>credit on top</span></div>
-          <div class="edits">Paid for by a slim AZ Tech credit bar at the top of every page.</div>
-          <ul><li>One or two meetings; we build it from the conversation</li><li>You own your domain; we host it free</li><li>Brochure pages and a simple contact form</li><li>An invite to <a href="join.html" target="_blank" rel="noopener">AZ Professional Partners</a>, our Tucson business Slack</li><li class="no">No store or checkout</li><li class="no">Changes after launch are paid</li></ul>
-          <a class="btn ghost" target="_blank" rel="noopener" href="https://n8n.aztechsol.com/form/1ee1be18-95a0-44d8-9da6-bd5c12dc12ef" data-door-cta="free">Get started</a>
-          <div class="fine">Tucson businesses, plus anyone we invite</div>
-        </div>
-      </div>
-
-      <div class="card door " data-door="starter">
-        <button type="button" class="doorhead" aria-expanded="false" aria-controls="d-starter">
-          <span class="who">Your own sign on the square</span>
-          <span class="dtitle">Starter Site</span>
-          <span class="tag">The free site, with our credit moved down to your footer.</span>
-          <span class="reveal">See pricing <b aria-hidden="true">+</b></span>
-        </button>
-        <div class="doorbody" id="d-starter" hidden>
-          <div class="price"><small>One time</small><strong>$800</strong> <span></span></div>
-          <div class="edits">Same build and hosting as Free. The top of every page is all yours.</div>
-          <ul><li>One or two meetings; we build it from the conversation</li><li>A small AZ Tech line in the footer, nothing on top</li><li>Hosted free, and you own your domain</li><li class="no">Changes after launch are paid</li></ul>
-          <a class="btn primary" target="_blank" rel="noopener" href="https://n8n.aztechsol.com/form/1ee1be18-95a0-44d8-9da6-bd5c12dc12ef" data-door-cta="starter">Get started</a>
-          <div class="fine">Books a conversation at Office Hours</div>
-        </div>
-      </div>
+        <a class="card door doorlink " href="build.html#free" data-door="free">
+          <span class="who">A sign on the square</span><span class="dtitle">Free Site</span><span class="tag">For Tucson businesses that need to be seen on the square, fast.</span>
+          <span class="go">See pricing <b aria-hidden="true">→</b></span>
+        </a>
+        <a class="card door doorlink " href="build.html#starter" data-door="starter">
+          <span class="who">Your own sign on the square</span><span class="dtitle">Starter Site</span><span class="tag">The free site, with our credit moved down to your footer.</span>
+          <span class="go">See pricing <b aria-hidden="true">→</b></span>
+        </a>
       </div>
     </div>
     <div class="band">
-      <div class="bandhead"><h3>You keep it up to date</h3><p>For owners and teams who make their own changes.</p></div>
+      <div class="bandhead"><h3>You keep it up to date</h3><p>For owners and teams who make their own changes.</p><a href="keep.html">Open this type →</a></div>
       <div class="row c2">
-      <div class="card door " data-door="ownit">
-        <button type="button" class="doorhead" aria-expanded="false" aria-controls="d-ownit">
-          <span class="who">A storefront you tend</span>
-          <span class="dtitle">Own-It Site</span>
-          <span class="tag">For the solo owner who wants to make changes without calling anyone.</span>
-          <span class="reveal">See pricing <b aria-hidden="true">+</b></span>
-        </button>
-        <div class="doorbody" id="d-ownit" hidden>
-          <div class="price"><small>Starting at</small><strong>$1,500</strong> <span>one time</span></div>
-          <div class="edits">You pay once, and then it's yours.</div>
-          <ul><li>Your brand, set up in a site you edit on your own laptop</li><li>A teaching session so you're independent from day one</li><li>Hosting that costs next to nothing</li><li>Built on Publii: fast, simple and nothing to hack</li></ul>
-          <a class="btn primary" target="_blank" rel="noopener" href="https://n8n.aztechsol.com/form/1ee1be18-95a0-44d8-9da6-bd5c12dc12ef" data-door-cta="ownit">Start with a call</a>
-          <div class="fine">Optional retainer after launch</div>
-        </div>
-      </div>
-
-      <div class="card door " data-door="team">
-        <button type="button" class="doorhead" aria-expanded="false" aria-controls="d-team">
-          <span class="who">A shop with a staff</span>
-          <span class="dtitle">Team Site</span>
-          <span class="tag">For businesses where several people publish, and the site has to stay up.</span>
-          <span class="reveal">See pricing <b aria-hidden="true">+</b></span>
-        </button>
-        <div class="doorbody" id="d-team" hidden>
-          <div class="price"><small>Starting at</small><strong>$3,500</strong> <span>+ $75/mo</span></div>
-          <div class="edits">The monthly is monitoring and maintenance: hosting, backups, updates, uptime and security.</div>
-          <ul><li>WordPress, built for your team to edit together</li><li>Managed hosting and daily backups</li><li>Plugin and core updates handled</li><li>Uptime and security watch</li><li class="no">Content changes are separate</li></ul>
-          <a class="btn primary" target="_blank" rel="noopener" href="https://n8n.aztechsol.com/form/1ee1be18-95a0-44d8-9da6-bd5c12dc12ef" data-door-cta="team">Start with a call</a>
-          <div class="fine">Monthly billed on its own line</div>
-        </div>
-      </div>
+        <a class="card door doorlink " href="keep.html#ownit" data-door="ownit">
+          <span class="who">A storefront you tend</span><span class="dtitle">Own-It Site</span><span class="tag">For the solo owner who wants to make changes without calling anyone.</span>
+          <span class="go">See what it includes <b aria-hidden="true">→</b></span>
+        </a>
+        <a class="card door doorlink " href="keep.html#team" data-door="team">
+          <span class="who">A shop with a staff</span><span class="dtitle">Team Site</span><span class="tag">For businesses where several people publish, and the site has to stay up.</span>
+          <span class="go">See what it includes <b aria-hidden="true">→</b></span>
+        </a>
       </div>
     </div>
     <div class="band">
-      <div class="bandhead"><h3>People use it</h3><p>Software your customers log into and do things with.</p></div>
+      <div class="bandhead"><h3>People use it</h3><p>Software your customers log into and do things with.</p><a href="software.html">Open this type →</a></div>
       <div class="row c1">
-      <div class="card door app" data-door="app">
-        <button type="button" class="doorhead" aria-expanded="false" aria-controls="d-app">
-          <span class="who">A place people gather</span>
-          <span class="dtitle">Custom App</span>
-          <span class="tag">For when people come to your place to <em>do</em> something together: accounts, data, real software.</span>
-          <span class="reveal">See pricing <b aria-hidden="true">+</b></span>
-        </button>
-        <div class="doorbody" id="d-app" hidden>
-          <div class="price"><small>Investment</small><strong style="font-size:26px">Let's talk</strong></div>
-          <div class="edits">Priced after we understand what it's worth to your business.</div>
-          <ul><li>Proof: ConVibe, live on the App Store</li><li>Database, users and uptime, engineered for you</li><li>Ongoing engineering, not just hosting</li></ul>
-          <a class="btn primary" target="_blank" rel="noopener" href="https://calendly.com/aztechsol/strategy-hour" data-door-cta="app">Book a strategy call</a>
-          <div class="fine">Two-day booking window</div>
-        </div>
-      </div>
+        <a class="card door doorlink app" href="software.html#app" data-door="app">
+          <span class="who">A place people gather</span><span class="dtitle">Custom App</span><span class="tag">For when people come to your place to <em>do</em> something together: accounts, data, real software.</span>
+          <span class="go">See what it includes <b aria-hidden="true">→</b></span>
+        </a>
       </div>
     </div>
-    </div>
-    <p class="fine" style="margin-top:22px">Tap a card to see what it costs. Every button opens a short form with your door already chosen, then books a conversation.</p>
-  </div>
+  </div></div>
 </section>
-
 <!-- CONTAINER 3 · after launch (add-ons; prices are emailed, not posted) -->
 <section class="container alt">
   <div class="wrap">
@@ -311,8 +269,8 @@
       <h2 style="font-size:36px">Pick a door. Talk it through. Choose your option.</h2>
     </div>
     <div class="row c3">
-      <div class="step"><div class="n">1</div><h3>Pick your door</h3><p>Choose by who will edit the site. Not sure? Pick the closest one; we'll tell you honestly if another fits better.</p></div>
-      <div class="step"><div class="n">2</div><h3>Book a conversation</h3><p>A short form with your door already chosen, then a time on the calendar. We email you the prices and talk about what the site needs to do for your business.</p></div>
+      <div class="step"><div class="n">1</div><h3>Pick your kind of place</h3><p>Choose by who will keep it up. Not sure? Pick the closest one; we'll tell you honestly if another fits better.</p></div>
+      <div class="step"><div class="n">2</div><h3>Book a conversation</h3><p>A short form with your door already chosen. We email you the prices, then find a time to talk about what the site needs to do for your business.</p></div>
       <div class="step"><div class="n">3</div><h3>Choose from three options</h3><p>Your proposal gives you three ways to go, from simplest to fully looked-after.</p>
         <div class="opts"><span>Essential</span><span class="mid">Managed</span><span>Managed + Priority</span></div>
       </div>
@@ -341,13 +299,11 @@
     <h2 style="font-size:32px">Good things to ask before you pick</h2>
     <details><summary>Is this just a website?</summary><p>Yes, in the way a town square is just pavement. It's a website underneath, found on Google like any other. What changes is what it's for: a place people come back to, not a flyer they read once.</p></details>
     <details><summary>Why is the Free Site free?</summary><p>You pay for it in advertising: a slim line at the top of every page that says AZ Tech built it. We build it from one or two conversations, you own your domain, and we host it at no cost to you. At the end you get an invoice showing what the site is worth, $800, with the full amount waived.</p></details>
-    <details><summary>What's the difference between Free and Starter?</summary><p>Only where our credit sits. Free has a slim bar across the top of every page; Starter moves it to a small line in your footer, so your header is all yours. Same site, same free hosting, and changes are paid the same way.</p></details>
     <details><summary>Can I sell things on my site?</summary><p>Not on the Free Site. Free hosting isn't allowed to run a store. If you need a shop or a database, we build it on the right platform for it, like Shopify, or on our own servers.</p></details>
     <details><summary>What is AZ Professional Partners?</summary><p>Our Slack for Tucson business owners: a place to talk to each other about questions, referrals and what's working. Every Free Site comes with an invite, and any Tucson business can <a target="_blank" rel="noopener" href="join.html">request one here</a>.</p></details>
     <details><summary>What's the difference between Own-It and Team?</summary><p>Own-It is for one person who wants to make their own changes, and there's no monthly bill. Team is for several people editing a live site that has to be watched, so it comes with monthly monitoring and maintenance.</p></details>
     <details><summary>Who owns my domain and my content?</summary><p>You do, on every door. If you ever leave, your name and your words go with you.</p></details>
-    <details><summary>Does the $75 a month include changes?</summary><p>No. It keeps the site safe, updated and running. Changes are separate: pay for each one, or add AI Edits for unlimited changes. We email you the current prices.</p></details>
-  </div>
+    </div>
 </section>
 
 <!-- CONTAINER 7 · closing CTA -->
@@ -359,19 +315,7 @@
   </div>
 </section>
 
-<footer><div class="wrap"><span>© 2026 AZ Technology Solutions · Tucson, Arizona</span><span>Our Business Powers Your AI.</span></div></footer>
-
-
-<script>
-/* Each card opens in place; every open is one tracked event (Umami on the live site). */
-document.querySelectorAll('.doorhead').forEach(function(h){
-  h.addEventListener('click',function(){
-    var card=h.closest('.door'), body=document.getElementById(h.getAttribute('aria-controls'));
-    var open=h.getAttribute('aria-expanded')!=='true';
-    h.setAttribute('aria-expanded',String(open)); body.hidden=!open; card.classList.toggle('open',open);
-    if(open){ try{ window.umami && umami.track('door_open',{door:card.dataset.door}); }catch(e){} }
-  });
-});
+<footer><div class="wrap"><span>© 2026 AZ Technology Solutions · Tucson, Arizona</span><span>Our Business Powers Your AI.</span></div></footer><script>
 document.querySelectorAll('[data-door-cta]').forEach(function(a){
   a.addEventListener('click',function(){ try{ window.umami && umami.track('door_cta',{door:a.dataset.doorCta}); }catch(e){} });
 });
