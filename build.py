@@ -16,11 +16,14 @@ MOCK = '<div class="mockbar">MOCKUP · not the live site · ruled 2026-09-30 in 
 
 CSS = '''<style>
   .bands{display:grid;gap:34px}
-  .band{display:grid;grid-template-columns:1fr;gap:22px;align-items:start;padding-top:30px;border-top:1px solid var(--line)}
+  .band{display:grid;grid-template-columns:1fr;gap:22px;align-items:start;padding:26px;background:#131d2a;border:1px solid var(--line);border-radius:16px}
+  .band .card{background:#1a2a3b}
+  .band .aicard{background:linear-gradient(160deg,rgba(254,153,1,.12),#1a2a3b 55%)}
   .bandhead{display:grid;grid-template-columns:150px minmax(0,1fr);gap:24px;align-items:center}
   .bandhead .typeart{max-width:150px;margin:0}
   .bandhead h3{font-size:26px}
-  .band:first-child{border-top:0;padding-top:0}
+  .bands{gap:26px}
+  @media (max-width:640px){.band{padding:16px}}
   .bandhead h3{font-size:22px;margin:0 0 6px}
   .bandhead p{margin:0 0 12px;color:var(--lsteel);font-size:14.5px}
   .bandhead a{font:700 13px "Exo 2";letter-spacing:.06em;text-transform:uppercase;color:var(--blue);text-decoration:none}
