@@ -67,6 +67,16 @@ CSS = '''<style>
   .typehero{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:40px;align-items:center}
   .typeart.big{max-width:360px;justify-self:end;margin:0}
   @media (max-width:860px){.typehero{grid-template-columns:1fr}.typeart.big{justify-self:start;max-width:280px}}
+  .lgrow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+  .lg{display:block;border-radius:6px}
+  .lglab{font:600 12px Inter;color:var(--lsteel)}
+  .combo .dtitle{font-size:28px}
+  .combos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:8px}
+  .combos span{border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:14px;color:var(--body)}
+  .combos b{display:block;font:700 15px "Exo 2";color:var(--fog)}
+  .combos .ailine{border-color:rgba(254,153,1,.45)}
+  .combos .ailine b{color:var(--amber)}
+  @media (max-width:640px){.combos{grid-template-columns:1fr}}
   .btn.amber{display:inline-block;background:#FE9901;color:#1a1200;box-shadow:none;font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:11px 18px}
   .btn.outline{display:inline-block;border:1.5px solid var(--blue);color:var(--blue);font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:10px 18px}
   .pfmore{margin-top:20px;display:flex;gap:12px;flex-wrap:wrap}
@@ -86,27 +96,27 @@ DOORS = {
    edits='Paid for by a slim AZ Tech credit bar at the top of every page.',
    items=[('One or two meetings; we build it from the conversation',0),('You own your domain; we host it free',0),('Brochure pages and a simple contact form',0),
           ('An invite to <a href="join.html" '+EXT+'>AZ Professional Partners</a>, our Tucson business Slack',0),('No checkout on the site: take payments through Venmo, Cash App or PayPal',1),('Changes after launch are paid',1)],
-   btn='Get started', href=TW, fine='Arizona businesses, plus anyone we invite', ghost=True),
+   btn='Get started', href=TW, fine='Arizona businesses, plus anyone we invite', ghost=True, logos=(['github'],'Hosted on GitHub')),
  'starter': dict(type='build', who='Your own cart, your name on the umbrella', title='Starter Site', tag='The free site, with our credit moved down to your footer.',
    price='<div class="price"><small>One time</small><strong>$800</strong></div>',
    edits='Same build and hosting as Free. The top of every page is all yours.',
    items=[('One or two meetings; we build it from the conversation',0),('A small AZ Tech line in the footer, nothing on top',0),('Hosted free, and you own your domain',0),('Changes after launch are paid',1)],
-   btn='Get started', href=TW, fine='Books a conversation at Office Hours'),
+   btn='Get started', href=TW, fine='Books a conversation at Office Hours', logos=(['github'],'Hosted on GitHub')),
  'ownit': dict(type='keep', who='A storefront you tend', title='Own-It Site', tag='For the solo owner who wants to make changes without calling anyone.',
    price='<p class="ask">Pay once, and then it\'s yours.</p>',
    edits='Built on Publii: a site you edit on your own laptop, with hosting that costs next to nothing.',
    items=[('Your brand, set up in a site you edit yourself',0),("A teaching session so you're independent from day one",0),('Fast, simple and nothing to hack',0),('Optional retainer meetings after launch',0)],
-   btn='Email me the prices', href=TW, fine='We email today\'s prices, then book a conversation'),
+   btn='Email me the prices', href=TW, fine='We email today\'s prices, then book a conversation', logos=(['publii'],'')),
  'team': dict(type='keep', who='A shop with a staff', title='Team Site', tag='For businesses where several people publish, and the site has to stay up.',
    price='<p class="ask">A build, then a monthly for keeping it safe.</p>',
    edits='The monthly is monitoring and maintenance: hosting, backups, updates, uptime and security. Content changes are separate.',
    items=[('WordPress, built for your team to edit together',0),('Managed hosting and daily backups',0),('Plugin and core updates handled',0),('Uptime and security watch',0)],
-   btn='Email me the prices', href=TW, fine='We email today\'s prices, then book a conversation'),
+   btn='Email me the prices', href=TW, fine='We email today\'s prices, then book a conversation', logos=(['wordpress'],'')),
  'app': dict(type='software', who='A building where the work gets done', title='Custom App', tag='For when customers come to your store to <em>do</em> something: accounts, bookings, data, real software.',
    price='<p class="ask">Priced after we understand what it\'s worth to your business.</p>',
    edits='Proof: ConVibe, a convention guest-tracker app, live on the App Store.',
    items=[('Database, users and uptime, engineered for you',0),('Ongoing engineering, not just hosting',0),('Starts with a strategy conversation',0)],
-   btn='Book a strategy call', href=SH, fine='Two-day booking window', cls='app'),
+   btn='Book a strategy call', href=SH, fine='Two-day booking window', cls='app', logos=(['react','javascript','python','html5','json','graphql','n8n'],'')),
 }
 TYPES = {
  'build': dict(img='assets/type-build.svg', alt='A fruit cart under a striped umbrella', file='build.html', title='We build it, you run your business', sub='A storefront built from a conversation. Nobody has to edit it.', doors=['free','starter'],
@@ -209,6 +219,33 @@ def ai_section(k):
 </section>
 '''
 
+
+LOGOS = {  # Simple Icons marks (brand colours; JSON and GitHub lightened for the dark page); Publii's own mark from getpublii.com
+ 'github': ('GitHub', '#EEF3F7'), 'publii': ('Publii', None), 'wordpress': ('WordPress', '#3C9FD6'),
+ 'react': ('React Native', '#61DAFB'), 'javascript': ('JavaScript', '#F7DF1E'), 'python': ('Python', '#4B8BBE'),
+ 'html5': ('HTML5', '#E34F26'), 'json': ('JSON', '#C7CED9'), 'graphql': ('GraphQL', '#E10098'), 'n8n': ('n8n', '#EA4B71'),
+}
+def logo(slug, size=26):
+    name, col = LOGOS[slug]
+    if col is None:
+        return f'<img class="lg" src="assets/logos/{slug}.svg" alt="{name}" title="{name}" width="{size}" height="{size}">'
+    svg = (R / 'assets' / 'logos' / f'{slug}.svg').read_text()
+    svg = svg.replace('<svg ', f'<svg class="lg" width="{size}" height="{size}" fill="{col}" aria-label="{name}" ', 1)
+    return svg
+def logorow(slugs, label=''):
+    lab = f'<span class="lglab">{label}</span>' if label else ''
+    return f'<span class="lgrow">{"".join(logo(s) for s in slugs)}{lab}</span>'
+
+def build_combo():
+    return f'''
+        <a class="card door doorlink combo" href="build.html" data-door="build">
+          {logorow(['github'],'Hosted on GitHub')}
+          <span class="who">A cart on the corner</span><span class="dtitle">Free Site or Starter Site</span>
+          <span class="tag">We build your storefront from a conversation and host it free. It's free with our name on the umbrella, or $800 with your name on it.</span>
+          <span class="combos"><span><b>Free</b> $0 · our credit on top</span><span><b>Starter</b> $800 · credit in the footer</span><span class="ailine"><b>AI Edits</b> changes by email, prices emailed</span></span>
+          <span class="go">See both, and the AI tier <b aria-hidden="true">→</b></span>
+        </a>'''
+
 def page(title, body, extra=''):
     h = HEAD.replace(HEAD[HEAD.index('<title>'):HEAD.index('</title>')+8], f'<title>{title}</title>')
     return h + STYLE + CSS + '\n</head>\n<body>\n' + MOCK + '\n' + UTIL + HEADER + body + FOOTER + extra + '\n</body>\n</html>\n'
@@ -223,7 +260,7 @@ def summary(slug):
     d = DOORS[slug]; t = TYPES[d['type']]
     return f'''
         <a class="card door doorlink {d.get('cls','')}" href="{t['file']}#{slug}" data-door="{slug}">
-          <span class="who">{d['who']}</span><span class="dtitle">{d['title']}</span><span class="tag">{d['tag']}</span>
+          {logorow(*d['logos']) if d.get('logos') else ''}<span class="who">{d['who']}</span><span class="dtitle">{d['title']}</span><span class="tag">{d['tag']}</span>
           <span class="go">{'See pricing' if slug in ('free','starter') else 'See what it includes'} <b aria-hidden="true">→</b></span>
         </a>'''
 
@@ -232,7 +269,7 @@ def full(slug):
     lis = ''.join(f'<li{" class=\"no\"" if n else ""}>{x}</li>' for x, n in d['items'])
     return f'''
       <div class="card door full {d.get('cls','')}" id="{slug}">
-        <div class="who">{d['who']}</div>
+        {logorow(*d['logos']) if d.get('logos') else ''}<div class="who">{d['who']}</div>
         <h3 style="font-size:28px;margin:6px 0 4px">{d['title']}</h3>
         <p class="tag">{d['tag']}</p>
         {d['price']}
@@ -248,11 +285,11 @@ def faq(items):
 # the hub
 bands = ''
 for k, t in TYPES.items():
-    cols = 'c3' if len(t['doors']) > 1 else 'c2'
+    cols = 'c1' if k == 'build' else ('c3' if len(t['doors']) > 1 else 'c2')
     bands += f'''
     <div class="band">
       <div class="bandhead"><img class="typeart" src="{t['img']}" alt="{t['alt']}" width="1024" height="1024"><h3>{t['title']}</h3><p>{t['sub']}</p><a href="{t['file']}">Open this type →</a></div>
-      <div class="row {cols}">{''.join(summary(s) for s in t['doors'])}{ai_card(k)}
+      <div class="row {cols}">{build_combo() if k == 'build' else ''.join(summary(s) for s in t['doors']) + ai_card(k)}
       </div>
     </div>'''
 old = (R / 'src' / 'hub_rest.html').read_text()

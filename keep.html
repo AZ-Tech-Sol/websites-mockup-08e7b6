@@ -206,6 +206,16 @@
   .typehero{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:40px;align-items:center}
   .typeart.big{max-width:360px;justify-self:end;margin:0}
   @media (max-width:860px){.typehero{grid-template-columns:1fr}.typeart.big{justify-self:start;max-width:280px}}
+  .lgrow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+  .lg{display:block;border-radius:6px}
+  .lglab{font:600 12px Inter;color:var(--lsteel)}
+  .combo .dtitle{font-size:28px}
+  .combos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:8px}
+  .combos span{border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:14px;color:var(--body)}
+  .combos b{display:block;font:700 15px "Exo 2";color:var(--fog)}
+  .combos .ailine{border-color:rgba(254,153,1,.45)}
+  .combos .ailine b{color:var(--amber)}
+  @media (max-width:640px){.combos{grid-template-columns:1fr}}
   .btn.amber{display:inline-block;background:#FE9901;color:#1a1200;box-shadow:none;font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:11px 18px}
   .btn.outline{display:inline-block;border:1.5px solid var(--blue);color:var(--blue);font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:10px 18px}
   .pfmore{margin-top:20px;display:flex;gap:12px;flex-wrap:wrap}
@@ -242,7 +252,7 @@
 <section class="container" style="padding-top:0">
   <div class="wrap"><div class="row pair">
       <div class="card door full " id="ownit">
-        <div class="who">A storefront you tend</div>
+        <span class="lgrow"><img class="lg" src="assets/logos/publii.svg" alt="Publii" title="Publii" width="26" height="26"></span><div class="who">A storefront you tend</div>
         <h3 style="font-size:28px;margin:6px 0 4px">Own-It Site</h3>
         <p class="tag">For the solo owner who wants to make changes without calling anyone.</p>
         <p class="ask">Pay once, and then it's yours.</p>
@@ -252,7 +262,7 @@
         <div class="fine">We email today's prices, then book a conversation</div>
       </div>
       <div class="card door full " id="team">
-        <div class="who">A shop with a staff</div>
+        <span class="lgrow"><svg class="lg" width="26" height="26" fill="#3C9FD6" aria-label="WordPress" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>WordPress</title><path d="M21.469 6.825c.84 1.537 1.318 3.3 1.318 5.175 0 3.979-2.156 7.456-5.363 9.325l3.295-9.527c.615-1.54.82-2.771.82-3.864 0-.405-.026-.78-.07-1.11m-7.981.105c.647-.03 1.232-.105 1.232-.105.582-.075.514-.93-.067-.899 0 0-1.755.135-2.88.135-1.064 0-2.85-.15-2.85-.15-.585-.03-.661.855-.075.885 0 0 .54.061 1.125.09l1.68 4.605-2.37 7.08L5.354 6.9c.649-.03 1.234-.1 1.234-.1.585-.075.516-.93-.065-.896 0 0-1.746.138-2.874.138-.2 0-.438-.008-.69-.015C4.911 3.15 8.235 1.215 12 1.215c2.809 0 5.365 1.072 7.286 2.833-.046-.003-.091-.009-.141-.009-1.06 0-1.812.923-1.812 1.914 0 .89.513 1.643 1.06 2.531.411.72.89 1.643.89 2.977 0 .915-.354 1.994-.821 3.479l-1.075 3.585-3.9-11.61.001.014zM12 22.784c-1.059 0-2.081-.153-3.048-.437l3.237-9.406 3.315 9.087c.024.053.05.101.078.149-1.12.393-2.325.609-3.582.609M1.211 12c0-1.564.336-3.05.935-4.39L7.29 21.709C3.694 19.96 1.212 16.271 1.211 12M12 0C5.385 0 0 5.385 0 12s5.385 12 12 12 12-5.385 12-12S18.615 0 12 0"/></svg></span><div class="who">A shop with a staff</div>
         <h3 style="font-size:28px;margin:6px 0 4px">Team Site</h3>
         <p class="tag">For businesses where several people publish, and the site has to stay up.</p>
         <p class="ask">A build, then a monthly for keeping it safe.</p>
