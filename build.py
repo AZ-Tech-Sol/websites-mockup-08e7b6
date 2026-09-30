@@ -462,7 +462,7 @@ hub = f'''
 
 # ── the Clockwork Desk page (mockup; the real page comes later on aztechsol.com)
 BOTS = [
- dict(slug='hector', name='Hector', role='The front desk', mail='Reached through our contact form',
+ dict(slug='hector', name='Hector', role='The front desk', mail='New visitors: the contact form · Clients: his direct address',
       body="Reads every email a client sends, answers what he can, and hands the rest to the right desk. He drafts every reply; nothing leaves until Angel approves it.",
       does=['Reads and sorts every client email','Routes it: site changes to Lena, invoices to Otto, security to Bjorn','Drafts the reply for Angel to approve']),
  dict(slug='lena', name='Lena', role='Web design and your site', mail='Through Hector',
@@ -506,7 +506,7 @@ def clockwork_page():
       <div class="eyebrow" style="color:var(--amber);margin-top:14px">AI employees, supervised by a person</div>
       <p class="lead">Four AI employees run the day-to-day behind every AZ Tech site: one front desk that reads your email, and three specialists it hands work to. Every one of them works from written files you could read, and Angel supervises all of it.</p>
       <a class="btn primary" style="display:inline-block;margin-top:22px" {EXT} href="{TW}" data-door-cta="clockwork">Write to Hector →</a>
-      <p class="fine" style="text-align:left;margin-top:8px">One short form reaches the whole desk. Hector reads it and takes it from there.</p>
+      <p class="fine" style="text-align:left;margin-top:8px">New here? One short form reaches the desk, and Hector replies by email.<br>Already a client? You have Hector's direct address: write to him about anything, for any of the crew, and he routes it.</p>
     </div>
   </div>
 </section>
@@ -515,7 +515,7 @@ def clockwork_page():
   <div class="wrap">
     <div class="center" style="margin-bottom:26px"><div class="eyebrow">How a message moves</div><h2 style="font-size:32px">One message, the right desk, a person's approval</h2></div>
     <div class="flow">
-      <div class="fstep"><b>You</b><span>send a change, a question or a problem</span></div><div class="farrow">→</div>
+      <div class="fstep"><b>You</b><span>use the form, or clients write to Hector directly</span></div><div class="farrow">→</div>
       <div class="fstep hl"><b>Hector</b><span>reads it and routes it</span></div><div class="farrow">→</div>
       <div class="fstep split"><b>Lena</b><span>site changes</span><b>Otto</b><span>invoices</span><b>Bjorn</b><span>security</span></div><div class="farrow">→</div>
       <div class="fstep"><b>A draft</b><span>the change, the invoice or the reply</span></div><div class="farrow">→</div>
