@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your Place Online — AZ Tech Solutions (mockup B)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<!--
+  MOCKUP for the aztechsol.com website sales page (/web-design/).
+  Source: "Four Doors to a Website (Decision Narrative) v6" — prices are PROPOSED, not ruled.
+  Avada port map: every <section class="container"> = one Fusion Container (100% width, Ink bg);
+  .row .col = Fusion Columns (1_4 / 1_3 / 1_2); .card = a column with bg #182735 + 1px border #243447;
+  buttons = fusion_button (primary: #0039B8, white text, box-shadow 0 0 18px #000; ghost: #009EFF border/text).
+  Palette = the CallForge scheme (live site): Ink #0E121A, Carbon #182735, Blue #009EFF, Royal #0039B8,
+  headings #EEF3F7 (Exo 2), body #c7ced9 (Inter), amber #FE9901 used only for small accents.
+-->
+<style>
+  :root{
+    --ink:#0E121A; --carbon:#182735; --slate:#303643; --steel:#4D5864; --lsteel:#829DAE;
+    --fog:#EEF3F7; --body:#c7ced9; --blue:#009EFF; --royal:#0039B8; --navy:#012446;
+    --amber:#FE9901; --line:#243447;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--ink);color:var(--body);font:16px/1.65 Inter,system-ui,sans-serif}
+  h1,h2,h3,h4{font-family:"Exo 2",sans-serif;color:var(--fog);line-height:1.2;margin:0 0 .5em}
+  a{color:var(--blue)}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+
+  /* mockup-only chrome */
+  .mockbar{background:var(--amber);color:#1a1200;font:600 13px/1.4 Inter,sans-serif;text-align:center;padding:8px 16px}
+  .mockbar button{margin-left:10px;font:600 12px Inter,sans-serif;border:1px solid #1a1200;background:transparent;color:#1a1200;border-radius:4px;padding:2px 8px;cursor:pointer}
+  .q{display:none;font:600 11px/1 Inter,sans-serif;color:#1a1200;background:var(--amber);border-radius:3px;padding:3px 6px;margin-left:6px;vertical-align:middle;white-space:nowrap}
+  body.notes .q{display:inline-block}
+  body.notes .qbox{outline:2px dashed var(--amber);outline-offset:4px}
+
+  /* header */
+  header{border-bottom:1px solid var(--line)}
+  .hdr{display:flex;align-items:center;justify-content:space-between;height:76px}
+  .hdr img{height:38px;display:block}
+  nav a{color:var(--fog);text-decoration:none;font:600 14px "Exo 2",sans-serif;letter-spacing:.06em;margin-left:28px}
+  nav a.on{color:var(--blue)}
+
+  /* sections */
+  .container{padding:84px 0}
+  .container.alt{background:linear-gradient(180deg,#101723 0%,var(--ink) 100%);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .eyebrow{font:700 13px "Exo 2",sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:14px}
+  .lead{font-size:19px;max-width:720px}
+  .center{text-align:center}.center .lead{margin:0 auto}
+
+  /* hero */
+  .hero{padding:96px 0 72px;background:radial-gradient(900px 420px at 50% 0%,rgba(0,158,255,.16),transparent 70%)}
+  .hero h1{font-size:clamp(34px,5vw,56px);font-weight:800;max-width:860px;margin:0 auto .4em}
+  .question{display:inline-flex;gap:10px;align-items:center;margin-top:26px;border:1px solid var(--line);background:rgba(24,39,53,.6);border-radius:999px;padding:10px 20px;color:var(--fog);font-weight:500}
+  .question b{color:var(--amber);font-family:"Exo 2";font-size:18px}
+
+  /* grid */
+  .row{display:grid;gap:22px}
+  .c4{grid-template-columns:repeat(4,1fr)} .c3{grid-template-columns:repeat(3,1fr)} .c2{grid-template-columns:repeat(2,1fr)}
+  @media (max-width:1020px){.c4{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:720px){.c4,.c3,.c2{grid-template-columns:1fr} nav{display:none} .container{padding:60px 0}}
+
+  /* door cards */
+  .card{background:var(--carbon);border:1px solid var(--line);border-radius:10px;padding:28px 24px;display:flex;flex-direction:column}
+  .door .who{font:600 12px "Exo 2";letter-spacing:.14em;text-transform:uppercase;color:var(--lsteel)}
+  .door h3{font-size:26px;margin:6px 0 4px}
+  .door .tag{color:var(--body);font-size:15px;min-height:48px}
+  .price{margin:18px 0 6px;font-family:"Exo 2";color:var(--fog)}
+  .price small{display:block;font:500 12px Inter;letter-spacing:.08em;text-transform:uppercase;color:var(--lsteel)}
+  .price strong{font-size:34px;font-weight:800}
+  .price span{font-size:15px;color:var(--body);font-family:Inter}
+  .edits{font-size:14px;color:var(--fog);background:rgba(0,158,255,.08);border-left:3px solid var(--blue);padding:8px 12px;border-radius:0 6px 6px 0;margin:10px 0 16px}
+  .door ul{list-style:none;padding:0;margin:0 0 22px;font-size:14.5px;flex:1}
+  .door li{padding:6px 0 6px 24px;position:relative;border-top:1px solid rgba(36,52,71,.7)}
+  .door li:before{content:"";position:absolute;left:4px;top:14px;width:8px;height:8px;border-radius:50%;background:var(--blue)}
+  .door li.no:before{background:var(--steel)}
+  .door.app{background:linear-gradient(160deg,#16233a,var(--carbon) 60%);border-color:#2b4b72}
+
+  .btn{display:block;text-align:center;text-decoration:none;font:700 15px "Exo 2",sans-serif;letter-spacing:.04em;border-radius:6px;padding:13px 18px}
+  .btn.primary{background:var(--royal);color:#fff;box-shadow:0 0 18px #000}
+  .btn.primary:hover{background:#0047e0}
+  .btn.ghost{border:1.5px solid var(--blue);color:var(--blue)}
+  .btn.ghost:hover{background:rgba(0,158,255,.1)}
+  .fine{font-size:12.5px;color:var(--lsteel);margin-top:10px;text-align:center}
+
+  /* credit-bar preview */
+  .creditdemo{margin:0 0 16px;border:1px solid var(--line);border-radius:6px;overflow:hidden;font-size:11px}
+  .creditdemo .bar{background:var(--ink);color:var(--fog);padding:4px 8px;display:flex;justify-content:space-between}
+  .creditdemo .bar em{color:var(--blue);font-style:normal}
+  .creditdemo .site{background:#f3f1ea;color:#333;padding:8px;font:600 11px Georgia,serif}
+
+  /* add-ons */
+  .addon{background:var(--carbon);border:1px solid var(--line);border-radius:10px;padding:22px}
+  .addon h4{font-size:18px;margin-bottom:4px}
+  .addon .amt{font:800 26px "Exo 2";color:var(--fog)}
+  .addon .amt span{font:500 14px Inter;color:var(--body)}
+  .addon p{font-size:14.5px;margin:8px 0 0}
+  .speed{display:flex;gap:10px;margin-top:10px}
+  .speed div{flex:1;border:1px solid var(--line);border-radius:8px;padding:10px;text-align:center}
+  .speed b{display:block;font:800 20px "Exo 2";color:var(--fog)}
+  .speed i{font-style:normal;font-size:12px;color:var(--lsteel)}
+
+  /* steps */
+  .step{padding:26px;border-top:3px solid var(--blue);background:var(--carbon);border-radius:0 0 10px 10px}
+  .step .n{font:800 40px "Exo 2";color:var(--blue);opacity:.9}
+  .opts{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+  .opts span{font:600 12px Inter;border:1px solid var(--line);border-radius:999px;padding:4px 10px;color:var(--fog)}
+  .opts span.mid{border-color:var(--blue);color:var(--blue)}
+
+  /* proof */
+  .proof{display:flex;gap:18px;align-items:flex-start}
+  .proof .badge{flex:none;width:46px;height:46px;border-radius:10px;background:rgba(0,158,255,.12);display:grid;place-items:center;color:var(--blue);font:800 18px "Exo 2"}
+  .proof h4{margin-bottom:2px}
+
+  /* faq */
+  details{border-bottom:1px solid var(--line);padding:16px 0}
+  summary{cursor:pointer;color:var(--fog);font:600 17px "Exo 2";list-style:none}
+  summary::-webkit-details-marker{display:none}
+  summary:after{content:"+";float:right;color:var(--blue)}
+  details[open] summary:after{content:"–"}
+  details p{margin:10px 0 0;max-width:820px}
+
+  .cta{background:radial-gradient(700px 300px at 50% 100%,rgba(0,57,184,.35),transparent 70%)}
+  .cta .btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+  .cta .btn{min-width:230px}
+  footer{border-top:1px solid var(--line);padding:28px 0;font-size:13px;color:var(--lsteel)}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+</style>
+</head>
+<body>
+
+<div style="background:#1a1200;color:#FE9901;text-align:center;font:600 13px Inter,sans-serif;padding:6px">Compare: <a href="index.html" style="color:#FE9901">A · Website</a> &nbsp;|&nbsp; <a href="square.html" style="color:#FE9901"><b>B · Digital town square</b></a></div>
+<div class="mockbar">MOCKUP · not the live site · prices are proposals from Four Doors v6, not yet ruled
+  <button type="button" onclick="document.body.classList.toggle('notes')">Show open questions</button>
+</div>
+
+<header>
+  <div class="wrap hdr">
+    <img src="assets/aztechsol-signature.svg" alt="AZ Tech Solutions">
+    <nav><a href="#">HOME</a><a href="#" class="on">SERVICES</a><a href="#">WORK WITH ME</a><a href="#">BLOG</a></nav>
+  </div>
+</header>
+
+<!-- CONTAINER 1 · hero -->
+<section class="container hero center">
+  <div class="wrap">
+    <div class="eyebrow">Websites, rebuilt as places</div>
+    <h1>Take your place in the digital town square</h1>
+    <p class="lead">A website used to be a brochure. Now it's where your town finds you, talks to you and comes back. Four ways to take your place, from a sign on the square to a building people gather in, and every price starts at a number you can plan around.</p>
+    <div class="question"><b>?</b> Who will gather at your place, and who keeps it open?</div>
+  </div>
+</section>
+
+<!-- CONTAINER 2 · the four doors (4 × 1_4 columns) -->
+<section class="container" id="doors" style="padding-top:20px">
+  <div class="wrap">
+    <div class="row c4">
+
+      <!-- DOOR 1 · FREE -->
+      <div class="card door qbox">
+        <div class="who">A sign on the square</div>
+        <h3>Free Site <span class="q">Q12 · Q16</span></h3>
+        <p class="tag">For Tucson businesses that need to be seen on the square, fast.</p>
+        <div class="price"><small>Your cost</small><strong>$0</strong></div>
+        <div class="creditdemo" aria-hidden="true">
+          <div class="bar"><span>Free website by AZ Tech</span><em>get yours →</em></div>
+          <div class="site">Your Business · Home · About · Contact</div>
+        </div>
+        <div class="edits">Paid for by a slim AZ Tech credit bar at the top of every page.</div>
+        <ul>
+          <li>One or two meetings; we build it from the conversation</li>
+          <li>You own your domain; we host it free</li>
+          <li>Brochure pages and a simple contact form</li>
+          <li class="no">No store or checkout</li>
+          <li class="no">Changes after launch are paid</li>
+        </ul>
+        <a class="btn ghost" href="#">Book Office Hours</a>
+        <div class="fine">Tucson businesses, plus anyone we invite</div>
+      </div>
+
+      <!-- DOOR 2 · PUBLII -->
+      <div class="card door">
+        <div class="who">A storefront you tend</div>
+        <h3>Own-It Site</h3>
+        <p class="tag">For the solo owner who wants to make changes without calling anyone.</p>
+        <div class="price"><small>Starting at</small><strong>$1,500</strong> <span>one time</span></div>
+        <div class="edits">You pay once, and then it's yours.</div>
+        <ul>
+          <li>Your brand, set up in a site you edit on your own laptop</li>
+          <li>A teaching session so you're independent from day one</li>
+          <li>Hosting that costs next to nothing</li>
+          <li>Built on Publii: fast, simple and nothing to hack</li>
+        </ul>
+        <a class="btn primary" href="#">Start with a call</a>
+        <div class="fine">Optional retainer after launch</div>
+      </div>
+
+      <!-- DOOR 3 · WORDPRESS -->
+      <div class="card door">
+        <div class="who">A shop with a staff</div>
+        <h3>Team Site</h3>
+        <p class="tag">For businesses where several people publish, and the site has to stay up.</p>
+        <div class="price"><small>Starting at</small><strong>$3,500</strong> <span>+ $75/mo</span></div>
+        <div class="edits">The monthly is monitoring and maintenance: hosting, backups, updates, uptime and security.</div>
+        <ul>
+          <li>WordPress, built for your team to edit together</li>
+          <li>Managed hosting and daily backups</li>
+          <li>Plugin and core updates handled</li>
+          <li>Uptime and security watch</li>
+          <li class="no">Content changes are separate</li>
+        </ul>
+        <a class="btn primary" href="#">Start with a call</a>
+        <div class="fine">Monthly billed on its own line</div>
+      </div>
+
+      <!-- DOOR 4 · APP -->
+      <div class="card door app">
+        <div class="who">A place people gather</div>
+        <h3>Custom App</h3>
+        <p class="tag">For when people come to your place to <em>do</em> something together: accounts, data, real software.</p>
+        <div class="price"><small>Investment</small><strong style="font-size:26px">Let's talk</strong></div>
+        <div class="edits">Priced after we understand what it's worth to your business.</div>
+        <ul>
+          <li>Proof: ConVibe, live on the App Store</li>
+          <li>Database, users and uptime, engineered for you</li>
+          <li>Ongoing engineering, not just hosting</li>
+        </ul>
+        <a class="btn primary" href="#">Book a strategy call</a>
+        <div class="fine">Two-day booking window</div>
+      </div>
+
+    </div>
+    <p class="fine" style="margin-top:22px">
+      Buttons on the Own-It and Team cards book through the same window as the Free Site.<span class="q">Q14</span>
+      Every button opens our Web &amp; Hosting form with your door already chosen.<span class="q">Q15</span>
+    </p>
+  </div>
+</section>
+
+<!-- CONTAINER 3 · after launch (add-ons) -->
+<section class="container alt">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:40px">
+      <div class="eyebrow">After launch</div>
+      <h2 style="font-size:36px">Keeping the lights on, at a price you know up front</h2>
+      <p class="lead">The same add-ons work on every door. Take what you need, when you need it.</p>
+    </div>
+    <div class="row c4">
+      <div class="addon qbox">
+        <h4>One change <span class="q">Q10</span></h4>
+        <div class="amt">$200 <span>per change</span></div>
+        <p>Ask, it's done, you pay. No plan needed.</p>
+      </div>
+      <div class="addon qbox" style="border-color:#2b4b72">
+        <h4>AI Edits <span class="q">Q10</span></h4>
+        <div class="amt">$99 <span>/ month</span></div>
+        <p>Unlimited content changes. Email what you want changed and our AI makes it: words, photos, hours, new pages.</p>
+      </div>
+      <div class="addon qbox">
+        <h4>Access to Angel <span class="q">Q11</span></h4>
+        <p style="margin-top:0">Remote help whenever you need it, sold by how fast you get an answer.</p>
+        <div class="speed">
+          <div><b>$150</b><i>/mo · within 48 hours</i></div>
+          <div><b>$300</b><i>/mo · within 12 hours</i></div>
+        </div>
+        <p style="font-size:12.5px;color:var(--lsteel)">Paid in advance · a quarter saves 10%</p>
+      </div>
+      <div class="addon qbox">
+        <h4>Own-It retainer <span class="q">Q13</span></h4>
+        <div class="amt">$49 <span>/ month</span></div>
+        <p>For Own-It sites: stay on our books, with theme and design changes at $100 instead of $200.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTAINER 4 · how it works (3 × 1_3) -->
+<section class="container">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:40px">
+      <div class="eyebrow">How it works</div>
+      <h2 style="font-size:36px">Pick a door. Talk it through. Choose your option.</h2>
+    </div>
+    <div class="row c3">
+      <div class="step"><div class="n">1</div><h3>Pick your door</h3><p>Choose by who will edit the site. Not sure? Pick the closest one; we'll tell you honestly if another fits better.</p></div>
+      <div class="step"><div class="n">2</div><h3>Book a conversation</h3><p>A short form, then a time on the calendar. We talk about what the site needs to do for your business.</p></div>
+      <div class="step qbox"><div class="n">3</div><h3>Choose from three options <span class="q">Q7</span></h3><p>Your proposal gives you three ways to go, from simplest to fully looked-after.</p>
+        <div class="opts"><span>Essential</span><span class="mid">Managed</span><span>Managed + Priority</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTAINER 5 · proof (2 × 1_2) -->
+<section class="container alt">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:40px">
+      <div class="eyebrow">Already running</div>
+      <h2 style="font-size:36px">Places already open on the square</h2>
+    </div>
+    <div class="row c2">
+      <div class="card proof"><div class="badge">B</div><div><h4>Berty Sound &amp; Video</h4><p style="margin:0">An Own-It site on its own domain: fast, static and edited by the owner. <a href="https://bertysoundandvideo.com">bertysoundandvideo.com</a></p></div></div>
+      <div class="card proof"><div class="badge">C</div><div><h4>ConVibe</h4><p style="margin:0">A convention guest-tracker app, live on the App Store: the Custom App door, from database to daily users.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTAINER 6 · FAQ -->
+<section class="container">
+  <div class="wrap" style="max-width:900px">
+    <div class="eyebrow">Questions</div>
+    <h2 style="font-size:32px">Good things to ask before you pick</h2>
+    <details><summary>Is this just a website?</summary><p>Yes, in the way a town square is just pavement. It's a website underneath, found on Google like any other. What changes is what it's for: a place people come back to, not a flyer they read once.</p></details>
+    <details><summary>Why is the Free Site free?</summary><p>You pay for it in advertising: a slim line at the top of every page that says AZ Tech built it. We build it from one or two conversations, you own your domain, and we host it at no cost to you. At the end you get an invoice showing what the site is worth, with the full amount waived.</p></details>
+    <details><summary>Can I sell things on my site?</summary><p>Not on the Free Site. Free hosting isn't allowed to run a store. If you need a shop or a database, we build it on the right platform for it, like Shopify, or on our own servers.</p></details>
+    <details><summary>What's the difference between Own-It and Team?</summary><p>Own-It is for one person who wants to make their own changes, and there's no monthly bill. Team is for several people editing a live site that has to be watched, so it comes with monthly monitoring and maintenance.</p></details>
+    <details><summary>Who owns my domain and my content?</summary><p>You do, on every door. If you ever leave, your name and your words go with you.</p></details>
+    <details><summary>Does the $75 a month include changes?</summary><p>No. It keeps the site safe, updated and running. Changes are $200 each, or unlimited with AI Edits.</p></details>
+  </div>
+</section>
+
+<!-- CONTAINER 7 · closing CTA -->
+<section class="container cta center">
+  <div class="wrap">
+    <h2 style="font-size:38px">Not sure which place is yours?</h2>
+    <p class="lead">Bring your business to Office Hours. We'll tell you which one fits, even if it's the free one.</p>
+    <div class="btns"><a class="btn primary" href="#">Book Office Hours</a><a class="btn ghost" href="#doors">Compare the doors again</a></div>
+  </div>
+</section>
+
+<footer><div class="wrap"><span>© 2026 AZ Technology Solutions · Tucson, Arizona</span><span>Our Business Powers Your AI.</span></div></footer>
+
+</body>
+</html>
