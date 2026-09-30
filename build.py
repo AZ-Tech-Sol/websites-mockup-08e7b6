@@ -414,8 +414,8 @@ SECURITY = '''
   <div class="wrap">
     <div class="center" style="margin-bottom:30px">
       <div class="eyebrow">Security heritage</div>
-      <h2 style="font-size:34px">Built by someone who came up in cybersecurity</h2>
-      <p class="lead">Before AZ Tech, Angel built security automation at Palo Alto Networks, BlackCloak and ThreatConnect. Every site we host is watched with the same habits.</p>
+      <h2 style="font-size:34px">Built by a company with roots in cybersecurity</h2>
+      <p class="lead">Our roots run through Palo Alto Networks, BlackCloak and ThreatConnect, where our founder built security automation. Every site we host is watched with the same habits.</p>
     </div>
     <div class="pfgrid" style="grid-template-columns:repeat(auto-fill,minmax(300px,1fr))">''' + tiles([3154, 3152, 99001]) + '''</div>
   </div>
