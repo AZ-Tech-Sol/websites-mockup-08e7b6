@@ -299,7 +299,7 @@ TYPEFIT = {
  'keep': ["You'd rather make your own changes, or have our AI make them", "More than one person may update it", "It has to stay up, with updates and security watched"],
  'software': ["Customers log in, book or buy", "You have data to manage, not just pages to show", "Off-the-shelf tools don't fit how you work"],
 }
-TYPELOGOS = {'build': (['github'], 'Hosted free on GitHub'), 'keep': (['aztech','wpengine'], 'Hosted by AZ Tech on WP Engine'), 'software': (['aztech'], 'Hosted and run by AZ Tech')}
+TYPELOGOS = {'build': (['github'], 'Hosted free on GitHub'), 'keep': (['github','wpengine'], 'Hosted on GitHub or WP Engine'), 'software': (['aztech'], 'Hosted and run by AZ Tech')}
 TYPEWHO = {'build': 'A cart on the corner', 'keep': 'A storefront on the street', 'software': 'A building where the work gets done'}
 INSIDE = {
  'build': [('Free Site', '$0 · our credit on top', ['html5'], None), ('Starter Site', '$800 · credit in the footer', ['html5'], None), ('AI Edits', 'changes by email · prices emailed', ['aztech'], None)],
@@ -387,7 +387,20 @@ for k, t in TYPES.items():
       <div class="row {cols}">{(build_combo() if k == 'build' else ''.join(summary(s) for s in t['doors'])) + ai_card(k)}
       </div>
     </div>'''
-old = (R / 'src' / 'hub_rest.html').read_text().replace('{{STOREFRONTS}}',
+SECURITY = '''
+<!-- SECURITY HERITAGE · Avada: [fusion_portfolio] hand-picked, or a new security-heritage category (employer-proof also holds n8n and Intuit) -->
+<section class="container">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:30px">
+      <div class="eyebrow">Security heritage</div>
+      <h2 style="font-size:34px">Built by someone who came up in cybersecurity</h2>
+      <p class="lead">Before AZ Tech, Angel built security automation at Palo Alto Networks, BlackCloak and ThreatConnect. Every site we host is watched with the same habits.</p>
+    </div>
+    <div class="pfgrid" style="grid-template-columns:repeat(auto-fill,minmax(300px,1fr))">''' + tiles([3154, 3152, 3298]) + '''</div>
+  </div>
+</section>
+'''
+old = (R / 'src' / 'hub_rest.html').read_text().replace('<!-- CONTAINER 7', SECURITY + '<!-- CONTAINER 7').replace('{{STOREFRONTS}}',
     '<!-- Avada: [fusion_portfolio cat_slug="case-studies,prior-client" columns="3"] or a hand-picked set -->'
     f'<div class="pfgrid" style="grid-template-columns:repeat(auto-fill,minmax(300px,1fr))">{tiles([1694,1692,1696,2964,2775,3118])}</div>'
     f'<div class="pfmore" style="justify-content:center"><a class="btn amber" {EXT} href="https://aztechsol.com/our-work/">Browse the full portfolio →</a></div>')
