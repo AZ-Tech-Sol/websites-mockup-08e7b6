@@ -11,6 +11,7 @@ TW = 'https://n8n.aztechsol.com/form/1ee1be18-95a0-44d8-9da6-bd5c12dc12ef'
 SH = 'https://calendly.com/aztechsol/strategy-hour'
 OH = 'https://calendly.com/aztechsol/office-hours'
 EXT = 'target="_blank" rel="noopener"'
+UTIL = f'<div class="utility"><div class="wrap"><a {EXT} href="https://aztechsol.com/office-hours/">Office Hours</a><span></span></div></div>\n'
 MOCK = '<div class="mockbar">MOCKUP · not the live site · ruled 2026-09-30 in Four Doors v11 · only Free and Starter show prices; the rest are emailed</div>'
 
 CSS = '''<style>
@@ -39,14 +40,24 @@ CSS = '''<style>
   .others{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
   @media (max-width:640px){.others{grid-template-columns:1fr}}
   .pfgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
-  a.pf{display:grid;gap:8px;text-decoration:none;color:var(--fog);font:600 14.5px "Exo 2",sans-serif}
-  a.pf img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:10px;border:1px solid var(--line);display:block;background:var(--carbon);transition:transform .2s,border-color .2s}
-  a.pf:hover img{transform:translateY(-2px);border-color:var(--blue)}
+  .pfgrid{gap:10px}
+  a.pf{position:relative;display:block;text-decoration:none;overflow:hidden}
+  a.pf img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;display:block;background:var(--carbon);transition:transform .3s}
+  a.pf .roll{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;background:rgba(14,18,26,.86);color:var(--fog);font:700 17px/1.3 "Exo 2",sans-serif;opacity:0;transition:opacity .25s}
+  a.pf:hover img,a.pf:focus-visible img{transform:scale(1.03)}
+  a.pf:hover .roll,a.pf:focus-visible .roll{opacity:1}
+  a.pf:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+  .btn.amber{display:inline-block;background:#FE9901;color:#1a1200;box-shadow:none;font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:11px 18px}
+  .btn.outline{display:inline-block;border:1.5px solid var(--blue);color:var(--blue);font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:10px 18px}
+  .pfmore{margin-top:20px;display:flex;gap:12px;flex-wrap:wrap}
+  .utility{background:#009EFF}
+  .utility .wrap{display:flex;align-items:center;justify-content:space-between;height:38px}
+  .utility a{background:#0E121A;color:#fff;border-radius:999px;padding:5px 14px;font:700 11px "Exo 2";letter-spacing:.04em;text-transform:uppercase;text-decoration:none}
   .partners{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
   @media (max-width:900px){.partners{grid-template-columns:repeat(3,minmax(0,1fr))}}
   @media (max-width:560px){.partners{grid-template-columns:repeat(2,minmax(0,1fr))}}
   .partners a.pf{font-size:13px}
-  @media (prefers-reduced-motion:reduce){a.pf img{transition:none}}
+  @media (prefers-reduced-motion:reduce){a.pf img,a.pf .roll{transition:none}}
 </style>'''
 
 DOORS = {
@@ -109,7 +120,7 @@ def tiles(ids, cls='pf'):
     out=''
     for i in ids:
         x = PF[i]
-        out += f'<a class="{cls}" {EXT} href="{x['link']}"><img loading="lazy" src="{x['img']}" alt="{x['title']}" width="768" height="512"><span>{x['title']}</span></a>'
+        out += f'<a class="{cls}" {EXT} href="{x['link']}"><img loading="lazy" src="{x['img']}" alt="{x['title']}" width="768" height="512"><span class="roll">{x['title']}</span></a>'
     return out
 
 def proof_section(k):
@@ -122,13 +133,14 @@ def proof_section(k):
     <h2 style="font-size:30px;margin-bottom:6px">{p['title']}</h2>
     <p style="margin:0 0 22px;color:var(--lsteel)">{p['sub']}</p>
     <div class="pfgrid">{tiles(p['ids'])}</div>
+    <div class="pfmore"><a class="btn amber" {EXT} href="https://aztechsol.com/our-work/">Browse the full portfolio →</a><a class="btn outline" {EXT} href="https://aztechsol.com/partners/">Meet the partners →</a></div>
   </div>
 </section>
 '''
 
 def page(title, body, extra=''):
     h = HEAD.replace(HEAD[HEAD.index('<title>'):HEAD.index('</title>')+8], f'<title>{title}</title>')
-    return h + STYLE + CSS + '\n</head>\n<body>\n' + MOCK + '\n' + HEADER + body + FOOTER + extra + '\n</body>\n</html>\n'
+    return h + STYLE + CSS + '\n</head>\n<body>\n' + MOCK + '\n' + UTIL + HEADER + body + FOOTER + extra + '\n</body>\n</html>\n'
 
 TRACK = '''<script>
 document.querySelectorAll('[data-door-cta]').forEach(function(a){
@@ -192,6 +204,7 @@ hub = f'''
     <div class="eyebrow">Partners</div>
     <h2 style="font-size:28px;margin-bottom:18px">Businesses that build with us</h2>
     <div class="partners">{tiles(PARTNERS)}</div>
+    <div class="pfmore"><a class="btn outline" {EXT} href="https://aztechsol.com/partners/">Meet the partners →</a></div>
   </div>
 </section>
 ''' + old
