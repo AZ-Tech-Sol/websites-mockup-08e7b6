@@ -101,7 +101,11 @@ CSS = '''<style>
   .tfit,.tins{list-style:none;padding:0;margin:0 0 6px;display:grid;gap:6px}
   .tfit li{position:relative;padding-left:22px;font-size:14.5px;color:var(--fog)}
   .tfit li:before{content:"✓";position:absolute;left:2px;color:var(--blue);font-weight:700}
-  .tins li{border:1px solid var(--line);border-radius:8px;padding:9px 12px;background:#1a2a3b}
+  .tins li{border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#1a2a3b;display:flex;gap:12px;align-items:center}
+  .insic{display:flex;gap:6px;flex:none}
+  .instx{display:grid;gap:1px}
+  .builtwith{display:flex;gap:6px;align-items:center;margin-top:4px;font-size:11.5px;color:var(--lsteel)}
+  .builtwith .lg{border-radius:3px}
   .tins li b{display:block;font:700 15px "Exo 2";color:var(--fog)}
   .tins li span{font-size:13px;color:var(--body)}
   .tins li.ai{border-color:rgba(254,153,1,.45)} .tins li.ai b{color:var(--amber)}
@@ -258,7 +262,7 @@ def ai_section(k):
 LOGOS = {  # Simple Icons marks (brand colours; JSON and GitHub lightened for the dark page); Publii's own mark from getpublii.com
  'github': ('GitHub', '#EEF3F7'), 'publii': ('Publii', None), 'wordpress': ('WordPress', '#3C9FD6'),
  'react': ('React Native', '#61DAFB'), 'javascript': ('JavaScript', '#F7DF1E'), 'python': ('Python', '#4B8BBE'),
- 'html5': ('HTML5', '#E34F26'), 'json': ('JSON', '#C7CED9'), 'graphql': ('GraphQL', '#E10098'), 'n8n': ('n8n', '#EA4B71'),
+ 'html5': ('HTML5', '#E34F26'), 'apple': ('iOS', '#EEF3F7'), 'android': ('Android', '#34A853'), 'wpengine': ('WP Engine', '#0ECAD4'), 'aztech': ('AZ Tech', None), 'json': ('JSON', '#C7CED9'), 'graphql': ('GraphQL', '#E10098'), 'n8n': ('n8n', '#EA4B71'),
 }
 def logo(slug, size=34):
     name, col = LOGOS[slug]
@@ -295,12 +299,12 @@ TYPEFIT = {
  'keep': ["You'd rather make your own changes, or have our AI make them", "More than one person may update it", "It has to stay up, with updates and security watched"],
  'software': ["Customers log in, book or buy", "You have data to manage, not just pages to show", "Off-the-shelf tools don't fit how you work"],
 }
-TYPELOGOS = {'build': (['github'], 'Hosted on GitHub'), 'keep': (['publii','wordpress'], ''), 'software': (['react','javascript','python','html5','json','graphql','n8n'], '')}
+TYPELOGOS = {'build': (['github'], 'Hosted free on GitHub'), 'keep': (['aztech','wpengine'], 'Hosted by AZ Tech on WP Engine'), 'software': (['aztech'], 'Hosted and run by AZ Tech')}
 TYPEWHO = {'build': 'A cart on the corner', 'keep': 'A storefront on the street', 'software': 'A building where the work gets done'}
 INSIDE = {
- 'build': [('Free Site', '$0 · our credit on top'), ('Starter Site', '$800 · credit in the footer'), ('AI Edits', 'changes by email · prices emailed')],
- 'keep': [('Own-It Site', 'you edit it · no monthly bill'), ('Team Site', 'a build plus a monthly'), ('Supervised AI Care', 'our AI makes the changes · Angel supervises')],
- 'software': [('Custom App', 'priced after a conversation'), ('AI Employees', 'the Clockwork Desk · Angel supervises')],
+ 'build': [('Free Site', '$0 · our credit on top', ['html5'], None), ('Starter Site', '$800 · credit in the footer', ['html5'], None), ('AI Edits', 'changes by email · prices emailed', ['aztech'], None)],
+ 'keep': [('Own-It Site', 'you edit it · no monthly bill', ['publii'], None), ('Team Site', 'a build plus a monthly', ['wordpress'], None), ('Supervised AI Care', 'our AI makes the changes · Angel supervises', ['aztech'], None)],
+ 'software': [('Custom App', 'on the App Store and Google Play · priced after a conversation', ['apple','android'], ['react','javascript','python','graphql','n8n']), ('AI Employees', 'the Clockwork Desk · Angel supervises', ['aztech'], None)],
 }
 
 
@@ -313,7 +317,11 @@ def type_table():
     cols = ''
     for k, tp in TYPES.items():
         fit = ''.join(f'<li>{x}</li>' for x in TYPEFIT[k])
-        ins = ''.join(f'<li class="{"ai" if n.startswith("AI") or "AI" in n.split()[0:2] else ""}"><b>{n}</b><span>{d}</span></li>' for n, d in INSIDE[k])
+        ins = ''.join(
+            f'<li class="{"ai" if "AI" in n.split()[0:2] else ""}"><span class="insic">{"".join(logo(x, 30) for x in ic)}</span>'
+            f'<span class="instx"><b>{n}</b><span>{d}</span>'
+            + (f'<span class="builtwith">built with {"".join(logo(x, 18) for x in bw)}</span>' if bw else '')
+            + '</span></li>' for n, d, ic, bw in INSIDE[k])
         cols += f'''
       <div class="tcol">
         <img class="timg" src="{tp['img']}" alt="{tp['alt']}" width="1024" height="1024">
